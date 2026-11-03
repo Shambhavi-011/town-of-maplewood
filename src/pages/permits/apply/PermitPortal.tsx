@@ -106,6 +106,32 @@ export default function PermitPortal() {
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed" itemProp="description">
           Select the permit you need below to open the dedicated application form, submit construction specifications, upload drawings, and receive your municipal reference tracking number.
         </p>
+
+        {/* ── Official PDF Manual Download Banner ── */}
+        <div className="p-4 bg-slate-50 border border-slate-300 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="space-y-0.5">
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-900 block">
+                Official Municipal Permit Guide (PDF)
+              </span>
+              <span className="text-[10px] bg-blue-100 text-blue-900 font-mono px-1.5 py-0.5 rounded">
+                MW-PERMITS-GUIDE-2026-REV2
+              </span>
+            </div>
+            <p className="text-xs text-slate-600">
+              Complete 6-page authoritative guide to NJ UCC building permits, residential decks, pool enclosures, tree removal rules (Chapter 227), and street dumpster permits.
+            </p>
+          </div>
+          <a
+            href="/documents/Maplewood_Municipal_Permits_and_Construction_Code_Guide.pdf"
+            download="Maplewood_Municipal_Permits_and_Construction_Code_Guide.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 bg-blue-950 hover:bg-blue-900 text-white font-bold text-xs px-4 py-2 rounded-lg shadow-sm transition-colors whitespace-nowrap self-start sm:self-auto"
+          >
+            <span>📥</span> Download PDF Guide (263 KB)
+          </a>
+        </div>
       </header>
 
       {/* ── Grid of Direct Permit Forms ── */}
@@ -235,4 +261,3 @@ export default function PermitPortal() {
     </article>
   );
 }
-

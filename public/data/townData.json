@@ -202,19 +202,47 @@
         "schedule": "First Tuesday of each calendar month.",
         "rules": "Maximum 2 large items per household per month (e.g., sofas, appliances with Freon removed and certified tag). Mattresses must be fully encased in sealed plastic wrap."
       },
-      "hazardousWaste": "Household Hazardous Waste (HHW) depot located at 450 Transfer Rd. Open Saturdays 9:00 AM – 3:00 PM. Never place batteries, paint, motor oil, or propane tanks in curbside bins."
+      "hazardousWaste": "Household Hazardous Waste (HHW) depot located at 450 Transfer Rd. Open Saturdays 9:00 AM – 3:00 PM. Never place batteries, paint, motor oil, or propane tanks in curbside bins.",
+      "sanitationEnforcementAndComplaints": {
+        "illegalDumpingFAQ": {
+          "question": "Someone is illegally dumping waste in my neighborhood. What should I do?",
+          "answer": "If actively in progress, call Police Dispatch at (555) 123-7623 or 911 immediately. Note vehicle make, license plate, and direction of travel without confronting the perpetrator. For discovered/abandoned waste, file a report on the 311 Citizen Portal (maplewoodnj.gov/services/request) or call DPW. Code enforcement officers inspect debris for identifying manifests. Under Township Code § 209-14, illegal dumping carries mandatory municipal court appearance, fines up to $2,500.00 per offense, cleanup restitution, and potential vehicle impoundment."
+        },
+        "brokenParkBinFAQ": {
+          "question": "There is a broken garbage bin in the park. Can I report it?",
+          "answer": "YES. Report via the 311 Citizen Portal under 'Park Infrastructure / Damaged Receptacle'. Specify the park name (e.g., Memorial Park, DeHart Park) and nearest landmark (e.g., tennis courts, playground entrance). DPW responds within 24 to 48 hours to repair or replace broken receptacles, and dispatches roving crews within 4 hours for overflowing weekend park bins."
+        },
+        "garbagePilingFAQ": {
+          "question": "Garbage has been piling up near my house. Can I submit a complaint?",
+          "answer": "YES. Refuse accumulation violates Township Code § 209-7 and Property Standards Chapter 239. Submit a ticket on 311 or call Code Enforcement at (973) 762-8120 Ext. 3300. An officer conducts a site inspection within 24 hours and serves a formal 48-Hour Notice of Violation. If unabated, municipal crews clear the trash, and all costs plus administrative penalties are assessed as a tax lien against the property, alongside daily $250 court fines."
+        },
+        "badSmellFAQ": {
+          "question": "There is a bad smell coming from a public garbage area. Can I report it?",
+          "answer": "YES. Report via 311 under 'Public Sanitation / Odor & Health Hazard'. DPW dispatches a sanitation crew within 24 hours to power-wash the receptacle with high-pressure hot water and hospital-grade biodegradable enzymatic deodorizer. Commercial dumpsters are inspected for tight-fitting lids and rodent-proof drain plugs under § 209-18."
+        }
+      }
     },
     "roadsMaintenance": {
       "title": "Roads, Potholes & Infrastructure Maintenance",
       "potholeReporting": {
-        "reportingRequirements": "Reports must provide the exact street address or closest cross-street intersection (e.g., '12 Maple Street' or 'Main St and Oak Ave'), along with the lane direction (Northbound, Southbound, Eastbound, Westbound) and size estimation.",
-        "sizeGuide": [
-          { "size": "Small", "dimension": "Under 25 cm (10 inches) diameter, depth under 5 cm", "sla": "Inspected within 5 business days" },
-          { "size": "Medium", "dimension": "25 cm to 60 cm (10 to 24 inches) diameter, moderate depth", "sla": "Inspected within 3 business days" },
-          { "size": "Large", "dimension": "Over 60 cm (24 inches) diameter or severe depth", "sla": "Inspected within 24 hours (High severity)" }
+        "faqPotholeRequest": "I want to create a service request for a pothole — what information do you need?",
+        "requiredInformation": [
+          "1. Exact Incident Location: Specific street address (e.g., '148 Valley Street') or primary road with nearest intersecting cross-streets (e.g., 'Baker St between Maplewood Ave and Ridgewood Rd').",
+          "2. Direction of Travel & Lane Position: Compass heading (Northbound, Southbound, Eastbound, Westbound) and exact lane (center travel lane, passenger-side tire track, driver-side track, parking gutter, or crosswalk).",
+          "3. Size & Depth Severity Bracket: Tier 1 (<25 cm / <10″ shallow pitting), Tier 2 (25–60 cm / 10–24″ standard pothole, 1–3″ deep), or Tier 3 (>60 cm / >24″ severe crater, >3″ deep with exposed sub-base gravel).",
+          "4. Road Jurisdiction Verification: Validation whether street is municipal or County roadway (Springfield Ave, Valley St, and Wyoming Ave are Essex County roadways routed to county dispatch with cross-reference tracking).",
+          "5. Environmental & Safety Hazards: Standing water concealing hole depth, sharp asphalt edges posing blowout risk, or bicycle/pedestrian lane obstruction.",
+          "6. Digital Photographs: Context photo showing roadway location plus close-up photo showing cavity depth and deterioration.",
+          "7. Reporter Contact Information: Full name, phone number (for SMS dispatch alerts), and email address to receive real-time case ID (CASE-2026-XXXX)."
         ],
-        "travelLaneRule": "Any large pothole situated in an active travel lane or school zone is flagged High Severity for immediate crew dispatch.",
-        "duplicateDetectionThreshold": "Existing reports within 50 meters submitted within the last 30 days are automatically consolidated into existing work orders to prevent duplicate crew dispatches."
+        "reportingRequirements": "Reports must provide the exact street address or closest cross-street intersection, travel lane direction, severity bracket, jurisdiction, safety conditions, photos, and citizen contact info.",
+        "sizeGuide": [
+          { "size": "Small (Tier 1)", "dimension": "Under 25 cm (10 inches) diameter, depth under 5 cm (shallow surface spall)", "sla": "Inspected and repaired within 5 business days" },
+          { "size": "Medium (Tier 2)", "dimension": "25 cm to 60 cm (10 to 24 inches) diameter, moderate depth 1–3 inches", "sla": "Inspected and repaired within 3 business days" },
+          { "size": "Large (Tier 3)", "dimension": "Over 60 cm (24 inches) diameter or severe depth >3 inches (rim damage hazard)", "sla": "Inspected and emergency patched within 24 hours (High severity)" }
+        ],
+        "travelLaneRule": "Any large pothole situated in an active travel lane, school zone, or bus corridor is flagged High Severity for immediate crew dispatch within 24 hours.",
+        "duplicateDetectionThreshold": "Existing reports within 50 meters submitted within the last 30 days are automatically consolidated into existing work orders to prevent duplicate crew dispatches while adding the citizen as an endorsed subscriber."
       },
       "urgentSafetyProtocols": {
         "downedWiresNotice": "CRITICAL HAZARD: If you observe downed power lines, stay back at least 10 meters (33 feet). Call Maplewood Hydro at 1-800-434-1235 or 911 immediately. Do NOT submit via standard web ticket.",
@@ -567,7 +595,21 @@
       { "category": "Public Works", "item": "Entrance / Culvert Permit", "fee": "$175.00" }
     ],
     "guides": [
-      { "title": "2026 Curbside Waste & Recycling Calendar", "format": "PDF", "size": "1.4 MB", "description": "Complete zone schedule for garbage, recycling, and green organics collection." },
+      {
+        "title": "Comprehensive Municipal Permit, Required Documents & 311 Service Request Manual",
+        "format": "PDF",
+        "size": "348 KB",
+        "fileUrl": "/documents/Maplewood_Municipal_Permits_and_Construction_Code_Guide.pdf",
+        "description": "Official municipal master guide (MW-PERMITS-311-GUIDE-2026-REV3). Comprehensive coverage of NJ UCC building permits, mandatory required documents by permit classification (decks, pools, fences, additions, tree removals, dumpsters, road cuts), and 311 citizen municipal service request intake standards (pothole reporting criteria, SLAs, 50m duplicate detection, and 4-stage tracking)."
+      },
+      {
+        "title": "Comprehensive Municipal Manual on Recycling, Solid Waste Disposal & Resource Recovery",
+        "format": "PDF",
+        "size": "316 KB",
+        "fileUrl": "/documents/Maplewood_DPW_Recycling_and_Waste_Disposal_Comprehensive_Manual.pdf",
+        "description": "Official Department of Public Works master manual (MW-DPW-RECYCLE-2026-REV5). Comprehensive 8-chapter guide covering dual-stream recycling, 359 Boyden Ave depot operations, bulk drop-off rules, leaf vacuuming, public waste enforcement (§ 209-14 illegal dumping penalties up to $2,500), broken park bin repair SLAs, refuse accumulation 48-hour abatement notices, and public garbage odor sanitization."
+      },
+      { "title": "2026 Curbside Waste & Recycling Calendar", "format": "PDF", "size": "1.4 MB", "fileUrl": "/documents/Maplewood_DPW_Recycling_and_Waste_Disposal_Comprehensive_Manual.pdf", "description": "Complete zone schedule for garbage, recycling, and green organics collection." },
       { "title": "Backyard Deck Construction Manual", "format": "PDF", "size": "2.8 MB", "description": "Illustrated guide to setbacks, spans, footing depth, and building code standards." },
       { "title": "Residential Pool Safety & Enclosure Handbook", "format": "PDF", "size": "1.9 MB", "description": "Clear guidelines for 1.5m fencing, gate hardware, and site inspection prep." },
       { "title": "Town of Maplewood New Resident Welcome Kit", "format": "PDF", "size": "3.5 MB", "description": "Everything new residents need to know about municipal services, taxes, and bylaws." }

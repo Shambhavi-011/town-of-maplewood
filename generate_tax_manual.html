@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Township of Maplewood - Official Municipal Property Tax &amp; Assessment Guide</title>
+  <style>
+    @page {
+      size: letter portrait;
+      margin: 12mm 15mm 14mm 15mm;
+    }
+    
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1e293b;
+      background-color: #ffffff;
+      line-height: 1.45;
+      font-size: 8.8pt;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .page {
+      page-break-after: always;
+      break-after: page;
+      position: relative;
+      box-sizing: border-box;
+      min-height: 242mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .page:last-child {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+    
+    .page-content {
+      flex: 1 0 auto;
+    }
+    
+    /* Cover Page Styling */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 242mm;
+      border: 3.5px solid #0f294a;
+      padding: 28px;
+      background: #f8fafc;
+      box-sizing: border-box;
+    }
+    
+    .cover-top {
+      text-align: center;
+      border-bottom: 2px solid #0f294a;
+      padding-bottom: 16px;
+    }
+    
+    .seal-badge {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 10px auto;
+      background: #0f294a;
+      border: 3px solid #d97706;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 15pt;
+      font-weight: 800;
+      font-family: Georgia, serif;
+      letter-spacing: 1px;
+    }
+    
+    .cover-corp-title {
+      font-size: 13pt;
+      letter-spacing: 2px;
+      font-weight: 800;
+      color: #0f294a;
+      text-transform: uppercase;
+      margin: 0 0 4px 0;
+    }
+    
+    .cover-sub-title {
+      font-size: 9.5pt;
+      letter-spacing: 1px;
+      font-weight: 700;
+      color: #d97706;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    
+    .cover-middle {
+      text-align: center;
+      padding: 16px 8px;
+    }
+    
+    .cover-main-heading {
+      font-size: 21pt;
+      font-family: Georgia, serif;
+      font-weight: 800;
+      color: #0f294a;
+      line-height: 1.25;
+      margin: 0 0 10px 0;
+    }
+    
+    .cover-desc {
+      font-size: 9pt;
+      color: #334155;
+      max-width: 620px;
+      margin: 0 auto 16px auto;
+      line-height: 1.45;
+    }
+    
+    .cover-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    
+    .pillar-box {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-top: 3.5px solid #0f294a;
+      border-radius: 5px;
+      padding: 10px;
+    }
+    
+    .pillar-box h4 {
+      margin: 0 0 4px 0;
+      font-size: 8.5pt;
+      color: #0f294a;
+      font-weight: 700;
+    }
+    
+    .pillar-box p {
+      margin: 0;
+      font-size: 7.5pt;
+      color: #475569;
+      line-height: 1.35;
+    }
+    
+    .cover-bottom {
+      border-top: 2px solid #0f294a;
+      padding-top: 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      font-size: 7.8pt;
+      color: #334155;
+    }
+    
+    .cover-meta-item strong {
+      display: block;
+      color: #0f294a;
+      margin-bottom: 2px;
+      font-size: 8.2pt;
+    }
+    
+    /* Header & Footer on Inside Pages */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #0f294a;
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+      font-size: 7.6pt;
+      color: #64748b;
+      font-weight: 600;
+    }
+    
+    .page-header-left {
+      color: #0f294a;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .page-footer {
+      flex-shrink: 0;
+      margin-top: 14px;
+      border-top: 1.5px solid #cbd5e1;
+      padding-top: 5px;
+      font-size: 7.4pt;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+    }
+    
+    h1.chapter-title {
+      font-family: Georgia, serif;
+      font-size: 13pt;
+      font-weight: 700;
+      color: #0f294a;
+      margin: 0 0 7px 0;
+      padding-bottom: 3px;
+      border-bottom: 2px solid #d97706;
+    }
+    
+    h2.section-heading {
+      font-size: 9.8pt;
+      color: #1e3a8a;
+      margin: 9px 0 4px 0;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    p {
+      margin: 0 0 6px 0;
+      line-height: 1.45;
+    }
+    
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 7px 0;
+    }
+    
+    .card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
+      padding: 8px 11px;
+    }
+    
+    .card-title {
+      font-size: 8.6pt;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+    
+    .callout {
+      border-radius: 5px;
+      padding: 8px 12px;
+      margin: 7px 0;
+      font-size: 8.2pt;
+      line-height: 1.42;
+    }
+    
+    .callout-navy {
+      background: #eff6ff;
+      border-left: 4px solid #1e3a8a;
+      color: #1e3a8a;
+    }
+    
+    .callout-amber {
+      background: #fffbeb;
+      border-left: 4px solid #d97706;
+      color: #92400e;
+    }
+    
+    .callout-green {
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      color: #166534;
+    }
+
+    .callout-red {
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+      color: #991b1b;
+    }
+    
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8pt;
+      margin: 7px 0;
+    }
+    
+    .data-table th, .data-table td {
+      border: 1px solid #cbd5e1;
+      padding: 5px 8px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    
+    .data-table th {
+      background: #0f294a;
+      color: #ffffff;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 7.4pt;
+      letter-spacing: 0.5px;
+    }
+    
+    .data-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+    
+    .bullet-list {
+      margin: 0 0 4px 14px;
+      padding: 0;
+    }
+    
+    .bullet-list li {
+      margin-bottom: 2px;
+    }
+
+    .toc-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 3.5px 0;
+      border-bottom: 1px dotted #cbd5e1;
+      font-size: 8.2pt;
+    }
+    .toc-item:last-child { border-bottom: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PAGE 1: COVER PAGE ==================== -->
+  <div class="page">
+    <div class="cover">
+      <div class="cover-top">
+        <div class="seal-badge">1888</div>
+        <div class="cover-corp-title">Township of Maplewood, New Jersey</div>
+        <div class="cover-sub-title">Department of Finance &amp; Revenue • Office of the Tax Collector &amp; Assessor</div>
+      </div>
+      
+      <div class="cover-middle">
+        <div class="cover-main-heading">
+          Comprehensive Municipal Property Tax<br>&amp; Assessment Manual
+        </div>
+        <div class="cover-desc">
+          An authoritative reference guide for residential property owners, homebuyers, and municipal taxpayers detailing annual residential mill rates, bi-monthly and quarterly billing cycles, late penalty enforcement, assessment appeal procedures, and estimated tax schedules categorized by square footage and building unit classifications.
+        </div>
+
+        <div class="cover-pillars">
+          <div class="pillar-box">
+            <h4>Part I: Valuation &amp; Mill Rates</h4>
+            <p>Certified residential mill rate of 0.0094523, triennial reassessment cycles, and Essex County tax equalization.</p>
+          </div>
+          <div class="pillar-box">
+            <h4>Part II: Due Dates &amp; Billing</h4>
+            <p>Strict bi-monthly payment schedule, 10-day statutory grace period, and 1.25% monthly delinquency interest.</p>
+          </div>
+          <div class="pillar-box">
+            <h4>Part III: Size-Based Matrix</h4>
+            <p>Official tax estimation schedules across 4 square-footage tiers for single-family homes and duplex dwellings.</p>
+          </div>
+        </div>
+
+        <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 5px; padding: 8px 12px; margin-top: 10px; text-align: left; font-size: 7.8pt; color: #1e3a8a;">
+          <strong>STATUTORY PROPERTY TAX NOTICE:</strong><br>
+          Under N.J.S.A. 54:4-64, failure to receive a property tax bill does not relieve the owner of the obligation to pay taxes or interest accrued. All taxes are payable to the Township of Maplewood.
+        </div>
+      </div>
+      
+      <div class="cover-bottom">
+        <div class="cover-meta-item">
+          <strong>TAX ADMINISTRATION OFFICES:</strong>
+          Maplewood Town Hall • Revenue &amp; Taxation<br>
+          574 Valley Street, Maplewood, NJ 07040<br>
+          Tax Collector: (973) 762-8120 Ext. 2500 | Tax Assessor: Ext. 2300<br>
+          Hours: Monday to Friday: 8:30 AM – 4:30 PM
+        </div>
+        <div class="cover-meta-item">
+          <strong>DOCUMENT CLASSIFICATION &amp; AUTHORITY:</strong>
+          Document ID: <strong>MW-TAX-GUIDE-2026-REV2</strong><br>
+          Statutory Authority: N.J.S.A. 54:4 et seq. &amp; Town By-laws<br>
+          Effective Tax Year: 2026–2027 Municipal Tax Cycle<br>
+          Mill Rate Baseline: 0.0094523 (Residential Certified)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 2: TABLE OF CONTENTS & CHAPTER 1: ASSESSMENT & RATES ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Finance &amp; Tax Administration</div>
+        <div>Official Operational Manual • Page 2</div>
+      </div>
+
+      <h1 class="chapter-title">Table of Contents &amp; Executive Summary</h1>
+      
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 5px; padding: 8px 12px; margin-bottom: 12px;">
+        <div class="toc-item"><strong>1. Municipal Assessment Framework &amp; Certified 2026 Mill Rate</strong> <span>Chapter 1 (Pg 2)</span></div>
+        <div class="toc-item"><strong>2. Mandatory Bi-Monthly Payment Due Dates &amp; Penalty Structure</strong> <span>Chapter 2 (Pg 3)</span></div>
+        <div class="toc-item"><strong>3. Size-Based Property Tax Estimation Matrix (Square Footage &amp; Units)</strong> <span>Chapter 3 (Pg 4)</span></div>
+        <div class="toc-item"><strong>4. Authorized Payment Channels, Online Banking &amp; Property Tax Relief</strong> <span>Chapter 4 (Pg 5)</span></div>
+        <div class="toc-item"><strong>5. Assessment Appeal Process, Delinquencies &amp; Department Directory</strong> <span>Chapter 5 (Pg 6)</span></div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 1: The Maplewood Property Assessment &amp; Mill Rate Framework</h1>
+      
+      <p>
+        The Township of Maplewood Department of Finance and Office of the Tax Assessor administer the valuation of all real estate within municipal borders in accordance with the <strong>New Jersey Constitution (Uniform Assessment Clause)</strong> and <strong>N.J.S.A. 54:4 et seq.</strong>
+      </p>
+
+      <h2 class="section-heading">How Property Taxes Are Determined</h2>
+      <p>
+        A property's total municipal tax levy is calculated by multiplying its official certified assessed valuation by the combined municipal, county, and school tax rate. For the 2026 fiscal year, the Township Committee certified the combined residential tax rate at:
+      </p>
+
+      <div class="grid-2">
+        <div class="card" style="border-top: 3px solid #0f294a;">
+          <div class="card-title" style="color: #0f294a;">2026 Certified Residential Mill Rate</div>
+          <div style="font-size: 15pt; font-weight: 800; color: #0f294a; margin: 4px 0;">0.0094523</div>
+          <p style="font-size: 7.5pt; color: #475569; margin: 0;">
+            Equivalent to <strong>$0.94523 per $100 of assessed property value</strong>, or <strong>$9.4523 per $1,000 of assessment</strong>.
+          </p>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #16a34a;">
+          <div class="card-title" style="color: #166534;">Statutory Tax Revenue Allocation</div>
+          <p style="font-size: 7.5pt; color: #334155; margin: 0;">
+            • <strong>Local School District (48%):</strong> Public K–12 education.<br>
+            • <strong>Municipal Government (34%):</strong> Police, fire, DPW, roads, parks.<br>
+            • <strong>Essex County Administration (18%):</strong> County roads and open space.
+          </p>
+        </div>
+      </div>
+
+      <h2 class="section-heading">Assessment vs. Market Value Equalization</h2>
+      <p>
+        Maplewood conducts continuous sales-ratio analyses supervised by the Essex County Board of Taxation. A property's assessed value reflects its true market value as established during the last municipal-wide revaluation, updated annually by the Essex County Equalization Ratio.
+      </p>
+
+      <div class="callout callout-navy">
+        <strong>ANNUAL POSTCARD ASSESSMENT NOTICE:</strong> On or before February 1 of each tax year, every property owner receives a state-mandated assessment postcard (Form Notice of Assessment). This card reflects the current taxable assessment of the land, building improvements, and total assessment.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • Property Tax &amp; Assessment Manual (MW-TAX-GUIDE-2026-REV2)</div>
+      <div>Town Hall, 574 Valley Street, Maplewood, NJ 07040 • (973) 762-8120 Ext. 2500</div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 3: DUE DATES & SCHEDULE ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Finance &amp; Tax Administration</div>
+        <div>Instalment Due Dates &amp; Bi-Monthly Billing • Page 3</div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 2: Property Tax Due Dates &amp; Bi-Monthly Billing Schedule</h1>
+      
+      <p>
+        A frequent question from property owners and prospective homebuyers is: <strong>"When is the property tax bill due?"</strong> In Maplewood, municipal property taxes are billed and due in <strong>scheduled instalments every 2 months (bi-monthly cycle)</strong> or quarterly in accordance with state statute.
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 20%;">Instalment Period</th>
+            <th style="width: 25%;">Statutory Due Date</th>
+            <th style="width: 25%;">Grace Period Expiration</th>
+            <th style="width: 30%;">Billing Description &amp; Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Period 1 (Jan/Feb)</strong></td>
+            <td><strong>February 1</strong></td>
+            <td>February 10</td>
+            <td>Interim Billing (Based on prior year levy)</td>
+          </tr>
+          <tr>
+            <td><strong>Period 2 (Mar/Apr)</strong></td>
+            <td><strong>April 1</strong></td>
+            <td>April 10</td>
+            <td>Interim Billing (Spring instalment)</td>
+          </tr>
+          <tr>
+            <td><strong>Period 3 (May/Jun)</strong></td>
+            <td><strong>June 1</strong></td>
+            <td>June 10</td>
+            <td>Final Billing (Reconciled with municipal budget)</td>
+          </tr>
+          <tr>
+            <td><strong>Period 4 (Jul/Aug)</strong></td>
+            <td><strong>August 1</strong></td>
+            <td>August 10</td>
+            <td>Final Billing (Summer instalment)</td>
+          </tr>
+          <tr>
+            <td><strong>Period 5 (Sep/Oct)</strong></td>
+            <td><strong>October 1</strong></td>
+            <td>October 10</td>
+            <td>Final Billing (Fall instalment)</td>
+          </tr>
+          <tr>
+            <td><strong>Period 6 (Nov/Dec)</strong></td>
+            <td><strong>December 1</strong></td>
+            <td>December 10</td>
+            <td>Final Reconciliation &amp; Year-End Closing</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-heading">The Statutory 10-Day Grace Period</h2>
+      <p>
+        The Township provides a <strong>statutory 10-calendar-day grace period</strong>. Tax payments must be received in the Tax Collector's office on or before the 10th of the due month. If the 10th falls on a weekend or municipal holiday, payments are accepted on the next business day without penalty.
+      </p>
+
+      <div class="callout callout-red">
+        <strong>STRICT POSTMARK WARNING (N.J.S.A. 54:4-67):</strong><br>
+        Under New Jersey statutory law, <strong>POSTMARKS ARE NOT ACCEPTED</strong> as proof of timely payment. Payments must be physically received by the Tax Collector or deposited into the Town Hall 24/7 Drop Box before 4:30 PM on the grace period cutoff date.
+      </div>
+
+      <h2 class="section-heading">Delinquency Interest &amp; Penalties</h2>
+      <p>
+        If payment is not received by the 10th day of the due month, interest is charged retroactive to the original due date at statutory rates:
+        <br>• <strong>8% per annum</strong> on the first $1,500.00 of delinquency.
+        <br>• <strong>18% per annum</strong> on any amount in excess of $1,500.00.
+        <br>• A <strong>6% year-end penalty</strong> is charged on any delinquent balance in excess of $10,000 remaining unpaid on December 31.
+      </p>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • Property Tax &amp; Assessment Manual (MW-TAX-GUIDE-2026-REV2)</div>
+      <div>Town Hall, 574 Valley Street, Maplewood, NJ 07040 • (973) 762-8120 Ext. 2500</div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 4: ESTIMATION MATRIX ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Finance &amp; Tax Administration</div>
+        <div>Size-Based Property Tax Estimation Matrix • Page 4</div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 3: Estimated Property Tax Matrix by Size &amp; Building Classification</h1>
+      
+      <p>
+        Property owners frequently ask: <strong>"How much will my estimated property tax be based on the size of my property?"</strong> The table below establishes official estimation benchmarks across four primary interior square footage brackets for <strong>Single-Family Detached</strong> homes and <strong>Two-Family Duplex</strong> properties:
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 22%;">Finished Living Area</th>
+            <th style="width: 39%;">Single-Family Detached (Single Unit)</th>
+            <th style="width: 39%;">Two-Family Residential (Duplex)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Tier 1: 0 – 1,000 sq ft</strong><br><em>(Starter Cottage / Bungalow)</em></td>
+            <td>
+              • Estimated Assessed Value: <strong>$320,000 – $410,000</strong><br>
+              • Annual Estimated Tax: <strong>$3,024 – $3,875</strong><br>
+              • Bi-Monthly Instalment: <strong>~$504 – $646</strong>
+            </td>
+            <td>
+              • Estimated Assessed Value: <strong>$380,000 – $480,000</strong><br>
+              • Annual Estimated Tax: <strong>$3,592 – $4,537</strong><br>
+              • Bi-Monthly Instalment: <strong>~$598 – $756</strong>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Tier 2: 1,000 – 2,000 sq ft</strong><br><em>(Classic Colonial / Cape Cod)</em></td>
+            <td>
+              • Estimated Assessed Value: <strong>$450,000 – $620,000</strong><br>
+              • Annual Estimated Tax: <strong>$4,253 – $5,860</strong><br>
+              • Bi-Monthly Instalment: <strong>~$708 – $976</strong>
+            </td>
+            <td>
+              • Estimated Assessed Value: <strong>$520,000 – $710,000</strong><br>
+              • Annual Estimated Tax: <strong>$4,915 – $6,711</strong><br>
+              • Bi-Monthly Instalment: <strong>~$819 – $1,118</strong>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Tier 3: 2,000 – 3,000 sq ft</strong><br><em>(Executive Victorian / Tudor)</em></td>
+            <td>
+              • Estimated Assessed Value: <strong>$680,000 – $920,000</strong><br>
+              • Annual Estimated Tax: <strong>$6,427 – $8,696</strong><br>
+              • Bi-Monthly Instalment: <strong>~$1,071 – $1,449</strong>
+            </td>
+            <td>
+              • Estimated Assessed Value: <strong>$780,000 – $1,050,000</strong><br>
+              • Annual Estimated Tax: <strong>$7,372 – $9,925</strong><br>
+              • Bi-Monthly Instalment: <strong>~$1,228 – $1,654</strong>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Tier 4: 3,000+ sq ft</strong><br><em>(Estate Residence / Large Duplex)</em></td>
+            <td>
+              • Estimated Assessed Value: <strong>$980,000 – $1,550,000+</strong><br>
+              • Annual Estimated Tax: <strong>$9,263 – $14,651+</strong><br>
+              • Bi-Monthly Instalment: <strong>~$1,544 – $2,442+</strong>
+            </td>
+            <td>
+              • Estimated Assessed Value: <strong>$1,120,000 – $1,780,000+</strong><br>
+              • Annual Estimated Tax: <strong>$10,586 – $16,825+</strong><br>
+              • Bi-Monthly Instalment: <strong>~$1,764 – $2,804+</strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-amber">
+        <strong>ESTIMATION METHODOLOGY NOTE:</strong> Figures are calculated using the 2026 certified mill rate ($0.0094523). Actual tax bills reflect specific lot dimensions, neighborhood valuation zones (e.g., Prospect vs. Boyden Heights), architectural condition, and recent building permits (e.g., renovated kitchens or finished basements).
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • Property Tax &amp; Assessment Manual (MW-TAX-GUIDE-2026-REV2)</div>
+      <div>Town Hall, 574 Valley Street, Maplewood, NJ 07040 • (973) 762-8120 Ext. 2500</div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 5: PAYMENT & RELIEF ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Finance &amp; Tax Administration</div>
+        <div>Payment Channels &amp; Property Tax Relief • Page 5</div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 4: Authorized Payment Methods &amp; Senior / Veteran Tax Relief</h1>
+      
+      <p>
+        The Township provides four secure payment channels for paying property tax bills:
+      </p>
+
+      <div class="grid-2">
+        <div class="card" style="border-top: 3px solid #0f294a;">
+          <div class="card-title" style="color: #0f294a;">Online Banking &amp; Web Portal</div>
+          <p style="font-size: 7.6pt; color: #475569; margin: 0;">
+            Pay via your financial institution's online bill payment service (Payee: <em>Township of Maplewood - Property Taxes</em>). Enter your <strong>19-digit Tax Account / Roll Number</strong>. Payments may also be made on <code>maplewoodnj.gov</code> via e-check ($1.95 fee) or credit card (2.95% fee).
+          </p>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #16a34a;">
+          <div class="card-title" style="color: #166534;">Pre-Authorized Automatic Debit (ACH)</div>
+          <p style="font-size: 7.6pt; color: #475569; margin: 0;">
+            Enroll in Maplewood's direct debit program. Tax payments are automatically deducted from your checking or savings account on each scheduled due date with zero processing fees. Contact the Tax Collector for authorization forms.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" style="border-left: 4px solid #1e3a8a; margin: 8px 0;">
+        <div class="card-title" style="color: #1e3a8a;">In-Person Cashier &amp; 24/7 Town Hall Secure Drop Box</div>
+        <p style="font-size: 7.6pt; color: #334155; margin: 0;">
+          Payments can be delivered in person at the Tax Collector's cashier window at Maplewood Town Hall (574 Valley Street) during business hours (Mon–Fri 8:30 AM – 4:30 PM). A <strong>24/7 Secure Drop Box</strong> is located at the Park Road side entrance of Town Hall. Envelopes deposited before 4:30 PM on grace period cutoff dates are credited same day.
+        </p>
+      </div>
+
+      <h2 class="section-heading">State &amp; Municipal Property Tax Relief Programs</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Relief Program</th>
+            <th>Eligibility Criteria</th>
+            <th>Benefit Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Senior Freeze (Property Tax Reimbursement)</strong></td>
+            <td>Age 65+ or receiving SSDI benefits; continuous NJ residency for 10+ years; household income under state limits.</td>
+            <td>Reimburses the difference between baseline year property tax and current year bill.</td>
+          </tr>
+          <tr>
+            <td><strong>ANCHOR Program (Affordable Communities)</strong></td>
+            <td>Homeowners and tenants residing in Maplewood on October 1; gross household income under $250,000.</td>
+            <td>Direct state tax relief credit up to $1,750 applied directly or mailed via state check.</td>
+          </tr>
+          <tr>
+            <td><strong>Veteran &amp; Surviving Spouse Deduction</strong></td>
+            <td>Honorably discharged veteran of US Armed Forces or unremarried surviving spouse; NJ resident.</td>
+            <td>Annual statutory deduction of $250.00 subtracted directly from property tax levy.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • Property Tax &amp; Assessment Manual (MW-TAX-GUIDE-2026-REV2)</div>
+      <div>Town Hall, 574 Valley Street, Maplewood, NJ 07040 • (973) 762-8120 Ext. 2500</div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 6: APPEALS & DIRECTORY ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Finance &amp; Tax Administration</div>
+        <div>Appeals, Delinquencies &amp; Departmental Contacts • Page 6</div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 5: Assessment Appeals, Delinquencies &amp; Tax Directory</h1>
+      
+      <h2 class="section-heading">How to File an Assessment Appeal</h2>
+      <p>
+        Property owners who believe their property is assessed unfairly relative to true market value have the statutory right to file an appeal with the <strong>Essex County Board of Taxation</strong>.
+      </p>
+
+      <div class="callout callout-amber">
+        <strong>ANNUAL FILING DEADLINE: APRIL 1</strong><br>
+        Under N.J.S.A. 54:3-21, appeals must be received by the Essex County Tax Board on or before <strong>April 1 of the tax year</strong>. Appeals filed after April 1 cannot be heard by law. If the total assessed value exceeds $1,000,000, direct appeal to the New Jersey State Tax Court is permitted.
+      </div>
+
+      <p style="font-size: 7.6pt; color: #475569;">
+        <strong>Key Requirement:</strong> Taxpayers must present recent (prior 12 months) comparable sales of similar properties in Maplewood. Real estate listings and tax comparisons with neighbors are not admissible evidence before the Board. All property taxes must be paid current to date to prosecute an appeal.
+      </p>
+
+      <h2 class="section-heading">Departmental Directory &amp; Municipal Tax Desk</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Department / Office</th>
+            <th>Telephone &amp; Extension</th>
+            <th>Official Email Address</th>
+            <th>Office Hours &amp; Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Office of the Tax Collector</strong></td>
+            <td>(973) 762-8120 Ext. 2500</td>
+            <td>taxcollector@maplewoodnj.gov</td>
+            <td>Mon–Fri 8:30 AM – 4:30 PM • Town Hall</td>
+          </tr>
+          <tr>
+            <td><strong>Office of the Tax Assessor</strong></td>
+            <td>(973) 762-8120 Ext. 2300</td>
+            <td>taxassessor@maplewoodnj.gov</td>
+            <td>Mon–Fri 8:30 AM – 4:30 PM • Town Hall</td>
+          </tr>
+          <tr>
+            <td><strong>Finance Department &amp; Treasurer</strong></td>
+            <td>(973) 762-8120 Ext. 2100</td>
+            <td>finance@maplewoodnj.gov</td>
+            <td>Mon–Fri 8:30 AM – 4:30 PM • Town Hall</td>
+          </tr>
+          <tr>
+            <td><strong>Essex County Board of Taxation</strong></td>
+            <td>(973) 395-8525</td>
+            <td>taxboard@admin.essexcountynj.org</td>
+            <td>465 Dr. Martin Luther King Jr. Blvd, Newark</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top: 10px; font-size: 7.2pt; color: #64748b; text-align: center; border-top: 1px solid #cbd5e1; padding-top: 4px;">
+        Published by Authority of the Township Committee of the Township of Maplewood • Department of Finance • All rights reserved.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • Property Tax &amp; Assessment Manual (MW-TAX-GUIDE-2026-REV2)</div>
+      <div>Town Hall, 574 Valley Street, Maplewood, NJ 07040 • (973) 762-8120 Ext. 2500</div>
+    </div>
+  </div>
+
+</body>
+</html>

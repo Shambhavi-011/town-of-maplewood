@@ -35,6 +35,32 @@ export default function PublicWorks() {
         <p className="text-base text-slate-600 leading-relaxed" itemProp="description">
           The Maplewood Department of Public Works (DPW) oversees township infrastructure, curbside recycling collections, municipal roadway repairs, urban forestry, seasonal cleanups, and the local commuter Jitney transit system.
         </p>
+
+        {/* ── Official Comprehensive PDF Manual Download Banner ── */}
+        <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="space-y-0.5">
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-emerald-900 block">
+                Official Municipal Manual (PDF)
+              </span>
+              <span className="text-[10px] bg-emerald-200 text-emerald-950 font-mono px-1.5 py-0.5 rounded">
+                MW-DPW-RECYCLE-2026-REV4
+              </span>
+            </div>
+            <p className="text-xs text-emerald-800">
+              Download the complete 6-chapter comprehensive manual covering dual-stream sorting, Boyden Ave yard rules, bulk drop-off, leaf vacuuming, and forestry permits.
+            </p>
+          </div>
+          <a
+            href="/documents/Maplewood_DPW_Recycling_and_Waste_Disposal_Comprehensive_Manual.pdf"
+            download="Maplewood_DPW_Recycling_and_Waste_Disposal_Comprehensive_Manual.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 bg-emerald-900 hover:bg-emerald-800 text-white font-bold text-xs px-4 py-2.5 rounded-lg shadow-sm transition-colors whitespace-nowrap self-start sm:self-auto"
+          >
+            <span>📥</span> Download PDF Manual (2.0 MB)
+          </a>
+        </div>
       </header>
 
       {/* ── Facility Location & Hours Card ── */}

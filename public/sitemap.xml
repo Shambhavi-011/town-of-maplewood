@@ -191,5 +191,17 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://mapplewood-fictional-town.onrender.com/documents/Maplewood_DPW_Recycling_and_Waste_Disposal_Comprehensive_Manual.pdf</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://mapplewood-fictional-town.onrender.com/documents/Maplewood_Municipal_Permits_and_Construction_Code_Guide.pdf</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
 </urlset>
 

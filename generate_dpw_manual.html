@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Township of Maplewood - Comprehensive Municipal Manual on Recycling, Solid Waste Disposal &amp; Resource Recovery</title>
+  <style>
+    @page {
+      size: letter portrait;
+      margin: 12mm 15mm 14mm 15mm;
+    }
+    
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1e293b;
+      background-color: #ffffff;
+      line-height: 1.45;
+      font-size: 8.8pt;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .page {
+      page-break-after: always;
+      break-after: page;
+      position: relative;
+      box-sizing: border-box;
+      min-height: 242mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .page:last-child {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+    
+    .page-content {
+      flex: 1 0 auto;
+    }
+    
+    /* Cover Page Styling */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 242mm;
+      border: 3.5px solid #0f294a;
+      padding: 28px;
+      background: #f8fafc;
+      box-sizing: border-box;
+    }
+    
+    .cover-top {
+      text-align: center;
+      border-bottom: 2px solid #0f294a;
+      padding-bottom: 16px;
+    }
+    
+    .seal-badge {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 10px auto;
+      background: #0f294a;
+      border: 3px solid #d97706;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 15pt;
+      font-weight: 800;
+      font-family: Georgia, serif;
+      letter-spacing: 1px;
+    }
+    
+    .cover-corp-title {
+      font-size: 13pt;
+      letter-spacing: 2px;
+      font-weight: 800;
+      color: #0f294a;
+      text-transform: uppercase;
+      margin: 0 0 4px 0;
+    }
+    
+    .cover-sub-title {
+      font-size: 9.5pt;
+      letter-spacing: 1px;
+      font-weight: 700;
+      color: #d97706;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    
+    .cover-middle {
+      text-align: center;
+      padding: 16px 8px;
+    }
+    
+    .cover-main-heading {
+      font-size: 21pt;
+      font-family: Georgia, serif;
+      font-weight: 800;
+      color: #0f294a;
+      line-height: 1.25;
+      margin: 0 0 10px 0;
+    }
+    
+    .cover-desc {
+      font-size: 9pt;
+      color: #334155;
+      max-width: 620px;
+      margin: 0 auto 16px auto;
+      line-height: 1.45;
+    }
+    
+    .cover-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    
+    .pillar-box {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-top: 3.5px solid #0f294a;
+      border-radius: 5px;
+      padding: 10px;
+    }
+    
+    .pillar-box h4 {
+      margin: 0 0 4px 0;
+      font-size: 8.5pt;
+      color: #0f294a;
+      font-weight: 700;
+    }
+    
+    .pillar-box p {
+      margin: 0;
+      font-size: 7.5pt;
+      color: #475569;
+      line-height: 1.35;
+    }
+    
+    .cover-bottom {
+      border-top: 2px solid #0f294a;
+      padding-top: 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      font-size: 7.8pt;
+      color: #334155;
+    }
+    
+    .cover-meta-item strong {
+      display: block;
+      color: #0f294a;
+      margin-bottom: 2px;
+      font-size: 8.2pt;
+    }
+    
+    /* Header & Footer on Inside Pages */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #0f294a;
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+      font-size: 7.6pt;
+      color: #64748b;
+      font-weight: 600;
+    }
+    
+    .page-header-left {
+      color: #0f294a;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .page-footer {
+      flex-shrink: 0;
+      margin-top: 14px;
+      border-top: 1.5px solid #cbd5e1;
+      padding-top: 5px;
+      font-size: 7.4pt;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+    }
+    
+    h1.chapter-title {
+      font-family: Georgia, serif;
+      font-size: 13pt;
+      font-weight: 700;
+      color: #0f294a;
+      margin: 0 0 7px 0;
+      padding-bottom: 3px;
+      border-bottom: 2px solid #d97706;
+    }
+    
+    h2.section-heading {
+      font-size: 9.8pt;
+      color: #1e3a8a;
+      margin: 9px 0 4px 0;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    p {
+      margin: 0 0 6px 0;
+      line-height: 1.45;
+    }
+    
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 7px 0;
+    }
+    
+    .card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
+      padding: 8px 11px;
+    }
+    
+    .card-title {
+      font-size: 8.6pt;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+    
+    .callout {
+      border-radius: 5px;
+      padding: 8px 12px;
+      margin: 7px 0;
+      font-size: 8.2pt;
+      line-height: 1.42;
+    }
+    
+    .callout-navy {
+      background: #eff6ff;
+      border-left: 4px solid #1e3a8a;
+      color: #1e3a8a;
+    }
+    
+    .callout-amber {
+      background: #fffbeb;
+      border-left: 4px solid #d97706;
+      color: #92400e;
+    }
+    
+    .callout-green {
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      color: #166534;
+    }
+
+    .callout-red {
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+      color: #991b1b;
+    }
+    
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8pt;
+      margin: 7px 0;
+    }
+    
+    .data-table th, .data-table td {
+      border: 1px solid #cbd5e1;
+      padding: 5px 8px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    
+    .data-table th {
+      background: #0f294a;
+      color: #ffffff;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 7.4pt;
+      letter-spacing: 0.5px;
+    }
+    
+    .data-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+    
+    .bullet-list {
+      margin: 0 0 4px 14px;
+      padding: 0;
+    }
+    
+    .bullet-list li {
+      margin-bottom: 2px;
+    }
+
+    .toc-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 3.5px 0;
+      border-bottom: 1px dotted #cbd5e1;
+      font-size: 8.2pt;
+    }
+    .toc-item:last-child { border-bottom: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PAGE 1: COVER PAGE ==================== -->
+  <div class="page">
+    <div class="cover">
+      <div class="cover-top">
+        <div class="seal-badge">1888</div>
+        <div class="cover-corp-title">Township of Maplewood, New Jersey</div>
+        <div class="cover-sub-title">Department of Public Works • Division of Solid Waste &amp; Recycling</div>
+      </div>
+
+      <div class="cover-middle">
+        <div class="cover-main-heading">
+          Comprehensive Municipal Manual on<br>
+          Recycling, Solid Waste Disposal &amp; Resource Recovery
+        </div>
+        <div class="cover-desc">
+          Official municipal operational standard governing curbside dual-stream recycling, the 359 Boyden Avenue Recycling Depot, bulk drop-off programs, seasonal leaf and forestry cleanups, and the civic sanitation enforcement protocols for illegal dumping, park bins, waste accumulation, and public odor complaints.
+        </div>
+
+        <div class="cover-pillars">
+          <div class="pillar-box">
+            <h4>Part I: Recycling Operations</h4>
+            <p>Dual-stream curbside sorting matrix, Boyden Ave depot schedules, mixed rigid plastics (MRPs), and biannual bulk drop-offs.</p>
+          </div>
+          <div class="pillar-box">
+            <h4>Part II: Public Enforcement</h4>
+            <p>Illegal dumping reporting &amp; investigations (§ 209-14), anti-scavenging rules, and neighborhood waste accumulation abatement.</p>
+          </div>
+          <div class="pillar-box">
+            <h4>Part III: Park &amp; Odor 311</h4>
+            <p>Damaged/overflowing park bin repair SLAs, public trash odor sanitization sweeps, and commercial dumpster compliance.</p>
+          </div>
+        </div>
+
+        <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 5px; padding: 8px 12px; margin-top: 10px; text-align: left; font-size: 7.8pt; color: #1e3a8a;">
+          <strong>PUBLIC COMPLIANCE &amp; HEALTH NOTICE:</strong><br>
+          This document establishes the binding municipal standards for waste sorting, resource recovery, and environmental health across the Township of Maplewood. Violations of waste segregation, illegal dumping, or public nuisance codes carry mandatory municipal summonses under Township Code Chapters 209 &amp; 239.
+        </div>
+      </div>
+
+      <div class="cover-bottom">
+        <div class="cover-meta-item">
+          <strong>FACILITY LOCATION &amp; OPERATIONS:</strong>
+          Maplewood DPW Headquarters &amp; Recycling Center<br>
+          359 Boyden Avenue, Maplewood, NJ 07040<br>
+          Phone: (973) 762-1175 | 311 Service Desk: (555) 311-MAPL<br>
+          Online Portal: maplewoodnj.gov/government/public-works
+        </div>
+        <div class="cover-meta-item">
+          <strong>DOCUMENT CLASSIFICATION &amp; AUTHORITY:</strong>
+          Document ID: <strong>MW-DPW-RECYCLE-2026-REV5</strong><br>
+          Governing Law: Township Code Ch. 209 (Solid Waste), Ch. 239, Ch. 257<br>
+          Effective Date: 2026–2027 Municipal Operating Cycle
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 2: TABLE OF CONTENTS & CHAPTER 1: DPW DEPOT ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Department of Public Works</div>
+        <div>Official Operational Manual • Page 2</div>
+      </div>
+
+      <h1 class="chapter-title">Table of Contents &amp; Executive Summary</h1>
+      
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 5px; padding: 8px 12px; margin-bottom: 12px;">
+        <div class="toc-item"><strong>1. DPW Depot Facility Hours, Operations &amp; Residency Verification</strong> <span>Chapter 1 (Pg 2)</span></div>
+        <div class="toc-item"><strong>2. Dual-Stream Curbside Framework &amp; Section Collection Schedule</strong> <span>Chapter 2 (Pg 3)</span></div>
+        <div class="toc-item"><strong>3. Material Sorting Matrix: Commingled Containers vs. Fiber Streams</strong> <span>Chapter 3 (Pg 3)</span></div>
+        <div class="toc-item"><strong>4. Mixed Rigid Plastics (MRPs), Scrap Metal &amp; Biannual Bulk Drop-Off</strong> <span>Chapter 4 (Pg 4)</span></div>
+        <div class="toc-item"><strong>5. Seasonal Operations: 4-Round Curbside Leaf Pickup &amp; Spring Cleanups</strong> <span>Chapter 5 (Pg 4)</span></div>
+        <div class="toc-item"><strong>6. Public Sanitation Enforcement: Illegal Dumping &amp; Waste Accumulation</strong> <span>Chapter 6 (Pg 5)</span></div>
+        <div class="toc-item"><strong>7. Park Receptacles, Broken Bins, Odor Mitigation &amp; Commercial Corrals</strong> <span>Chapter 7 (Pg 6)</span></div>
+        <div class="toc-item"><strong>8. Household Hazardous Waste (HHW), E-Waste Diversion &amp; Shredding</strong> <span>Chapter 8 (Pg 7)</span></div>
+        <div class="toc-item"><strong>9. Commuter Jitney Shuttle Transit &amp; Master Department Directory</strong> <span>Chapters 9 &amp; 10 (Pg 8)</span></div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 1: The Maplewood DPW Recycling Depot (359 Boyden Ave)</h1>
+      <p>
+        The Township of Maplewood operates a state-of-the-art municipal materials recovery facility at <strong>359 Boyden Avenue</strong>, providing residents with self-sorting recycling depots, bulk waste disposal, seasonal organic amendments, and special material drop-offs.
+      </p>
+
+      <div class="grid-2">
+        <div class="card" style="border-top: 3px solid #0f294a;">
+          <div class="card-title" style="color: #0f294a;">Facility Operating Schedule</div>
+          <p style="font-size: 8pt; margin-bottom: 3px;">
+            <strong>Monday through Friday:</strong> 8:00 AM – 3:00 PM<br>
+            <strong>Saturday:</strong> 8:00 AM – 12:00 PM (Noon)<br>
+            <strong>Sundays &amp; Municipal Holidays:</strong> Strictly CLOSED
+          </p>
+          <p style="font-size: 7.6pt; color: #475569; margin: 0;">
+            All incoming vehicles must check in at the scale house gate before entering unloading lanes. Unloading after gate closure is prohibited.
+          </p>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #d97706;">
+          <div class="card-title" style="color: #92400e;">Mandatory Two-Proof Residency Rule</div>
+          <p style="font-size: 8pt; margin-bottom: 3px;">
+            Access is restricted exclusively to <strong>Maplewood residents</strong>. Commercial haulers and out-of-town vehicles are strictly turned away.
+          </p>
+          <p style="font-size: 7.6pt; color: #475569; margin: 0;">
+            Gate officers enforce mandatory presentation of <strong>two (2) physical forms of Maplewood residency</strong> (e.g., NJ Driver's License plus utility bill, tax receipt, or lease).
+          </p>
+        </div>
+      </div>
+
+      <h2 class="section-heading">Free Municipal Mulch &amp; Screened Leaf Compost</h2>
+      <p>
+        As part of Maplewood's closed-loop sustainability cycle, autumn leaves and cleared branches collected by town crews are processed into organic landscaping amendments. <strong>Double-shredded wood mulch and cured leaf compost are available 100% FREE OF CHARGE to Maplewood residents</strong> at the Boyden Avenue Depot during regular operating hours.
+      </p>
+
+      <div class="callout callout-navy">
+        <strong>DEPOT ORGANIC AMENDMENT COLLECTION GUIDELINES:</strong><br>
+        • Self-loading service: Residents must bring their own shovels, containers, buckets, or open pickup trucks.<br>
+        • Commercial landscapers are strictly barred from loading free municipal compost or mulch for commercial client jobs.<br>
+        • Bulk municipal deliveries (5-yard minimum) are available for a nominal delivery fee via the DPW dispatch desk.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • DPW Comprehensive Manual (MW-DPW-RECYCLE-2026-REV5)</div>
+      <div>DPW Headquarters, 359 Boyden Ave, Maplewood, NJ 07040 • (973) 762-1175</div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 3: DUAL-STREAM FRAMEWORK & SORTING ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Department of Public Works</div>
+        <div>Curbside Dual-Stream Framework &amp; Material Sorting • Page 3</div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 2: The Curbside Dual-Stream Framework &amp; Zone Schedules</h1>
+      <p>
+        Under <strong>Maplewood Township Code Chapter 209</strong>, recycling is mandatory for all residential and commercial properties. Maplewood enforces a <strong>dual-stream source-separation model</strong>. Commingling paper with glass/plastic containers is prohibited and results in rejected bins.
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Municipal Recycling Zone</th>
+            <th style="width: 47%;">Geographic Boundaries &amp; Neighborhood Corridors</th>
+            <th style="width: 28%;">Collection Frequency &amp; Day</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Sections 1 &amp; 2</strong></td>
+            <td>North Maplewood, Valley Street West, Parker Avenue Corridor, and adjacent historic districts.</td>
+            <td><strong>Every Other Monday</strong> (Set out by 7:00 AM)</td>
+          </tr>
+          <tr>
+            <td><strong>Sections 3 &amp; 4</strong></td>
+            <td>Maplewood Village, Memorial Park vicinity, Ridgewood Road, Baker Street, and Tuscan School area.</td>
+            <td><strong>Every Other Tuesday</strong> (Set out by 7:00 AM)</td>
+          </tr>
+          <tr>
+            <td><strong>Sections 5 &amp; 6</strong></td>
+            <td>Boyden Heights, South Mountain preserve border, Springfield Avenue Corridor, and East Maplewood.</td>
+            <td><strong>Every Other Wednesday</strong> (Set out by 7:00 AM)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h1 class="chapter-title" style="margin-top: 8px;">Chapter 3: Authoritative Material Sorting Matrix</h1>
+      <p>
+        Rigid contamination thresholds are enforced by collection contractors. Contaminated receptacles are stickered and left at the curb:
+      </p>
+
+      <div class="grid-2">
+        <div class="card" style="border-top: 3px solid #2563eb;">
+          <div class="card-title" style="color: #1d4ed8;">STREAM A: Fibers &amp; Clean Paper (Blue Bin)</div>
+          <ul class="bullet-list" style="font-size: 7.6pt;">
+            <li><strong>Corrugated Cardboard:</strong> Must be flattened and tied with natural twine into bundles not exceeding 3 ft × 3 ft × 1 ft.</li>
+            <li><strong>Paperboard / Chipboard:</strong> Cereal boxes, pasta boxes, tissue boxes, paper towel tubes (remove liners).</li>
+            <li><strong>Mixed Paper:</strong> Office paper, mail, junk mail, catalogs, paperback books, magazines, envelopes.</li>
+            <li><span style="color: #991b1b; font-weight: 700;">PROHIBITED:</span> Greasy pizza boxes, waxed milk cartons, paper coffee cups, metallic gift wrap, paper towels.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #16a34a;">
+          <div class="card-title" style="color: #166534;">STREAM B: Commingled Bottles &amp; Containers</div>
+          <ul class="bullet-list" style="font-size: 7.6pt;">
+            <li><strong>Plastic Containers (#1, #2, #5 only):</strong> Milk jugs, water bottles, detergent bottles, clean yogurt tubs. Caps may remain on if rinsed.</li>
+            <li><strong>Glass Bottles &amp; Jars:</strong> Clear, green, and brown beverage bottles and food jars. Must be rinsed clean.</li>
+            <li><strong>Metal Cans:</strong> Aluminum beverage cans, steel/tin soup cans, clean pie tins.</li>
+            <li><span style="color: #991b1b; font-weight: 700;">STRICTLY BANNED:</span> Plastic bags of any kind (tanglers), styrofoam, motor oil jugs, window glass, lightbulbs, ceramics.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout callout-amber">
+        <strong>THE "WHEN IN DOUBT, THROW IT OUT" CONTAMINATION PRINCIPLE:</strong><br>
+        Placing non-recyclable materials or plastic bags into curbside blue bins contaminates entire truckloads, diverting tons of recyclable commodities into costly landfills. If an item does not bear SPI Resin Code #1, #2, or #5, or contains food grease, dispose of it in standard household trash.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • DPW Comprehensive Manual (MW-DPW-RECYCLE-2026-REV5)</div>
+      <div>DPW Headquarters, 359 Boyden Ave, Maplewood, NJ 07040 • (973) 762-1175</div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 4: MRPS, BULK & SEASONAL ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Department of Public Works</div>
+        <div>MRPs, Bulk Drop-Off &amp; Seasonal Cleanup • Page 4</div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 4: Mixed Rigid Plastics (MRPs) &amp; Depot Drop-Off</h1>
+      <p>
+        Large, bulky molded plastics cannot be collected curbside due to packer truck compression constraints. Maplewood provides dedicated 40-yard roll-off bins at the Boyden Avenue Depot specifically for <strong>Mixed Rigid Plastics (MRPs)</strong>.
+      </p>
+
+      <div class="grid-2">
+        <div class="card" style="border-left: 4px solid #16a34a;">
+          <div class="card-title" style="color: #166534;">Permitted Rigid Plastics at Depot</div>
+          <ul class="bullet-list" style="font-size: 7.6pt;">
+            <li>Clean 5-gallon spackle, paint &amp; utility pails (metal handles removed)</li>
+            <li>Hard plastic laundry baskets and storage totes/crates</li>
+            <li>Molded plastic children's toys, playhouses, and slides</li>
+            <li>Plastic patio furniture, lawn chairs, and molded tables</li>
+            <li>Clean plastic trash cans, recycling bins, and flower nursery flats</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-left: 4px solid #dc2626;">
+          <div class="card-title" style="color: #991b1b;">Prohibited Plastic Materials</div>
+          <ul class="bullet-list" style="font-size: 7.6pt;">
+            <li>Expanded Polystyrene (Styrofoam peanuts/coolers - use foam bin)</li>
+            <li>Plastic film, vinyl siding, PVC plumbing pipes, hose reels</li>
+            <li>Chemical, hazardous waste, or pesticide containers</li>
+            <li>Plastic items containing embedded metal axles or motors</li>
+          </ul>
+        </div>
+      </div>
+
+      <h1 class="chapter-title" style="margin-top: 8px;">Chapter 5: Biannual Bulk Drop-Off &amp; Seasonal Cleanups</h1>
+      <p>
+        The Township hosts a <strong>Biannual Bulk Drop-Off Event</strong> in the <strong>Spring (April)</strong> and <strong>Fall (October)</strong> on the first and second Saturdays. Residents may haul large oversized household items to the Boyden Avenue Depot for environmentally compliant processing.
+      </p>
+
+      <div class="grid-2">
+        <div class="card" style="border-top: 3px solid #0f294a;">
+          <div class="card-title" style="color: #0f294a;">Eligible Bulk Items</div>
+          <p style="font-size: 7.6pt; color: #475569; margin: 0;">
+            Mattresses and box springs (clean and dry), upholstered sofas, wooden furniture, dressers, desks, area rugs (rolled and tied, max 6 ft), bicycles, and outdoor metal grills (propane tanks removed).
+          </p>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #dc2626;">
+          <div class="card-title" style="color: #991b1b;">Strictly Prohibited Construction Debris</div>
+          <p style="font-size: 7.6pt; color: #475569; margin: 0;">
+            <strong>ZERO construction &amp; demolition (C&amp;D) debris accepted.</strong> Sheetrock/drywall, concrete, brick, tile, asphalt shingles, insulation, and commercial contractor cleanouts are barred under municipal ordinance.
+          </p>
+        </div>
+      </div>
+
+      <h2 class="section-heading">Seasonal Operations: 4-Round Curbside Leaf Vacuuming &amp; Garden Rake-Out</h2>
+      <p>
+        • <strong>Fall Curbside Leaf Vacuuming (Oct–Dec):</strong> Four rotating town-wide sweeps. Leaves must be raked into long, neat windrows along the street gutter, placed at least 10 feet from storm drain inlets. <strong>Zero plastic or biodegradable bags permitted in leaf piles.</strong> Gas-powered leaf blowers are strictly prohibited during designated quiet windows under Township By-law 2024-12.<br>
+        • <strong>Spring Garden Rake-Out (April):</strong> Curbside pickup of brush and garden prunings tied in bundles with twine (max. 4 ft length, branches &lt; 3 inches diameter, max. 50 lbs per bundle).
+      </p>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • DPW Comprehensive Manual (MW-DPW-RECYCLE-2026-REV5)</div>
+      <div>DPW Headquarters, 359 Boyden Ave, Maplewood, NJ 07040 • (973) 762-1175</div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 5: ILLEGAL DUMPING & ACCUMULATION (CORE Q&A) ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Department of Public Works</div>
+        <div>Public Sanitation Enforcement: Illegal Dumping &amp; Refuse Complaints • Page 5</div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 6: Public Waste Enforcement, Illegal Dumping &amp; Accumulation</h1>
+      
+      <div style="background: #fef2f2; border: 1.5px solid #dc2626; border-radius: 5px; padding: 7px 11px; margin-bottom: 8px;">
+        <div style="font-size: 9.6pt; font-weight: 800; color: #991b1b; margin-bottom: 3px; font-family: Georgia, serif;">
+          FAQ: "Someone is illegally dumping waste in my neighborhood. What should I do?"
+        </div>
+        <p style="font-size: 7.9pt; color: #7f1d1d; margin: 0; line-height: 1.4;">
+          Illegal dumping—including dumping furniture, demolition rubble, tires, landscape debris, or household trash onto vacant lots, public right-of-ways, or street corners—is a serious municipal offense under <strong>Maplewood Township Code § 209-14</strong>. The Township enforces an active inter-agency investigation protocol:
+        </p>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 28%;">Protocol Step / Action</th>
+            <th style="width: 46%;">Operational Standard Operating Procedure (SOP)</th>
+            <th style="width: 26%;">Enforcement Authority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Active Dumping in Progress</strong></td>
+            <td>If an illegal dump is actively occurring, <strong>immediately call 911 or Police Dispatch at (555) 123-7623</strong>. Note vehicle make/model, license plate, color, contractor decals, and departure direction. <strong>DO NOT confront the perpetrator.</strong></td>
+            <td>Maplewood Police Department (Traffic &amp; Patrol Units)</td>
+          </tr>
+          <tr>
+            <td><strong>2. Reporting Abandoned Waste</strong></td>
+            <td>Submit a report via the <strong>311 Citizen Portal</strong> (`maplewoodnj.gov/services/request`) under category <em>Illegal Dumping / Blight</em>, or call DPW Dispatch. Provide exact address, cross streets, description of waste, and photos.</td>
+            <td>DPW Dispatch &amp; Code Enforcement Desk</td>
+          </tr>
+          <tr>
+            <td><strong>3. Forensic Debris Search</strong></td>
+            <td>Before clearing, a sworn Code Enforcement officer or DPW supervisor searches the pile for forensic evidence: addressed mail, shipping labels, invoices, or contractor manifests to identify origin.</td>
+            <td>Health Division &amp; Code Enforcement Investigators</td>
+          </tr>
+          <tr>
+            <td><strong>4. Summonses &amp; Court Fines</strong></td>
+            <td>Perpetrators face mandatory court appearance. Under Code § 209-14, penalties include <strong>fines up to $2,500.00 per offense</strong>, full restitution for municipal cleanup costs, and possible vehicle seizure.</td>
+            <td>Maplewood Municipal Court (Judge Presiding)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background: #eff6ff; border: 1.5px solid #1e3a8a; border-radius: 5px; padding: 7px 11px; margin: 8px 0 6px 0;">
+        <div style="font-size: 9.6pt; font-weight: 800; color: #0f294a; margin-bottom: 3px; font-family: Georgia, serif;">
+          FAQ: "Garbage has been piling up near my house / neighboring property. Can I submit a complaint?"
+        </div>
+        <p style="font-size: 7.9pt; color: #1e3a8a; margin: 0; line-height: 1.4;">
+          <strong>YES. Property owners are legally required to maintain sanitary conditions under Township Code § 209-7 and Chapter 239 (Property Standards).</strong> Piles of trash create public health hazards, rodent harborage (rats, raccoons), and fire dangers.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card" style="border-left: 4px solid #1e3a8a;">
+          <div class="card-title" style="color: #1e3a8a;">How to Submit a Waste Pile Complaint</div>
+          <p style="font-size: 7.6pt; color: #475569; margin: 0;">
+            Submit a ticket on <code>maplewoodnj.gov/services/request</code> or call the Code Enforcement Bureau at <strong>(973) 762-8120 Ext. 3300</strong>. Provide the exact property address, location of pile (side yard, front porch, alleyway), duration, and photos showing rat/fly attraction.
+          </p>
+        </div>
+
+        <div class="card" style="border-left: 4px solid #d97706;">
+          <div class="card-title" style="color: #92400e;">48-Hour Abatement Notice &amp; Municipal Liens</div>
+          <p style="font-size: 7.6pt; color: #475569; margin: 0;">
+            An inspector conducts a site visit within <strong>24 business hours</strong>. If substantiated, an official <strong>48-Hour Notice of Violation</strong> is posted. If not abated, town crews clean the site; all expenses plus an administrative fee are placed as a <strong>tax lien against the property</strong>, plus daily $250 court fines.
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-amber" style="margin-top: 6px;">
+        <strong>ANTI-SCAVENGING ORDINANCE (§ 209-11):</strong> It is unlawful for unauthorized individuals to scavenge, rummage through, or remove materials from curbside recycling bins. Once placed at the curb, all recyclables become property of the Township of Maplewood. Violators are subject to police summons and fines up to $500.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • DPW Comprehensive Manual (MW-DPW-RECYCLE-2026-REV5)</div>
+      <div>DPW Headquarters, 359 Boyden Ave, Maplewood, NJ 07040 • (973) 762-1175</div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 6: PARK BINS, ODOR & COMMERCIAL RECEPTACLES ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Department of Public Works</div>
+        <div>Park Sanitation, Broken Bins &amp; Odor Mitigation • Page 6</div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 7: Park Receptacles, Broken Bins, Odor Complaints &amp; Dumpsters</h1>
+      
+      <div style="background: #f0fdf4; border: 1.5px solid #16a34a; border-radius: 5px; padding: 7px 11px; margin-bottom: 8px;">
+        <div style="font-size: 9.6pt; font-weight: 800; color: #166534; margin-bottom: 3px; font-family: Georgia, serif;">
+          FAQ: "There is a broken garbage bin in the park. Can I report it?"
+        </div>
+        <p style="font-size: 7.9pt; color: #14532d; margin: 0; line-height: 1.4;">
+          <strong>YES. The Maplewood DPW Parks &amp; Forestry Division maintains over 140 public park receptacles and 45 pet waste stations across all 18 municipal parks.</strong> Residents are encouraged to report broken, vandalized, tipped, or overflowing bins immediately.
+        </p>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 28%;">Issue Type / Receptacle Status</th>
+            <th style="width: 44%;">Reporting Requirements &amp; Intake Details</th>
+            <th style="width: 28%;">DPW Operational Response SLA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Broken / Damaged Park Bin</strong></td>
+            <td>Park name (e.g., <em>Memorial Park, DeHart Park, Borden Park</em>), landmark location (e.g., near playground, baseball dugout, tennis courts), nature of damage (missing lid, cracked barrel, broken mounting post).</td>
+            <td><strong>24 to 48 Hours:</strong> Receptacle repaired or replaced with new heavy-duty steel slat barrel.</td>
+          </tr>
+          <tr>
+            <td><strong>Overflowing Park Garbage Bin</strong></td>
+            <td>Park name, specific bin location, presence of scattered litter or wildlife intrusion (raccoons, birds). Photo helpful.</td>
+            <td><strong>4 Hours:</strong> Weekend and holiday roving parks sweep empties bin and sanitizes perimeter.</td>
+          </tr>
+          <tr>
+            <td><strong>Damaged Dog Waste Station</strong></td>
+            <td>Park or trail name, station number if marked, issue (empty bag dispenser or broken disposal receptacle).</td>
+            <td><strong>24 Hours:</strong> Bags restocked and waste container emptied by park maintenance.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background: #fffbeb; border: 1.5px solid #d97706; border-radius: 5px; padding: 7px 11px; margin: 8px 0 6px 0;">
+        <div style="font-size: 9.6pt; font-weight: 800; color: #92400e; margin-bottom: 3px; font-family: Georgia, serif;">
+          FAQ: "There is a bad smell coming from a public garbage area. Can I report it?"
+        </div>
+        <p style="font-size: 7.9pt; color: #78350f; margin: 0; line-height: 1.4;">
+          <strong>YES. Severe odors from public trash cans, street receptacles, or municipal depot areas indicate decomposing organic matter, maggots, or stagnant liquid runoff posing a public health nuisance under Health Code § 142.</strong>
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card" style="border-left: 4px solid #d97706;">
+          <div class="card-title" style="color: #92400e;">How Odor Complaints are Handled</div>
+          <p style="font-size: 7.6pt; color: #475569; margin: 0;">
+            Submit ticket under <em>311 Public Sanitation / Odor &amp; Health Hazard</em>. The DPW washes down the receptacle within <strong>24 hours</strong> using high-pressure hot water and hospital-grade biodegradable bactericidal enzyme deodorizer.
+          </p>
+        </div>
+
+        <div class="card" style="border-left: 4px solid #16a34a;">
+          <div class="card-title" style="color: #166534;">Summer Preventative Wash Cycle</div>
+          <p style="font-size: 7.6pt; color: #475569; margin: 0;">
+            From June 1 to September 30, high-traffic pedestrian trash cans in Maplewood Village and Springfield Ave commercial districts undergo mandatory <strong>weekly pressure-washing and disinfectant treatment</strong> to prevent insect breeding.
+          </p>
+        </div>
+      </div>
+
+      <h2 class="section-heading" style="margin-top: 6px;">Commercial Restaurant &amp; Business Dumpster Enclosures (§ 209-18)</h2>
+      <p style="font-size: 7.6pt; color: #334155; margin-bottom: 4px;">
+        Commercial food establishments and apartment buildings must keep dumpster lids securely closed at all times, maintain grease traps, ensure drain plugs are seated, and house containers within fully screened masonry corrals. Report overflowing or foul-smelling commercial dumpsters to the Health Department at <strong>(973) 762-8120 Ext. 4200</strong>.
+      </p>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • DPW Comprehensive Manual (MW-DPW-RECYCLE-2026-REV5)</div>
+      <div>DPW Headquarters, 359 Boyden Ave, Maplewood, NJ 07040 • (973) 762-1175</div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 7: HHW, E-WASTE & SPECIAL PROGRAMS ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Department of Public Works</div>
+        <div>Hazardous Waste, E-Waste Diversion &amp; Document Shredding • Page 7</div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 8: Household Hazardous Waste (HHW) &amp; E-Waste Diversion</h1>
+      
+      <p>
+        Certain household chemicals, automotive fluids, and consumer electronics contain toxic heavy metals or volatile organic compounds. Under New Jersey Department of Environmental Protection (NJDEP) regulations, <strong>placing hazardous waste or electronics in curbside bins is strictly illegal</strong>.
+      </p>
+
+      <div class="grid-2">
+        <div class="card" style="border-top: 3px solid #dc2626;">
+          <div class="card-title" style="color: #991b1b;">Essex County Household Hazardous Waste (HHW) Days</div>
+          <p style="font-size: 7.5pt; color: #475569; margin-bottom: 3px;">
+            Maplewood partners with the <strong>Essex County Utilities Authority (ECUA)</strong> to host county-wide HHW collection days (Spring &amp; Fall) at 125 Amherst Street, East Orange. Free for all Maplewood residents.
+          </p>
+          <ul class="bullet-list" style="font-size: 7.3pt;">
+            <li>Pesticides, herbicides, weed killers &amp; fertilizers</li>
+            <li>Oil-based paints, varnishes, mineral spirits &amp; turpentine</li>
+            <li>Automotive motor oil, antifreeze &amp; car lead-acid batteries</li>
+            <li>Pool chemicals, muriatic acid, mercury thermostats &amp; propane tanks</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #2563eb;">
+          <div class="card-title" style="color: #1d4ed8;">Electronics Recycling (E-Waste) at 359 Boyden Ave</div>
+          <p style="font-size: 7.5pt; color: #475569; margin-bottom: 3px;">
+            Under the <em>Electronic Waste Management Act</em>, manufacturers fund zero-cost recycling for covered electronic devices. Drop off at the DPW Depot (Mon–Fri 8 AM–3 PM, Sat 8 AM–12 PM):
+          </p>
+          <ul class="bullet-list" style="font-size: 7.3pt;">
+            <li>Televisions (flat-panel, CRT, projection) and computer monitors</li>
+            <li>Desktop computers, towers, laptops, tablets, and e-readers</li>
+            <li>Printers, scanners, fax machines, and computer peripherals</li>
+            <li>Stereo equipment, DVD players, VCRs, gaming consoles &amp; microwaves</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 class="section-heading">Confidential Document Shredding &amp; Textile Diversion Programs</h2>
+      <div class="grid-2">
+        <div class="card" style="border-left: 4px solid #16a34a;">
+          <div class="card-title" style="color: #166534;">Mobile Paper Shredding Events</div>
+          <p style="font-size: 7.5pt; color: #475569; margin: 0;">
+            The Township sponsors semi-annual confidential paper shredding events at Town Hall (Spring &amp; Fall). Residents may bring up to <strong>four (4) banker boxes</strong> of confidential financial documents, medical files, or tax returns. On-site industrial shredder trucks destroy documents instantly.
+          </p>
+        </div>
+
+        <div class="card" style="border-left: 4px solid #1e3a8a;">
+          <div class="card-title" style="color: #1e3a8a;">Textile &amp; Clothing Donation Bins</div>
+          <p style="font-size: 7.5pt; color: #475569; margin: 0;">
+            Dedicated charitable textile donation bins are located inside the 359 Boyden Avenue Recycling Yard. Residents can deposit bagged wearable clothing, shoes, belts, handbags, bed linens, towels, and curtains, diverting tons of fabric waste from the waste stream.
+          </p>
+        </div>
+      </div>
+
+      <h2 class="section-heading">Latex Paint Disposal Protocol</h2>
+      <p style="font-size: 7.6pt; color: #334155; margin-bottom: 2px;">
+        Water-based (latex) paint is non-hazardous and <strong>NOT accepted at HHW collection days</strong>. Residents must remove the lid, add kitty litter or paint hardener until dry and solid, and place the opened can inside regular household garbage bins.
+      </p>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • DPW Comprehensive Manual (MW-DPW-RECYCLE-2026-REV5)</div>
+      <div>DPW Headquarters, 359 Boyden Ave, Maplewood, NJ 07040 • (973) 762-1175</div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 8: TRANSIT & MUNICIPAL DIRECTORY ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Department of Public Works</div>
+        <div>Commuter Transit &amp; Departmental Directory • Page 8</div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 9: The Maplewood Jitney Commuter Transit Service</h1>
+      <p>
+        The Department of Public Works operates the <strong>Maplewood Commuter Jitney Shuttle Service</strong>, connecting residential neighborhoods directly to the Maplewood NJ Transit Train Station for seamless Midtown Direct service to New York Penn Station and Hoboken.
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Jitney Commuter Route</th>
+            <th style="width: 45%;">Operating Corridors &amp; Primary Pick-Up Points</th>
+            <th style="width: 30%;">Schedule &amp; Peak Frequency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Parker Avenue Route</strong></td>
+            <td>Originates at Boyden Ave / Parker Ave, servicing Orchard Rd, Prospect St, and Maplewood Station loop.</td>
+            <td>Mon–Fri Morning (6:00–9:00 AM) &amp; Evening Peak (5:00–8:30 PM). Trains synchronized.</td>
+          </tr>
+          <tr>
+            <td><strong>Elmwood Avenue Route</strong></td>
+            <td>Servicing East Maplewood, Elmwood Ave, Tuscan Rd, Valley St, and direct to Maplewood Station.</td>
+            <td>Buses run every 15–20 minutes during morning and evening rush hours.</td>
+          </tr>
+          <tr>
+            <td><strong>Wyoming / North Route</strong></td>
+            <td>North Maplewood, Wyoming Ave corridor, Claremont Ave, Ridgewood Rd to Maplewood Station.</td>
+            <td>Full weekday commuter coverage. Real-time GPS tracking via mobile portal.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-green" style="margin-top: 6px;">
+        <strong>JITNEY FARES &amp; PASS REGISTRATION:</strong> Annual Jitney Subscription Passes are <strong>$95.00 per year</strong> (discounted $50 for seniors/students) purchased online via GovPilot. Single-trip one-way tickets are $2.00 exact cash paid to driver.
+      </div>
+
+      <h1 class="chapter-title" style="margin-top: 8px;">Chapter 10: Departmental Directory &amp; Sanitation Contacts</h1>
+      
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Department / Municipal Office</th>
+            <th>Telephone &amp; Extension</th>
+            <th>Official Email Address</th>
+            <th>Office Hours &amp; Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>DPW Main Office &amp; Scale House</strong></td>
+            <td>(973) 762-1175</td>
+            <td>publicworks@maplewoodnj.gov</td>
+            <td>Mon–Fri 8:00 AM – 3:00 PM • 359 Boyden Ave</td>
+          </tr>
+          <tr>
+            <td><strong>311 Citizen Service Desk &amp; Dispatch</strong></td>
+            <td>(555) 311-MAPL / 311</td>
+            <td>services311@maplewoodnj.gov</td>
+            <td>24/7 Digital Intake • Dispatch: (555) 123-7623</td>
+          </tr>
+          <tr>
+            <td><strong>Division of Code Enforcement</strong></td>
+            <td>(973) 762-8120 Ext. 3300</td>
+            <td>codeenforcement@maplewoodnj.gov</td>
+            <td>Mon–Fri 8:30 AM – 4:30 PM • Town Hall</td>
+          </tr>
+          <tr>
+            <td><strong>Maplewood Division of Health</strong></td>
+            <td>(973) 762-8120 Ext. 4200</td>
+            <td>healthdept@maplewoodnj.gov</td>
+            <td>Mon–Fri 8:30 AM – 4:30 PM • 574 Valley St</td>
+          </tr>
+          <tr>
+            <td><strong>Maplewood Police Dispatch (Non-Emerg)</strong></td>
+            <td>(973) 762-3400 / 911</td>
+            <td>police@maplewoodnj.gov</td>
+            <td>24 Hours / 7 Days • 161 Dunnell Rd</td>
+          </tr>
+          <tr>
+            <td><strong>Essex County Utilities Authority (ECUA)</strong></td>
+            <td>(973) 792-9060</td>
+            <td>info@ecuanj.com</td>
+            <td>Household Hazardous Waste Hotline</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top: 6px; font-size: 7.2pt; color: #64748b; text-align: center; border-top: 1px solid #cbd5e1; padding-top: 3px;">
+        Published by Authority of the Township Committee of the Township of Maplewood • Department of Public Works • All rights reserved.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • DPW Comprehensive Manual (MW-DPW-RECYCLE-2026-REV5)</div>
+      <div>DPW Headquarters, 359 Boyden Ave, Maplewood, NJ 07040 • (973) 762-1175</div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Township of Maplewood - Comprehensive Municipal Permit, Required Documents &amp; 311 Service Request Manual</title>
+  <style>
+    @page {
+      size: letter portrait;
+      margin: 12mm 15mm 14mm 15mm;
+    }
+    
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1e293b;
+      background-color: #ffffff;
+      line-height: 1.45;
+      font-size: 8.8pt;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .page {
+      page-break-after: always;
+      break-after: page;
+      position: relative;
+      box-sizing: border-box;
+      min-height: 242mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .page:last-child {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    .page-content {
+      flex: 1 0 auto;
+    }
+    
+    /* Cover Page Styling */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 242mm;
+      border: 3.5px solid #0f294a;
+      padding: 28px;
+      background: #f8fafc;
+      box-sizing: border-box;
+    }
+    
+    .cover-top {
+      text-align: center;
+      border-bottom: 2px solid #0f294a;
+      padding-bottom: 16px;
+    }
+    
+    .seal-badge {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 10px auto;
+      background: #0f294a;
+      border: 3px solid #d97706;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 15pt;
+      font-weight: 800;
+      font-family: Georgia, serif;
+      letter-spacing: 1px;
+    }
+    
+    .cover-corp-title {
+      font-size: 13pt;
+      letter-spacing: 2px;
+      font-weight: 800;
+      color: #0f294a;
+      text-transform: uppercase;
+      margin: 0 0 4px 0;
+    }
+    
+    .cover-sub-title {
+      font-size: 9.5pt;
+      letter-spacing: 1px;
+      font-weight: 700;
+      color: #d97706;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    
+    .cover-middle {
+      text-align: center;
+      padding: 16px 8px;
+    }
+    
+    .cover-main-heading {
+      font-size: 21pt;
+      font-family: Georgia, serif;
+      font-weight: 800;
+      color: #0f294a;
+      line-height: 1.25;
+      margin: 0 0 10px 0;
+    }
+    
+    .cover-desc {
+      font-size: 9pt;
+      color: #334155;
+      max-width: 620px;
+      margin: 0 auto 16px auto;
+      line-height: 1.45;
+    }
+    
+    .cover-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    
+    .pillar-box {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-top: 3.5px solid #0f294a;
+      border-radius: 5px;
+      padding: 10px;
+    }
+    
+    .pillar-box h4 {
+      margin: 0 0 4px 0;
+      font-size: 8.5pt;
+      color: #0f294a;
+      font-weight: 700;
+    }
+    
+    .pillar-box p {
+      margin: 0;
+      font-size: 7.5pt;
+      color: #475569;
+      line-height: 1.35;
+    }
+    
+    .cover-bottom {
+      border-top: 2px solid #0f294a;
+      padding-top: 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      font-size: 7.8pt;
+      color: #334155;
+    }
+    
+    .cover-meta-item strong {
+      display: block;
+      color: #0f294a;
+      margin-bottom: 2px;
+      font-size: 8.2pt;
+    }
+    
+    /* Header & Footer on Inside Pages */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #0f294a;
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+      font-size: 7.6pt;
+      color: #64748b;
+      font-weight: 600;
+    }
+    
+    .page-header-left {
+      color: #0f294a;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .page-footer {
+      flex-shrink: 0;
+      margin-top: 14px;
+      border-top: 1.5px solid #cbd5e1;
+      padding-top: 5px;
+      font-size: 7.4pt;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+    }
+    
+    h1.chapter-title {
+      font-family: Georgia, serif;
+      font-size: 13pt;
+      font-weight: 700;
+      color: #0f294a;
+      margin: 0 0 7px 0;
+      padding-bottom: 3px;
+      border-bottom: 2px solid #d97706;
+    }
+    
+    h2.section-heading {
+      font-size: 9.8pt;
+      color: #1e3a8a;
+      margin: 9px 0 4px 0;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    p {
+      margin: 0 0 6px 0;
+      line-height: 1.45;
+    }
+    
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 7px 0;
+    }
+    
+    .card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
+      padding: 8px 11px;
+    }
+    
+    .card-title {
+      font-size: 8.6pt;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+    
+    .callout {
+      border-radius: 5px;
+      padding: 8px 12px;
+      margin: 7px 0;
+      font-size: 8.2pt;
+      line-height: 1.42;
+    }
+    
+    .callout-navy {
+      background: #eff6ff;
+      border-left: 4px solid #1e3a8a;
+      color: #1e3a8a;
+    }
+    
+    .callout-amber {
+      background: #fffbeb;
+      border-left: 4px solid #d97706;
+      color: #92400e;
+    }
+    
+    .callout-green {
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      color: #166534;
+    }
+
+    .callout-red {
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+      color: #991b1b;
+    }
+    
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8pt;
+      margin: 7px 0;
+    }
+    
+    .data-table th, .data-table td {
+      border: 1px solid #cbd5e1;
+      padding: 5px 8px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    
+    .data-table th {
+      background: #0f294a;
+      color: #ffffff;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 7.4pt;
+      letter-spacing: 0.5px;
+    }
+    
+    .data-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+    
+    .bullet-list {
+      margin: 0 0 4px 14px;
+      padding: 0;
+    }
+    
+    .bullet-list li {
+      margin-bottom: 2px;
+    }
+
+    .toc-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 3.5px 0;
+      border-bottom: 1px dotted #cbd5e1;
+      font-size: 8.2pt;
+    }
+    .toc-item:last-child { border-bottom: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PAGE 1: COVER PAGE ==================== -->
+  <div class="page">
+    <div class="cover">
+      <div class="cover-top">
+        <div class="seal-badge">1888</div>
+        <div class="cover-corp-title">Township of Maplewood, New Jersey</div>
+        <div class="cover-sub-title">Department of Community Development &amp; Department of Public Works</div>
+      </div>
+
+      <div class="cover-middle">
+        <div class="cover-main-heading">
+          Comprehensive Municipal Permit,<br>
+          Required Documents &amp; 311 Service Request Manual
+        </div>
+        <div class="cover-desc">
+          The authoritative municipal manual governing Uniform Construction Code (UCC) permits, mandatory documentation checklists for every permit type, specialized zoning and engineering reviews, and the official citizen 311 service request intake standards.
+        </div>
+
+        <div class="cover-pillars">
+          <div class="pillar-box">
+            <h4>Part I: Construction Permits</h4>
+            <p>NJ Uniform Construction Code (N.J.A.C. 5:23), mandatory subcodes, plan criteria, and Town Hall 24/7 drop box intake.</p>
+          </div>
+          <div class="pillar-box">
+            <h4>Part II: Required Documents</h4>
+            <p>Itemized checklists for decks, pools, fences, additions, tree removal (Ch. 227), street dumpsters, and road openings.</p>
+          </div>
+          <div class="pillar-box">
+            <h4>Part III: 311 Service Requests</h4>
+            <p>Pothole reporting data criteria, response SLAs, 50-meter duplicate detection, and 4-stage work order lifecycle tracking.</p>
+          </div>
+        </div>
+
+        <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 5px; padding: 8px 12px; margin-top: 10px; text-align: left; font-size: 7.8pt; color: #1e3a8a;">
+          <strong>PUBLIC CITIZEN &amp; CONTRACTOR COMPLIANCE NOTICE:</strong><br>
+          This document serves as the regulatory standard for all property owners, licensed contractors, and municipal service agents. Failure to secure prior permits or furnish required documentation constitutes a violation of Maplewood Township Code and New Jersey State Statutes.
+        </div>
+      </div>
+
+      <div class="cover-bottom">
+        <div class="cover-meta-item">
+          <strong>DEPARTMENTAL OFFICES &amp; INTAKE:</strong>
+          Maplewood Town Hall • Construction &amp; Engineering<br>
+          574 Valley Street, Maplewood, NJ 07040<br>
+          Building: (973) 762-8120 | DPW / 311 Desk: (973) 762-1175<br>
+          Online Portal: GovPilot Digital Intake &amp; 311 Citizen Request Desk
+        </div>
+        <div class="cover-meta-item">
+          <strong>DOCUMENT CLASSIFICATION &amp; AUTHORITY:</strong>
+          Document ID: <strong>MW-PERMITS-311-GUIDE-2026-REV3</strong><br>
+          Governing Law: NJ UCC (N.J.A.C. 5:23), Code Ch. 209, 227, 239, 257<br>
+          Effective Date: 2026–2027 Municipal Operating Cycle
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 2: TABLE OF CONTENTS & CHAPTER 1 ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Construction Code &amp; 311 Operations</div>
+        <div>Official Operational Manual • Page 2</div>
+      </div>
+
+      <h1 class="chapter-title">Table of Contents &amp; Executive Summary</h1>
+      
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 5px; padding: 8px 12px; margin-bottom: 12px;">
+        <div class="toc-item"><strong>1. Uniform Construction Code (UCC) Structure &amp; Mandatory Permits</strong> <span>Chapter 1 (Pg 2)</span></div>
+        <div class="toc-item"><strong>2. Application Intake Methods: GovPilot &amp; Town Hall Drop Box</strong> <span>Chapter 1 (Pg 2)</span></div>
+        <div class="toc-item"><strong>3. Itemized Checklist of Documents Required by Permit Type</strong> <span>Chapter 2 (Pg 3)</span></div>
+        <div class="toc-item"><strong>4. Specialized Permits: Tree Removal (Ch. 227), Dumpsters &amp; Road Openings</strong> <span>Chapter 3 (Pg 4)</span></div>
+        <div class="toc-item"><strong>5. 311 Citizen Municipal Service Requests: Pothole Intake &amp; Triage</strong> <span>Chapter 4 (Pg 5)</span></div>
+        <div class="toc-item"><strong>6. Additional 311 Categories (Waste, Streetlights, Trees) &amp; Lifecycle Tracking</strong> <span>Chapter 5 (Pg 6)</span></div>
+        <div class="toc-item"><strong>7. Zoning Approvals, Fire Safety Resale (CSDCMAC) &amp; Master Fee Schedule</strong> <span>Chapter 6 (Pg 7)</span></div>
+        <div class="toc-item"><strong>8. Mandatory Inspection Milestones &amp; Municipal Department Directory</strong> <span>Chapter 7 (Pg 8)</span></div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 1: The New Jersey Uniform Construction Code (UCC)</h1>
+      <p>
+        The Township of Maplewood Construction Division enforces the <strong>New Jersey Uniform Construction Code (N.J.A.C. 5:23)</strong>. The UCC establishes uniform structural, fire, electrical, plumbing, and mechanical safety standards for all residential and commercial buildings within the municipality.
+      </p>
+
+      <h2 class="section-heading">When is a Municipal Construction Permit Mandatory?</h2>
+      <p>
+        Pursuant to state statute, property owners or licensed contractors must obtain an approved Construction Permit before beginning any of the following scopes of work:
+      </p>
+
+      <div class="grid-2">
+        <div class="card" style="border-top: 3px solid #1e3a8a;">
+          <div class="card-title" style="color: #0f294a;">Structural &amp; Building Additions</div>
+          <ul class="bullet-list" style="font-size: 7.6pt;">
+            <li>Constructing new homes, room additions, or dormers</li>
+            <li>Interior alterations, wall removals, finishing basements/attics</li>
+            <li>New kitchen or bathroom layout reconfigurations</li>
+            <li>Constructing or replacing outdoor decks or porches</li>
+            <li>Roof replacements and whole-house siding installations</li>
+            <li>Installing sheds or accessory structures &gt; 100 sq ft</li>
+            <li>Demolition of primary dwellings, sheds, or garages</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #16a34a;">
+          <div class="card-title" style="color: #166534;">Mechanical, Electrical &amp; Utilities</div>
+          <ul class="bullet-list" style="font-size: 7.6pt;">
+            <li>New heating systems, furnaces, boilers, heat pumps</li>
+            <li>Central air conditioning installations or replacements</li>
+            <li>Water heater replacements (tank or tankless)</li>
+            <li>Electrical service panel upgrades (100A to 200A+)</li>
+            <li>Whole-house backup generators and solar panel arrays</li>
+            <li>Gas line extensions, conversions, or fireplace inserts</li>
+            <li>Automatic lawn sprinkler systems (backflow preventer)</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 class="section-heading">Application Submission Methods: GovPilot &amp; Town Hall Drop Box</h2>
+      <p>
+        Applications may be submitted electronically via the <strong>Maplewood Online Application Forms portal (GovPilot)</strong> on <code>maplewoodnj.gov</code>. Paper UCC application jackets and subcode technical sections (Building, Electric, Plumbing, Fire) can also be submitted in person or placed into the <strong>24/7 Secure Permit Drop Box located at the Park Road side entrance of Maplewood Town Hall</strong>.
+      </p>
+
+      <div class="callout callout-amber">
+        <strong>MANDATORY DIGITAL INSPECTION REQUEST PROCESS:</strong><br>
+        All inspection requests must be submitted online using the Township’s digital <strong>Inspection Request Form</strong> on <code>maplewoodnj.gov</code>. Inspections are scheduled within statutory timeframes upon completion of each construction stage: rough framing, rough electric, rough plumbing, insulation, and final approvals. Work must not be covered prior to subcode inspector sign-off.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • Permit &amp; 311 Operations Guide (MW-PERMITS-311-GUIDE-2026-REV3)</div>
+      <div>Town Hall, 574 Valley Street, Maplewood, NJ 07040 • (973) 762-8120</div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 3: CHAPTER 2: DOCUMENTS REQUIRED BY PERMIT TYPE ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Construction Code &amp; Permits</div>
+        <div>Permit Application Checklists &amp; Required Documents • Page 3</div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 2: Itemized Checklist of Documents Required by Permit Type</h1>
+      <p>
+        To prevent application delays, the Construction Division enforces strict submittal standards. Incomplete packages will not be accepted for technical plan review. Below are the mandatory required documents for each primary permit classification:
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Permit Classification</th>
+            <th style="width: 48%;">Mandatory Required Documents Checklist</th>
+            <th style="width: 27%;">Statutory Codes &amp; Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Residential Decks &amp; Porches</strong></td>
+            <td>
+              • UCC Form F100 (Folder) &amp; Building Subcode F110<br>
+              • Scaled certified property survey showing setbacks to all property lines<br>
+              • Two (2) complete sets of structural framing plans (joist spans, beam sizes, ledger bolt pattern, flashing details)<br>
+              • Pier footing cross-section (min. 36″ frost depth, soil bearing)<br>
+              • Guardrail and handrail details (min. 36″ height, 4″ sphere spacing)
+            </td>
+            <td>
+              Zoning prior approval required.<br>
+              Footing inspection mandatory before pouring concrete.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Swimming Pools &amp; Spas</strong><br>(In-ground / Above-ground &gt;24″)</td>
+            <td>
+              • UCC Forms F100, Building F110, Electrical F120, Plumbing F130<br>
+              • Certified plot plan with proposed pool location &amp; impervious coverage<br>
+              • Manufacturer specifications &amp; structural engineering calculations<br>
+              • Pool safety barrier plan: 48″ non-climbable fence, self-closing/latching gates opening outward<br>
+              • Electrical equipotential bonding grid plan &amp; audible door alarm specs
+            </td>
+            <td>
+              N.J.A.C. 5:23 Subchapter 8.<br>
+              Requires rough trench, bonding, and barrier inspections.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Fences &amp; Retaining Walls</strong></td>
+            <td>
+              • Zoning Compliance Application (`ZP-2026`)<br>
+              • Scaled property survey showing exact fence alignment and height<br>
+              • Manufacturer cut-sheet showing style, height, and materials<br>
+              • For fences &gt;6 ft or retaining walls &gt;4 ft: UCC Building Subcode F110 and sealed engineering structural stability calculations
+            </td>
+            <td>
+              Finished/smooth side must face neighbors.<br>
+              Standard fences &le;6 ft exempt from UCC building permit.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Home Additions &amp; Finished Basements</strong></td>
+            <td>
+              • UCC Forms F100, F110 (Building), F120 (Electric), F130 (Plumbing)<br>
+              • Two (2) complete sets of architectural plans sealed by NJ licensed architect<br>
+              • Foundation, framing, cross-sections, and wall-bracing details<br>
+              • Emergency escape/egress window details (min. 5.7 sq ft, sill &le;44″)<br>
+              • REScheck energy compliance calculations and smoke detector layout
+            </td>
+            <td>
+              Zoning approval mandatory prior to UCC review.<br>
+              Mandatory inspections at all 5 milestone stages.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Roofing &amp; Siding Replacement</strong></td>
+            <td>
+              • UCC Form F100 &amp; Building Subcode Technical Section F110<br>
+              • Material specification sheets (shingle fire rating, underlayment type)<br>
+              • Ice-and-water shield details (min. 24″ past interior wall line)<br>
+              • Verification of existing roof layers (max. 2 layers permitted by code)<br>
+              • House-wrap and moisture barrier details for siding jobs
+            </td>
+            <td>
+              Stripping existing layers to decking requires sheathing inspection if rot detected.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>HVAC &amp; Water Heaters</strong><br>(Furnaces, Boilers, AC, Heaters)</td>
+            <td>
+              • UCC Form F100, Plumbing F130, Electrical F120, Fire F140<br>
+              • Manufacturer equipment efficiency data sheet and BTU ratings<br>
+              • Chimney verification form (for gas appliance venting into masonry)<br>
+              • Gas line sizing schematic (if increasing BTU input)
+            </td>
+            <td>
+              Emergency replacements permitted with permit application filed within 72 hours.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-navy">
+        <strong>HOMEOWNER DRAWING EXEMPTION:</strong> Under NJ UCC (N.J.A.C. 5:23-2.15), owner-occupants of single-family detached dwellings may draft their own architectural plans for deck, basement, or addition work, provided plans are neat, dimensioned, to scale, and include an executed Homeowner Certification. Work on multi-family dwellings or commercial properties requires drawings sealed by a NJ licensed architect or professional engineer.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • Permit &amp; 311 Operations Guide (MW-PERMITS-311-GUIDE-2026-REV3)</div>
+      <div>Town Hall, 574 Valley Street, Maplewood, NJ 07040 • (973) 762-8120</div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 4: CHAPTER 3: SPECIALIZED PERMITS & FORESTRY ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Construction Code &amp; Permits</div>
+        <div>Specialized Permits: Trees, Dumpsters &amp; Roads • Page 4</div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 3: Specialized Permits: Forestry, Dumpsters &amp; Engineering</h1>
+      
+      <h2 class="section-heading">Private Tree Removal Permits (Township Code Chapter 227)</h2>
+      <p>
+        The Township strictly regulates tree removals on private property to preserve its suburban forest canopy. A formal permit is mandatory before removing any tree measuring <strong>12 inches or more in caliper (DBH)</strong>.
+      </p>
+
+      <div class="grid-2">
+        <div class="card" style="border-left: 4px solid #16a34a;">
+          <div class="card-title" style="color: #166534;">Tree Removal Mandatory Document Checklist</div>
+          <ul class="bullet-list" style="font-size: 7.4pt;">
+            <li><strong>Completed Tree Permit Form:</strong> Species, DBH caliper, condition, and location.</li>
+            <li><strong>Registered Contractor Verification:</strong> Selected from official Registered Tree List.</li>
+            <li><strong>Contractor Insurance:</strong> COI showing min. $1,000,000 liability naming Township.</li>
+            <li><strong>Certified Mail Receipts:</strong> Postmarked slips sent to all abutting neighbors within 200 ft.</li>
+            <li><strong>Mitigation Plan:</strong> 1:1 replacement plan or proof of $375 Tree Fund deposit.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-left: 4px solid #d97706;">
+          <div class="card-title" style="color: #92400e;">Mandatory Replacement or $375 Contribution</div>
+          <p style="font-size: 7.6pt;">
+            For every permitted tree removed, the applicant must satisfy one statutory mitigation condition:
+          </p>
+          <ul class="bullet-list" style="font-size: 7.4pt;">
+            <li><strong>Option A (1-to-1 Native Replanting):</strong> Plant an approved native shade tree (min. 2.5-inch caliper) on property within 6 months.</li>
+            <li><strong>Option B (Municipal Tree Trust Fund):</strong> Pay replacement contribution of <strong>$375.00 per tree</strong> into Municipal Tree Bank.</li>
+          </ul>
+          <p style="font-size: 7.2pt; color: #64748b; margin-top: 2px;">
+            <em>Note:</em> Certified mailings to abutting neighbors are required regardless of tree health.
+          </p>
+        </div>
+      </div>
+
+      <h2 class="section-heading">Public Street Dumpsters &amp; Temporary Storage Containers (PODs)</h2>
+      <p>
+        Placing roll-off debris containers, Bagsters, or portable storage units (PODs) on municipal property requires strict compliance with Chapter 257:
+      </p>
+
+      <div class="grid-2">
+        <div class="card" style="border-top: 3px solid #16a34a;">
+          <div class="card-title" style="color: #166534;">Private Driveway Placement</div>
+          <div style="font-size: 9.5pt; font-weight: 800; color: #166534;">NO PERMIT REQUIRED</div>
+          <p style="font-size: 7.4pt; color: #475569; margin-top: 2px;">
+            If the container is positioned entirely on private property (inside driveway) without encroaching on public sidewalk or roadway, no permit or fee is required.
+          </p>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #dc2626;">
+          <div class="card-title" style="color: #991b1b;">Public Street Placement</div>
+          <div style="font-size: 9.5pt; font-weight: 800; color: #991b1b;">MANDATORY $50 PERMIT</div>
+          <p style="font-size: 7.4pt; color: #475569; margin-top: 2px;">
+            Placing a container in roadway requires DPW &amp; Police Traffic approval. Maximum duration: <strong>7 calendar days</strong> (1 renewal permitted).
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-amber">
+        <strong>STREET DUMPSTER REQUIRED SUBMISSION DOCUMENTS:</strong>
+        <ul class="bullet-list" style="margin: 2px 0 0 12px; font-size: 7.5pt;">
+          <li>Completed DPW Container Application (`DPW-CT-01`) filed at least 3 business days in advance.</li>
+          <li>Certificate of Insurance (COI) naming <em>Township of Maplewood</em> as additional insured ($300,000 liability).</li>
+          <li>Flat fee of <strong>$50.00</strong> per 7-day period. Reflective markers &amp; amber flashers mandatory. Prohibited on snow routes.</li>
+        </ul>
+      </div>
+
+      <h2 class="section-heading">Engineering Road Opening &amp; Utility Excavation Permits</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Permit Type</th>
+            <th>Documents &amp; Submissions Required</th>
+            <th>Restoration &amp; Performance Standards</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Street Opening / Road Cut</strong></td>
+            <td>Application ENG-RO-01, 811 Dig-Safe ticket, $150 filing fee, $1,500 escrow/bond, $1M contractor COI.</td>
+            <td>Mandatory infrared seamless asphalt pavement restoration. 90-day temporary settlement followed by 1-year final saw-cut patch.</td>
+          </tr>
+          <tr>
+            <td><strong>Sewer Lateral Connection</strong></td>
+            <td>Plumbing subcode permit, Engineering review, scaled riser diagram, trench safety plan, licensed plumber credentials.</td>
+            <td>Air pressure testing and DPW inspection prior to backfill. Connection must utilize approved saddle onto main sewer.</td>
+          </tr>
+          <tr>
+            <td><strong>Driveway Apron / Curb Cut</strong></td>
+            <td>Zoning compliance form, plot plan with dimensions, slope drainage schematic, concrete contractor licensing.</td>
+            <td>Minimum 6-inch reinforced concrete (4,000 PSI) with expansion joints at sidewalk and curb interfaces.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • Permit &amp; 311 Operations Guide (MW-PERMITS-311-GUIDE-2026-REV3)</div>
+      <div>Town Hall, 574 Valley Street, Maplewood, NJ 07040 • (973) 762-8120</div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 5: CHAPTER 4: 311 CITIZEN SERVICE REQUESTS (POTHOLES) ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Citizen 311 Municipal Operations</div>
+        <div>311 Service Requests: Pothole Intake &amp; Triage Standards • Page 5</div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 4: 311 Citizen Municipal Service Requests — Pothole Intake</h1>
+      
+      <div style="background: #eff6ff; border: 1.5px solid #1e3a8a; border-radius: 5px; padding: 7px 11px; margin-bottom: 8px;">
+        <div style="font-size: 9.6pt; font-weight: 800; color: #0f294a; margin-bottom: 3px; font-family: Georgia, serif;">
+          FAQ: "I want to create a service request for a pothole — what information do you need?"
+        </div>
+        <p style="font-size: 7.9pt; color: #1e3a8a; margin: 0; line-height: 1.4;">
+          When submitting a service request for a pothole or roadway defect via the 311 Citizen Portal, mobile app, or dispatch desk, the DPW Road Maintenance Division requires <strong>seven (7) specific data points</strong> to triage, dispatch, and track the repair to completion:
+        </p>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 27%;">Required Field</th>
+            <th style="width: 47%;">Operational Description &amp; Specific Details</th>
+            <th style="width: 26%;">System Validation Rule</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Exact Incident Location</strong></td>
+            <td>Specific house address (e.g., <em>148 Valley Street</em>) or primary roadway with nearest cross-streets (e.g., <em>Baker St between Maplewood Ave and Ridgewood Rd</em>).</td>
+            <td>Matches municipal GIS address database.</td>
+          </tr>
+          <tr>
+            <td><strong>2. Direction &amp; Lane Position</strong></td>
+            <td>Compass heading (Northbound, Southbound, Eastbound, Westbound) and exact lane: center travel lane, tire path, curb lane/gutter, or pedestrian crosswalk.</td>
+            <td>Identifies lane closure safety requirements.</td>
+          </tr>
+          <tr>
+            <td><strong>3. Size &amp; Severity Bracket</strong></td>
+            <td>
+              Citizen selects from three standard severity brackets:
+              <br>• <strong>Tier 1 (&lt;25 cm / &lt;10″):</strong> Shallow pitting / surface spall (&lt;1″ deep).
+              <br>• <strong>Tier 2 (25–60 cm / 10–24″):</strong> Medium pothole, depth 1–3″.
+              <br>• <strong>Tier 3 (&gt;60 cm / &gt;24″):</strong> Large crater, depth &gt;3″ with exposed sub-base.
+            </td>
+            <td>Tier 3 triggers immediate High Priority Dispatch Flag.</td>
+          </tr>
+          <tr>
+            <td><strong>4. Jurisdiction Validation</strong></td>
+            <td>Verification whether local municipal road or Essex County roadway (e.g., <em>Springfield Ave, Valley St, Wyoming Ave</em>). County roads automatically routed to County DPW with cross-reference tracking.</td>
+            <td>Prevents misplaced work orders.</td>
+          </tr>
+          <tr>
+            <td><strong>5. Environmental &amp; Hazards</strong></td>
+            <td>Hazard flags: Standing water concealing hole depth, sharp jagged asphalt edges posing blowout risk, or encroachment on bicycle lanes or school crosswalks.</td>
+            <td>Water-filled cavities escalated to emergency triage.</td>
+          </tr>
+          <tr>
+            <td><strong>6. Digital Photographs</strong></td>
+            <td>Two (2) images: (1) Wide shot showing roadway location context, and (2) close-up shot showing cavity depth and pavement deterioration.</td>
+            <td>Geo-tag coordinates verified against location pin.</td>
+          </tr>
+          <tr>
+            <td><strong>7. Citizen Contact Info</strong></td>
+            <td>Reporter full name, telephone number (for SMS dispatch alerts), and email address. Generates automated tracking ID (<code>CASE-2026-XXXX</code>).</td>
+            <td>Anonymous reports accepted without live tracking.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-heading">Operational Response SLAs &amp; Duplicate Suppression</h2>
+      <div class="grid-2">
+        <div class="card" style="border-left: 4px solid #dc2626;">
+          <div class="card-title" style="color: #991b1b;">Pothole Response SLAs</div>
+          <p style="font-size: 7.5pt;">
+            <strong>Tier 3 / Travel Lane Craters:</strong> Dispatched within <strong>24 hours</strong> for emergency cold/hot-patch asphalt compaction.
+          </p>
+          <p style="font-size: 7.5pt; color: #475569;">
+            <strong>Tier 1 &amp; Tier 2 / Secondary Roads:</strong> Inspected and repaired within <strong>3 to 5 business days</strong> during scheduled ward sweep.
+          </p>
+        </div>
+
+        <div class="card" style="border-left: 4px solid #1e3a8a;">
+          <div class="card-title" style="color: #1e3a8a;">Automated Duplicate Suppression Rule</div>
+          <p style="font-size: 7.5pt;">
+            Submissions within a <strong>50-meter geographic radius</strong> logged within the prior <strong>30 calendar days</strong> are automatically consolidated into the active parent ticket.
+          </p>
+          <p style="font-size: 7.5pt; color: #475569;">
+            New reporters are appended as subscribed citizens receiving real-time SMS updates without creating redundant crew dispatches.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • Permit &amp; 311 Operations Guide (MW-PERMITS-311-GUIDE-2026-REV3)</div>
+      <div>Town Hall, 574 Valley Street, Maplewood, NJ 07040 • (973) 762-8120</div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 6: CHAPTER 5: ADDITIONAL 311 CATEGORIES & LIFECYCLE ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Citizen 311 Municipal Operations</div>
+        <div>Service Request Categories &amp; Work Order Lifecycle • Page 6</div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 5: Additional 311 Service Categories &amp; Work Order Lifecycle</h1>
+      <p>
+        The 311 Citizen Service Portal manages a comprehensive suite of public works, sanitation, and infrastructure service requests across the municipality:
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Service Category</th>
+            <th style="width: 42%;">Mandatory Reporting Information</th>
+            <th style="width: 33%;">Operational Rules &amp; SLA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Missed Waste &amp; Recycling</strong></td>
+            <td>
+              • Full street address and collection zone (Sec 1–6)<br>
+              • Stream: Recycling, Organics, or Garbage<br>
+              • Confirmation bins were set out before 7:00 AM
+            </td>
+            <td>
+              <strong>Strict 5:00 PM Cutoff:</strong> Reports accepted strictly after 5:00 PM on collection day.<br>
+              <strong>Resolution SLA:</strong> 2 business days for re-collection sweep.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Streetlight Outages &amp; Damage</strong></td>
+            <td>
+              • Six-digit pole tag stamped on metal plate (<code>ML-XXXX</code>)<br>
+              • Exact street address or closest house number<br>
+              • Condition: Lamp out, flickering, or exposed wiring
+            </td>
+            <td>
+              <strong>Standard SLA:</strong> 5 to 7 business days for lamp replacement.<br>
+              <strong>Emergency SLA:</strong> Exposed wiring dispatched within <strong>24 hours</strong>.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Boulevard Trees &amp; Limbs</strong></td>
+            <td>
+              • Exact location of municipal tree on town right-of-way<br>
+              • Hazard type: Hanging limb, uprooted trunk, road obstruction<br>
+              • Digital photo showing proximity to lanes/wires
+            </td>
+            <td>
+              <strong>Jurisdiction Rule:</strong> Town maintains trees within <strong>4.5 meters (14.8 ft) of curb</strong>.<br>
+              <strong>Emergency SLA:</strong> 48 hours for hazards; 10 days for pruning.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Storm Drain Clogs &amp; Floods</strong></td>
+            <td>
+              • Exact catch basin location / intersection<br>
+              • Water depth and surface coverage across roadway<br>
+              • Obstruction type: Leaf pack, branch debris, or silt
+            </td>
+            <td>
+              <strong>Severe Storm Dispatch:</strong> Roving vacuum truck crews dispatched immediately. Flooding &gt;3 inches triggered as immediate road hazard.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-heading" style="margin-top: 8px;">The 4-Stage Municipal Work Order Status Lifecycle</h2>
+      <p style="margin-bottom: 6px;">
+        Every service request logged into the 311 system follows a transparent, four-stage lifecycle with real-time notifications dispatched via SMS or email:
+      </p>
+
+      <div class="grid-2">
+        <div class="card" style="border-top: 3px solid #64748b;">
+          <div class="card-title" style="color: #334155;">Stage 1: Received (Status: New)</div>
+          <p style="font-size: 7.4pt; color: #475569; margin: 0;">
+            Request ingested into central database. GIS verification and duplicate check executed. Unique tracking ID (<code>CASE-2026-XXXX</code>) dispatched to citizen within 2 minutes.
+          </p>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #2563eb;">
+          <div class="card-title" style="color: #1d4ed8;">Stage 2: Dispatched (Status: Assigned)</div>
+          <p style="font-size: 7.4pt; color: #475569; margin: 0;">
+            Work order reviewed by area maintenance supervisor and assigned to specific road crew, vacuum truck, or tree team. Route optimization scheduled by severity bracket.
+          </p>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #d97706;">
+          <div class="card-title" style="color: #92400e;">Stage 3: In Progress (Status: Active)</div>
+          <p style="font-size: 7.4pt; color: #475569; margin: 0;">
+            Field crew actively on site. Safety perimeter established, asphalt compacted, or limb cleared. If secondary utility work required, ticket updated with sub-status.
+          </p>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #16a34a;">
+          <div class="card-title" style="color: #166534;">Stage 4: Completed (Status: Closed)</div>
+          <p style="font-size: 7.4pt; color: #475569; margin: 0;">
+            Work inspected and approved by field foreman. Timestamped completion photo uploaded to ticket record. Citizen receives automated SMS/email resolution notice.
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-green" style="margin-top: 6px;">
+        <strong>HOW CITIZENS CAN TRACK REAL-TIME 311 TICKETS:</strong><br>
+        Check live work order status 24/7 by visiting <code>maplewoodnj.gov/services/track</code> and entering your <code>CASE-2026-XXXX</code> number, or by texting <strong>STATUS [CASE-NUMBER]</strong> to <strong>(555) 311-MAPL</strong>.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • Permit &amp; 311 Operations Guide (MW-PERMITS-311-GUIDE-2026-REV3)</div>
+      <div>Town Hall, 574 Valley Street, Maplewood, NJ 07040 • (973) 762-8120</div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 7: CHAPTER 6: ZONING, FIRE SAFETY & FEES ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Construction Code &amp; Permits</div>
+        <div>Zoning Approvals, Fire Resale &amp; Master Fee Table • Page 7</div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 6: Prior Approvals, Fire Certificates &amp; Master Fee Schedule</h1>
+
+      <h2 class="section-heading">Zoning Compliance &amp; Certificate of Smoke / Carbon Monoxide (CSDCMAC)</h2>
+      <p>
+        <strong>Zoning Prior Approval:</strong> Prior to obtaining construction permits for building additions, decks, pools, sheds, driveways, or fences, property owners must secure a <strong>Zoning Permit</strong> to certify compliance with building setbacks, building height maximums, and allowable impervious surface coverage.
+      </p>
+      <p>
+        <strong>Certificate of Smoke Detector &amp; Carbon Monoxide Alarm Compliance (CSDCMAC):</strong> In accordance with N.J.A.C. 5:70-4.19, prior to the resale, lease, or change of occupancy of any residential dwelling, the owner must obtain a CSDCMAC inspection from the Maplewood Fire Department certifying operational smoke alarms on every level, carbon monoxide alarms outside sleeping areas, and an approved portable fire extinguisher in the kitchen.
+      </p>
+
+      <h2 class="section-heading">Master Municipal Permit Fee Schedule Summary</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Municipal Permit Category</th>
+            <th>Standard Review Fee</th>
+            <th>Statutory Review Window</th>
+            <th>Governing Ordinance / Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Residential UCC Building Permit</strong></td>
+            <td>$65.00 base + cubic/sq ft calculation</td>
+            <td>20 Business Days</td>
+            <td>NJ UCC (N.J.A.C. 5:23) / Construction Division</td>
+          </tr>
+          <tr>
+            <td><strong>Residential Deck Construction Permit</strong></td>
+            <td>$185.00 flat standard review</td>
+            <td>10 to 15 Business Days</td>
+            <td>Construction Division &amp; Zoning</td>
+          </tr>
+          <tr>
+            <td><strong>Swimming Pool Enclosure Permit</strong></td>
+            <td>$150.00 standard review</td>
+            <td>10 Business Days</td>
+            <td>Construction Division (Building/Electric)</td>
+          </tr>
+          <tr>
+            <td><strong>Residential Fence Zoning Permit</strong></td>
+            <td>$50.00 flat review fee</td>
+            <td>10 Business Days</td>
+            <td>Zoning Division (Township Code Ch. 271)</td>
+          </tr>
+          <tr>
+            <td><strong>Public Street Dumpster Permit</strong></td>
+            <td>$50.00 per 7-day period</td>
+            <td>2 to 3 Business Days</td>
+            <td>DPW &amp; Police Traffic Division</td>
+          </tr>
+          <tr>
+            <td><strong>Private Tree Removal Permit (&ge;12″ DBH)</strong></td>
+            <td>$50.00 app + 1:1 replant or $375 Tree Fund</td>
+            <td>10 to 15 Business Days</td>
+            <td>Township Code Chapter 227 / DPW</td>
+          </tr>
+          <tr>
+            <td><strong>Engineering Street Opening Permit</strong></td>
+            <td>$175.00 base + bond calculation</td>
+            <td>10 Business Days</td>
+            <td>Engineering Department / DPW</td>
+          </tr>
+          <tr>
+            <td><strong>Fire Safety CSDCMAC Resale Inspection</strong></td>
+            <td>$50.00 – $125.00 (based on lead time)</td>
+            <td>5 Business Days</td>
+            <td>Fire Prevention Bureau (N.J.A.C. 5:70)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-amber">
+        <strong>FEE WAIVER POLICY FOR EMERGENCY REPAIRS:</strong> In the event of catastrophic structural damage caused by declared natural disasters, severe storms, or emergency municipal sewer backups, filing fees for emergency structural stabilization permits may be waived by resolution of the Township Committee.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • Permit &amp; 311 Operations Guide (MW-PERMITS-311-GUIDE-2026-REV3)</div>
+      <div>Town Hall, 574 Valley Street, Maplewood, NJ 07040 • (973) 762-8120</div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 8: CHAPTER 7: INSPECTIONS & DIRECTORY ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-left">Township of Maplewood • Construction Code &amp; Permits</div>
+        <div>Mandatory Inspections &amp; Department Directory • Page 8</div>
+      </div>
+
+      <h1 class="chapter-title">Chapter 7: Mandatory Inspection Milestones &amp; Department Directory</h1>
+
+      <h2 class="section-heading">The 5 Mandatory Construction Inspection Milestones</h2>
+      <p>
+        Under N.J.A.C. 5:23-2.18, work must not proceed beyond designated milestone stages without documented sign-off from licensed municipal subcode officials. Work covered prior to inspection is subject to mandatory stop-work orders and physical opening:
+      </p>
+
+      <div class="grid-2">
+        <div class="card" style="border-top: 3px solid #0f294a;">
+          <div class="card-title" style="color: #0f294a;">1. Bottom of Footing Inspection</div>
+          <p style="font-size: 7.5pt; color: #475569; margin: 0;">
+            Conducted prior to pouring concrete. Verifies excavation depth (min. 36″ below finished grade for frost line), soil bearing integrity, pier hole dimensions, and rebar positioning.
+          </p>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #1e3a8a;">
+          <div class="card-title" style="color: #1e3a8a;">2. Foundation &amp; Underground Utilities</div>
+          <p style="font-size: 7.5pt; color: #475569; margin: 0;">
+            Conducted prior to backfilling foundation walls. Verifies wall parging, waterproofing, perimeter footing drains, sub-slab plumbing lines under pressure test, and anchor bolts.
+          </p>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #d97706;">
+          <div class="card-title" style="color: #92400e;">3. Rough Framing, Plumbing &amp; Electrical</div>
+          <p style="font-size: 7.5pt; color: #475569; margin: 0;">
+            Conducted after full structural frame, roof sheathing, rough wiring, and rough piping are installed. Must be approved BEFORE insulation or wallboard is hung.
+          </p>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #16a34a;">
+          <div class="card-title" style="color: #166534;">4. Insulation &amp; Thermal Envelope</div>
+          <p style="font-size: 7.5pt; color: #475569; margin: 0;">
+            Verifies R-value compliance (R-21 walls, R-49 attics), continuous vapor barriers, air-sealing of penetrations, and proper baffles at roof soffits prior to drywall installation.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" style="border-left: 4px solid #16a34a; margin-bottom: 6px;">
+        <div class="card-title" style="color: #166534;">5. Final Inspections &amp; Certificate of Occupancy / Approval (CO / CA)</div>
+        <p style="font-size: 7.5pt; color: #334155; margin: 0;">
+          Conducted upon 100% completion of all construction, electrical, plumbing, mechanical, and fire protection scopes. Once all subcode inspectors sign the permit jacket, the Construction Official issues the formal <strong>Certificate of Occupancy (CO)</strong> or <strong>Certificate of Approval (CA)</strong>. Occupancy prior to CO issuance carries fines of up to $2,000 per week.
+        </p>
+      </div>
+
+      <h2 class="section-heading" style="margin-top: 6px;">Departmental Directory &amp; Municipal Permit Contact Desk</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Department / Municipal Office</th>
+            <th>Telephone &amp; Extension</th>
+            <th>Official Email Address</th>
+            <th>Office Hours &amp; Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Construction Division (UCC)</strong></td>
+            <td>(973) 762-8120 Ext. 3100</td>
+            <td>construction@maplewoodnj.gov</td>
+            <td>Mon–Fri 8:30 AM – 4:30 PM • Town Hall</td>
+          </tr>
+          <tr>
+            <td><strong>Engineering Department</strong></td>
+            <td>(973) 762-8120 Ext. 3200</td>
+            <td>engineering@maplewoodnj.gov</td>
+            <td>Mon–Fri 8:30 AM – 4:30 PM • Town Hall</td>
+          </tr>
+          <tr>
+            <td><strong>Zoning &amp; Community Development</strong></td>
+            <td>(973) 762-8120 Ext. 3300</td>
+            <td>zoning@maplewoodnj.gov</td>
+            <td>Mon–Fri 8:30 AM – 4:30 PM • Town Hall</td>
+          </tr>
+          <tr>
+            <td><strong>Department of Public Works (DPW)</strong></td>
+            <td>(973) 762-1175</td>
+            <td>publicworks@maplewoodnj.gov</td>
+            <td>Mon–Fri 8:00 AM – 3:00 PM • 359 Boyden Ave</td>
+          </tr>
+          <tr>
+            <td><strong>311 Citizen Service &amp; Pothole Desk</strong></td>
+            <td>(555) 311-MAPL / 311</td>
+            <td>services311@maplewoodnj.gov</td>
+            <td>24/7 Digital Intake • Dispatch: (555) 123-7623</td>
+          </tr>
+          <tr>
+            <td><strong>Fire Prevention Bureau</strong></td>
+            <td>(973) 762-6500</td>
+            <td>fireprevention@maplewoodnj.gov</td>
+            <td>Mon–Fri 8:30 AM – 4:30 PM • Fire HQ</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top: 6px; font-size: 7.2pt; color: #64748b; text-align: center; border-top: 1px solid #cbd5e1; padding-top: 3px;">
+        Published by Authority of the Township Committee of the Township of Maplewood • Construction &amp; DPW Divisions • All rights reserved.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>Township of Maplewood • Permit &amp; 311 Operations Guide (MW-PERMITS-311-GUIDE-2026-REV3)</div>
+      <div>Town Hall, 574 Valley Street, Maplewood, NJ 07040 • (973) 762-8120</div>
+    </div>
+  </div>
+
+</body>
+</html>
