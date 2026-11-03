@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import townData from '../data/townData.json';
 
 type Language = 'en' | 'fr' | 'es';
@@ -30,6 +30,51 @@ export default function WayhallChatWidget() {
   const [isTyping, setIsTyping] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleDirectFormClick = (e: React.MouseEvent<HTMLAnchorElement>, targetUrl: string) => {
+    e.preventDefault();
+    setIsOpen(false);
+
+    const [targetPath, targetHash] = targetUrl.split('#');
+    const currentFull = location.pathname + location.search;
+
+    if (currentFull !== targetPath) {
+      navigate(targetUrl);
+    }
+
+    setTimeout(() => {
+      let targetEl: HTMLElement | null = null;
+      if (targetHash) {
+        targetEl = document.getElementById(targetHash);
+      }
+      if (!targetEl) {
+        targetEl =
+          document.getElementById('service-request-form') ||
+          document.getElementById('deck-permit-form') ||
+          document.getElementById('pool-permit-form') ||
+          document.getElementById('burn-permit-form') ||
+          document.getElementById('service-request-portal-container') ||
+          document.querySelector('form');
+      }
+
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        targetEl.classList.add('ring-4', 'ring-blue-400', 'transition-all');
+        setTimeout(() => {
+          targetEl?.classList.remove('ring-4', 'ring-blue-400');
+        }, 1500);
+
+        const firstInput = targetEl.querySelector('input:not([type="hidden"]), select, textarea') as HTMLElement | null;
+        if (firstInput) {
+          firstInput.focus();
+        }
+      } else {
+        window.scrollTo({ top: 350, behavior: 'smooth' });
+      }
+    }, 150);
+  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -296,6 +341,11 @@ export default function WayhallChatWidget() {
           text: "Signalement des nids-de-poule et entretien des routes :\n• Informations requises : Adresse civique exacte ou intersection la plus proche, direction de la voie, et estimation de la taille.\n• Délais d'intervention (SLA) : Petit (<25 cm) : 5 jours ouvrables ; Moyen (25-60 cm) : 3 jours ; Grand (>60 cm ou voie principale) : Priorité élevée, inspecté en 24 heures.\n• Dédoublonnage : Les signalements dans un rayon de 50 m sous 30 jours sont automatiquement regroupés.\n• Urgences 24/7 (fils tombés ou bris majeurs) : 1-800-434-1235 ou 911.",
           sourceTitle: 'Entretien des routes et nids-de-poule',
           sourceUrl: '/services/roads',
+          permitLink: {
+            title: 'Signaler un nid-de-poule en ligne (Portail 311)',
+            url: '/services/request?type=pothole',
+            fee: 'Gratuit / Service public',
+          },
         };
       }
       if (lang === 'es') {
@@ -303,12 +353,22 @@ export default function WayhallChatWidget() {
           text: "Reporte de baches y mantenimiento de carreteras:\n• Datos requeridos : Dirección exacta o intersección más cercana, carril de circulación y tamaño aproximado.\n• Tiempos de atención (SLA) : Pequeño (<25 cm) : 5 días hábiles ; Mediano (25-60 cm) : 3 días ; Grande (>60 cm o en carril activo) : Prioridad alta, inspeccionado en 24 horas.\n• Prevención de duplicados : Reportes a menos de 50 metros en los últimos 30 días se unifican automáticamente.\n• Cables caídos y emergencias viales : 1-800-434-1235 o llame al 911.",
           sourceTitle: 'Mantenimiento de Carreteras e Infraestructura',
           sourceUrl: '/services/roads',
+          permitLink: {
+            title: 'Reportar bache o peligro vial en línea (Portal 311)',
+            url: '/services/request?type=pothole',
+            fee: 'Gratuito / Servicio público',
+          },
         };
       }
       return {
         text: "Pothole & Road Hazard Reporting Guidelines:\n• Required Details: Exact street address or closest cross-street, active travel lane direction, and size estimation.\n• Size & Response SLA: Small (<25 cm): 5 business days; Medium (25-60 cm): 3 business days; Large (>60 cm or active travel lane): High Severity, inspected within 24 hours.\n• Duplicate Prevention: Reports within 50 meters submitted within the last 30 days are automatically consolidated into existing work orders.\n• Downed Power Lines / Urgent Road Emergencies: Call Hydro immediately at 1-800-434-1235 or 911.",
         sourceTitle: 'Roads, Potholes & Infrastructure Maintenance',
         sourceUrl: '/services/roads',
+        permitLink: {
+          title: 'Report Pothole / Road Hazard Online (311 Portal)',
+          url: '/services/request?type=pothole',
+          fee: 'Free Civic Service',
+        },
       };
     }
 
@@ -759,12 +819,22 @@ export default function WayhallChatWidget() {
                   {msg.permitLink && (
                     <div className="mt-3 pt-2.5 border-t border-slate-200 space-y-1.5">
                       <div className="text-[10px] uppercase font-bold tracking-wider text-blue-900">
-                        ⚡ Direct Online Permit Form
+                        {msg.permitLink.url.includes('/services/')
+                          ? language === 'es'
+                            ? '⚡ Formulario Directo de Solicitud 311'
+                            : language === 'fr'
+                            ? '⚡ Formulaire Direct de Demande 311'
+                            : '⚡ Direct 311 Service Request Form'
+                          : language === 'es'
+                          ? '⚡ Formulario Oficial de Permiso en Línea'
+                          : language === 'fr'
+                          ? '⚡ Formulaire Officiel de Permis en Ligne'
+                          : '⚡ Direct Online Permit Form'}
                       </div>
-                      <NavLink
-                        to={msg.permitLink.url}
-                        onClick={() => setIsOpen(false)}
-                        className="block bg-blue-50 hover:bg-blue-100 border border-blue-300 text-blue-950 font-bold p-2.5 rounded-xl transition-colors shadow-xs group"
+                      <a
+                        href={msg.permitLink.url}
+                        onClick={(e) => handleDirectFormClick(e, msg.permitLink!.url)}
+                        className="block bg-blue-50 hover:bg-blue-100 border border-blue-300 text-blue-950 font-bold p-2.5 rounded-xl transition-colors shadow-xs group cursor-pointer"
                       >
                         <div className="flex items-center justify-between">
                           <span className="text-xs group-hover:underline">
@@ -775,9 +845,13 @@ export default function WayhallChatWidget() {
                           </span>
                         </div>
                         <div className="text-[10px] text-blue-700 font-normal mt-0.5">
-                          Click to open direct municipal application form →
+                          {language === 'es'
+                            ? 'Haga clic para abrir y llenar el formulario directo →'
+                            : language === 'fr'
+                            ? 'Cliquez pour ouvrir et remplir le formulaire direct →'
+                            : 'Click to open and jump directly to online form →'}
                         </div>
-                      </NavLink>
+                      </a>
                     </div>
                   )}
 
@@ -785,13 +859,13 @@ export default function WayhallChatWidget() {
                   {msg.sourceUrl && (
                     <div className="mt-2 pt-2 border-t border-slate-100 text-[10px] text-slate-500 flex items-center gap-1">
                       <span>📖 Source:</span>
-                      <NavLink
-                        to={msg.sourceUrl}
-                        onClick={() => setIsOpen(false)}
-                        className="text-blue-700 hover:underline font-semibold"
+                      <a
+                        href={msg.sourceUrl}
+                        onClick={(e) => handleDirectFormClick(e, msg.sourceUrl!)}
+                        className="text-blue-700 hover:underline font-semibold cursor-pointer"
                       >
                         {msg.sourceTitle || 'Town of Maplewood By-laws'} →
-                      </NavLink>
+                      </a>
                     </div>
                   )}
                 </div>

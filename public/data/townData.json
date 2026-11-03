@@ -504,28 +504,287 @@
       "deckPermit": {
         "title": "Deck Permit Application",
         "url": "https://mapplewood-fictional-town.onrender.com/permits/apply/deck",
+        "deepLink": "https://mapplewood-fictional-town.onrender.com/permits/apply?type=deck#deck-permit-form",
         "code": "PERM-DECK",
-        "fee": "Subject to review",
-        "sla": "Standard review",
+        "fee": "$175.00 CAD base fee",
+        "sla": "10 business days review",
         "method": "POST"
       },
       "poolPermit": {
         "title": "Pool Enclosure Application",
         "url": "https://mapplewood-fictional-town.onrender.com/permits/apply/pool",
+        "deepLink": "https://mapplewood-fictional-town.onrender.com/permits/apply?type=pool#pool-permit-form",
         "code": "PERM-POOL",
-        "fee": "Subject to review",
-        "sla": "Standard review",
+        "fee": "$250.00 CAD (Inground) / $150.00 CAD (Above-ground)",
+        "sla": "15 business days review",
         "method": "POST"
       },
       "burnPermit": {
         "title": "Open-Air Burn Application",
         "url": "https://mapplewood-fictional-town.onrender.com/permits/apply/burn",
+        "deepLink": "https://mapplewood-fictional-town.onrender.com/permits/apply?type=burn#burn-permit-form",
         "code": "PERM-BURN",
-        "fee": "Subject to review",
-        "sla": "Standard review",
+        "fee": "$45.00 CAD per calendar year",
+        "sla": "Instant for verified agricultural parcel; 2 business days manual review",
         "method": "POST"
       }
-    }
+    },
+    "directFormsDirectory": [
+      {
+        "id": "deck-permit-apply",
+        "category": "Building & Construction Permits",
+        "title": "Residential Deck Permit Application Form",
+        "url": "https://mapplewood-fictional-town.onrender.com/permits/apply/deck",
+        "relativeUrl": "/permits/apply/deck",
+        "deepLink": "https://mapplewood-fictional-town.onrender.com/permits/apply?type=deck#deck-permit-form",
+        "anchorId": "deck-permit-form",
+        "exactUse": "Application for construction, structural repair, enlargement, or replacement of residential attached or detached decks, verandas, or porches over 24 inches (600 mm) in height.",
+        "requiredDetails": [
+          "Property address and roll number",
+          "Site plan with property line setbacks (min 1.2m side, 6.0m rear)",
+          "Structural framing plans (beam size, joist span, 42-inch frost footings, railing details min 36 or 42 inches)",
+          "Contractor license & insurance or owner-builder declaration"
+        ],
+        "fee": "$175.00 CAD base fee",
+        "sla": "10 business days standard review",
+        "byLaw": "Ontario Building Code & Township Code Ch. 120",
+        "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/permits/apply/deck"
+      },
+      {
+        "id": "pool-permit-apply",
+        "category": "Building & Construction Permits",
+        "title": "Swimming Pool & Hot Tub Enclosure Permit Application Form",
+        "url": "https://mapplewood-fictional-town.onrender.com/permits/apply/pool",
+        "relativeUrl": "/permits/apply/pool",
+        "deepLink": "https://mapplewood-fictional-town.onrender.com/permits/apply?type=pool#pool-permit-form",
+        "anchorId": "pool-permit-form",
+        "exactUse": "Installation of in-ground pools, above-ground pools (water depth > 24 inches / 60 cm), outdoor swim spas, hot tubs, and mandatory perimeter safety enclosures/fences.",
+        "requiredDetails": [
+          "Sealed grading & drainage plan",
+          "Property boundary survey showing pool setbacks (min 1.5m from lot line)",
+          "Fence enclosure specifications (min 1.2m / 48\" or 1.5m / 5ft, self-closing & self-latching gate swinging outward min 1.35m latch height)",
+          "Ontario One Call / Dig Locate confirmation",
+          "ESA electrical safety inspection signoff"
+        ],
+        "fee": "$250.00 CAD (Inground) / $150.00 CAD (Above-ground)",
+        "sla": "15 business days review",
+        "byLaw": "Pool Enclosure By-law 2022-18",
+        "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/permits/apply/pool"
+      },
+      {
+        "id": "burn-permit-apply",
+        "category": "Fire & Agricultural Permits",
+        "title": "Open-Air Agricultural Burn Permit Application Form",
+        "url": "https://mapplewood-fictional-town.onrender.com/permits/apply/burn",
+        "relativeUrl": "/permits/apply/burn",
+        "deepLink": "https://mapplewood-fictional-town.onrender.com/permits/apply?type=burn#burn-permit-form",
+        "anchorId": "burn-permit-form",
+        "exactUse": "Controlled seasonal open-air burning of clean agricultural crop residues, woody brush, and orchard trimmings on eligible rural parcels. Strictly prohibited in urban/residential subdivisions.",
+        "requiredDetails": [
+          "Property roll number",
+          "Confirmation of rural agricultural zoning & parcel size > 2.0 acres",
+          "Pile dimensions (max 2.0m x 2.0m x 2.0m)",
+          "Min 25m clearance from structures/woodlands",
+          "On-site fire extinguishing equipment (charged 50-ft hose or 500-gal water tank)",
+          "Contact phone of adult supervisor (18+) present"
+        ],
+        "fee": "$45.00 CAD per calendar year",
+        "sla": "Instant verification if parcel verified; 2 business days for manual review",
+        "byLaw": "Open-Air Burn By-law 2021-09",
+        "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/permits/apply/burn"
+      },
+      {
+        "id": "permits-portal-hub",
+        "category": "Building & Construction Permits",
+        "title": "Central Online Permit Application Portal",
+        "url": "https://mapplewood-fictional-town.onrender.com/permits/apply",
+        "relativeUrl": "/permits/apply",
+        "deepLink": "https://mapplewood-fictional-town.onrender.com/permits/apply#permit-portal",
+        "anchorId": "permit-portal",
+        "exactUse": "Unified municipal permit intake portal allowing applicants to select between Decks, Pools, Burn Permits, Demolition, Additions, and Accessory Structures.",
+        "requiredDetails": ["Basic project details", "Property roll number", "Applicant contact"],
+        "fee": "Variable per permit schedule (By-law 2026-02)",
+        "sla": "10 to 15 business days",
+        "byLaw": "By-law 2026-02 Fee Schedule",
+        "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/permits/apply"
+      },
+      {
+        "id": "311-service-request-portal",
+        "category": "311 Citizen Municipal Requests",
+        "title": "Central 311 Citizen Service Request Portal",
+        "url": "https://mapplewood-fictional-town.onrender.com/services/request",
+        "relativeUrl": "/services/request",
+        "deepLink": "https://mapplewood-fictional-town.onrender.com/services/request#service-request-form",
+        "anchorId": "service-request-form",
+        "exactUse": "Centralized municipal intake for all non-emergency civic work orders across roads, sanitation, parks, forestry, water utilities, and streetlights. Generates CASE-2026-XXXX tracking IDs.",
+        "requiredDetails": ["Address", "Category selection", "Description", "Citizen contact info"],
+        "fee": "Free Civic Service",
+        "sla": "Varies by category (24h to 5 business days)",
+        "byLaw": "Maplewood Municipal Operations Standards",
+        "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/services/request"
+      },
+      {
+        "id": "311-pothole-request",
+        "category": "311 Citizen Municipal Requests",
+        "title": "Pothole & Road Surface Hazard Request Form",
+        "url": "https://mapplewood-fictional-town.onrender.com/services/request?type=pothole",
+        "relativeUrl": "/services/request?type=pothole",
+        "deepLink": "https://mapplewood-fictional-town.onrender.com/services/request?type=pothole#service-request-form",
+        "anchorId": "service-request-form",
+        "exactUse": "Reporting potholes, asphalt craters, shoulder erosion, sunken catch basins, or road surface defects on municipal streets.",
+        "requiredDetails": [
+          "Exact address or nearest cross-streets",
+          "Lane direction (NB, SB, EB, WB)",
+          "Size tier (<25cm shallow, 25-60cm medium, >60cm emergency rim-damage crater)",
+          "Photo upload (optional but recommended)",
+          "Citizen name, email, mobile phone"
+        ],
+        "fee": "Free Civic Service",
+        "sla": "24 hours for Tier 3 / active travel lanes; 3–5 business days for standard Tier 1-2",
+        "byLaw": "Minimum Maintenance Standards for Municipal Highways (O. Reg. 239/02)",
+        "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/services/request?type=pothole"
+      },
+      {
+        "id": "311-missed-waste-request",
+        "category": "311 Citizen Municipal Requests",
+        "title": "Missed Curbside Waste & Bin Replacement Form",
+        "url": "https://mapplewood-fictional-town.onrender.com/services/request?type=waste",
+        "relativeUrl": "/services/request?type=waste",
+        "deepLink": "https://mapplewood-fictional-town.onrender.com/services/request?type=waste#service-request-form",
+        "anchorId": "service-request-form",
+        "exactUse": "Reporting missed garbage, blue box recycling, green organics bin, or requesting replacement of broken curbside bins.",
+        "requiredDetails": [
+          "Street address",
+          "Stream type (Garbage, Blue Box, Green Bin)",
+          "Confirmation bins set curbside before 7:00 AM",
+          "Must be reported strictly after 5:00 PM on collection day"
+        ],
+        "fee": "Free Civic Service ($3.00 per surplus bag tag)",
+        "sla": "2 business days resolution",
+        "byLaw": "Solid Waste By-law Chapter 209",
+        "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/services/request?type=waste"
+      },
+      {
+        "id": "311-streetlight-request",
+        "category": "311 Citizen Municipal Requests",
+        "title": "Streetlight Outage & Damaged Fixture Repair Form",
+        "url": "https://mapplewood-fictional-town.onrender.com/services/request?type=light",
+        "relativeUrl": "/services/request?type=light",
+        "deepLink": "https://mapplewood-fictional-town.onrender.com/services/request?type=light#service-request-form",
+        "anchorId": "service-request-form",
+        "exactUse": "Reporting dark streetlights, burned-out lamps, continuous flickering, or damaged metal light poles.",
+        "requiredDetails": [
+          "6-digit pole identification tag stamped on pole (format ML-XXXX, e.g. ML-0412)",
+          "Nearest street address"
+        ],
+        "fee": "Free Civic Service",
+        "sla": "5 to 7 business days (24h for exposed wiring)",
+        "byLaw": "Public Lighting Infrastructure Policy",
+        "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/services/request?type=light"
+      },
+      {
+        "id": "311-park-tree-request",
+        "category": "311 Citizen Municipal Requests",
+        "title": "Park Hazards, Broken Bins & Boulevard Tree Form",
+        "url": "https://mapplewood-fictional-town.onrender.com/services/request?type=tree",
+        "relativeUrl": "/services/request?type=tree",
+        "deepLink": "https://mapplewood-fictional-town.onrender.com/services/request?type=tree#service-request-form",
+        "anchorId": "service-request-form",
+        "exactUse": "Reporting broken garbage receptacles in public parks, overflowing bins, damaged playground equipment, broken park benches, or hanging limbs on boulevard trees (within 4.5m of curb).",
+        "requiredDetails": [
+          "Park name (e.g., Memorial Park, DeHart Park)",
+          "Specific landmark within park (e.g. playground, tennis courts)",
+          "Photo of damaged receptacle or hazard"
+        ],
+        "fee": "Free Civic Service",
+        "sla": "Broken bins: 24 to 48 hours; Overflowing bins: 4 hours; Playground hazards: 48 hours",
+        "byLaw": "Parks & Public Spaces By-law Chapter 239",
+        "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/services/request?type=tree"
+      },
+      {
+        "id": "311-water-request",
+        "category": "311 Citizen Municipal Requests",
+        "title": "Water Utility, Pressure & Meter Service Request Form",
+        "url": "https://mapplewood-fictional-town.onrender.com/services/request?type=water",
+        "relativeUrl": "/services/request?type=water",
+        "deepLink": "https://mapplewood-fictional-town.onrender.com/services/request?type=water#service-request-form",
+        "anchorId": "service-request-form",
+        "exactUse": "Reporting residential low water pressure, discolored tap water, residential water meter malfunctions, or non-emergency hydrant seepage.",
+        "requiredDetails": [
+          "Property address",
+          "Description of water issue",
+          "Water meter serial number (if applicable)"
+        ],
+        "fee": "Free Civic Service (Emergency main breaks: call (555) 123-9287)",
+        "sla": "2 to 4 business days",
+        "byLaw": "Water Works Regulation By-law",
+        "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/services/request?type=water"
+      },
+      {
+        "id": "311-case-tracker",
+        "category": "311 Citizen Municipal Requests",
+        "title": "Real-Time 311 Case & Permit Status Tracker",
+        "url": "https://mapplewood-fictional-town.onrender.com/services/track",
+        "relativeUrl": "/services/track",
+        "deepLink": "https://mapplewood-fictional-town.onrender.com/services/request?tab=track",
+        "anchorId": "service-request-portal-container",
+        "exactUse": "Real-time tracking of open work orders and permit reviews through 4 stages: Received (New) → Assigned → In Progress → Completed & Verified. Shows supervisor dispatch notes and timestamp.",
+        "requiredDetails": ["Tracking reference number (e.g., CASE-2026-ROAD-4102 or PERM-DECK-2026-XXXX)"],
+        "fee": "Free Instant Lookup",
+        "sla": "Real-time instant status display",
+        "byLaw": "Citizen Service Guarantee",
+        "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/services/track"
+      },
+      {
+        "id": "taxes-calculator",
+        "category": "Taxes, Revenue & Assessment",
+        "title": "Interactive Property Tax Estimator & Calculator",
+        "url": "https://mapplewood-fictional-town.onrender.com/taxes/calculator",
+        "relativeUrl": "/taxes/calculator",
+        "deepLink": "https://mapplewood-fictional-town.onrender.com/taxes/calculator#assessment-input",
+        "anchorId": "assessment-input",
+        "exactUse": "Interactive calculator estimating annual and quarterly tax remittances based on MPAC assessed property value and the 2026 mill rate (0.0094523), with Municipal (48%), Regional (34%), and Education (18%) shares.",
+        "requiredDetails": ["Assessed property value in CAD (e.g., $500,000)"],
+        "fee": "Free Citizen Tool",
+        "sla": "Real-time instant calculation",
+        "byLaw": "2026 Municipal Tax By-law",
+        "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/taxes/calculator"
+      },
+      {
+        "id": "taxes-pap-enrollment",
+        "category": "Taxes, Revenue & Assessment",
+        "title": "Pre-Authorized Payment (PAP) Debit Enrollment Form",
+        "url": "https://mapplewood-fictional-town.onrender.com/taxes/pre-authorized",
+        "relativeUrl": "/taxes/pre-authorized",
+        "deepLink": "https://mapplewood-fictional-town.onrender.com/taxes/pre-authorized",
+        "anchorId": "pre-authorized-form",
+        "exactUse": "Setting up automatic interest-free bank withdrawals for municipal property taxes: Option 1 (10-Month Monthly Plan Jan–Oct) or Option 2 (Statutory 4-Instalment Due Date Plan: Feb 27, Apr 30, Jun 30, Sep 30).",
+        "requiredDetails": [
+          "19-digit Property Tax Roll Number",
+          "Attached VOID blank cheque or official bank PAD authorization",
+          "Written signature of property owner"
+        ],
+        "fee": "Free Enrollment",
+        "sla": "Notice required 14 days prior to next withdrawal",
+        "byLaw": "Municipal Act Tax Collection Provisions",
+        "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/taxes/pre-authorized"
+      },
+      {
+        "id": "taxes-payment-methods",
+        "category": "Taxes, Revenue & Assessment",
+        "title": "Property Tax Payment Options & Remittance Guide",
+        "url": "https://mapplewood-fictional-town.onrender.com/taxes/payment",
+        "relativeUrl": "/taxes/payment",
+        "deepLink": "https://mapplewood-fictional-town.onrender.com/taxes/payment",
+        "anchorId": "payment-methods",
+        "exactUse": "Step-by-step payment instructions for online banking (Payee: 'Town of Maplewood - Property Taxes', 19-digit Roll Number), 24/7 secure North Entrance drop box, in-person Interac/Cash at Town Hall, or mail.",
+        "requiredDetails": ["Roll number", "Bank account details"],
+        "fee": "Standard banking processing; 1.25% monthly penalty on overdue balances",
+        "sla": "Instant receipt in person; 2–3 days for online banking",
+        "byLaw": "Tax Remittance Policy",
+        "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/taxes/payment"
+      }
+    ]
   },
   "documents": {
     "byLaws": [

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink, useSearchParams } from 'react-router-dom';
 import townData from '../../data/townData.json';
 import SEOHead from '../../components/SEOHead';
@@ -25,6 +25,24 @@ export default function ServiceRequestPortal() {
 
   const [activeTab, setActiveTab] = useState<'submit' | 'track'>(initialTab);
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
+
+  useEffect(() => {
+    const typeParam = searchParams.get('type');
+    const tabParam = searchParams.get('tab');
+    if (typeParam) {
+      if (typeParam === 'waste') setSelectedCategory('missedWaste');
+      else if (typeParam === 'light') setSelectedCategory('streetlight');
+      else if (typeParam === 'tree') setSelectedCategory('parkTree');
+      else if (typeParam === 'water') setSelectedCategory('waterIssue');
+      else setSelectedCategory(typeParam);
+      setActiveTab('submit');
+    }
+    if (tabParam === 'track') {
+      setActiveTab('track');
+    } else if (tabParam === 'submit') {
+      setActiveTab('submit');
+    }
+  }, [searchParams]);
 
   // Form State
   const [applicantName, setApplicantName] = useState('');
@@ -201,7 +219,8 @@ export default function ServiceRequestPortal() {
 
   return (
     <article
-      className="space-y-8 max-w-5xl mx-auto bg-white p-6 sm:p-10 rounded-2xl border border-slate-200 shadow-sm"
+      id="service-request-portal-container"
+      className="space-y-8 max-w-5xl mx-auto bg-white p-6 sm:p-10 rounded-2xl border border-slate-200 shadow-sm scroll-mt-20"
       itemScope
       itemType="https://schema.org/GovernmentService"
       data-kb-topic="service-request-portal-311"
@@ -357,7 +376,7 @@ export default function ServiceRequestPortal() {
             </div>
           ) : (
             /* Submission Form */
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form id="service-request-form" onSubmit={handleSubmit} className="space-y-6 scroll-mt-24">
               {/* Category Selection Cards */}
               <div className="space-y-2">
                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">

@@ -203,5 +203,42 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
+  <url>
+    <loc>https://mapplewood-fictional-town.onrender.com/documents/Maplewood_Property_Tax_and_Assessment_Comprehensive_Guide.pdf</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Direct 311 Citizen Municipal Service Requests (Scraper Ready) -->
+  <url>
+    <loc>https://mapplewood-fictional-town.onrender.com/services/request?type=pothole</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://mapplewood-fictional-town.onrender.com/services/request?type=waste</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://mapplewood-fictional-town.onrender.com/services/request?type=light</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://mapplewood-fictional-town.onrender.com/services/request?type=tree</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://mapplewood-fictional-town.onrender.com/services/request?type=water</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
 

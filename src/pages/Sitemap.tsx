@@ -127,31 +127,72 @@ export default function Sitemap() {
       ]
     },
     {
-      title: 'Online Permit Intake Forms (Basic Routing)',
+      title: 'Online Permit Intake Forms & Dedicated Endpoints',
       links: [
         {
           title: 'Permit Application Portal Hub',
           url: '/permits/apply',
-          desc: 'Preliminary online intake portal for routing applicants to the building department.',
-          facts: 'Portal: Basic online intake'
+          desc: 'Unified digital intake portal for municipal building, deck, pool, and open-air burning permits.',
+          facts: 'Portal: Online intake · 10-15 business days review'
         },
         {
           title: 'Residential Deck Permit Application Form',
           url: '/permits/apply/deck',
-          desc: 'Preliminary intake form for deck construction inquiries.',
-          facts: 'Endpoint: /permits/apply/deck'
+          desc: 'Direct online application for residential decks, verandas, or porches over 24" (600 mm) height.',
+          facts: 'Fee: $175.00 CAD base · SLA: 10 business days · Setbacks: min 1.2m side, 6.0m rear'
         },
         {
           title: 'Pool Enclosure Permit Application Form (By-law 2022-18)',
           url: '/permits/apply/pool',
-          desc: 'Preliminary intake form for residential pool enclosure reviews.',
-          facts: 'Endpoint: /permits/apply/pool'
+          desc: 'Direct application for inground, above-ground pools, and spas (>24" water depth) with safety fencing.',
+          facts: 'Fee: $250 Inground / $150 Above-ground · SLA: 15 business days · 1.5m enclosure'
         },
         {
-          title: 'Open-Air Burn Permit Application Form (By-law 2021-09)',
+          title: 'Open-Air Agricultural Burn Permit Application Form (By-law 2021-09)',
           url: '/permits/apply/burn',
-          desc: 'Preliminary intake form for rural open-air burn inquiries.',
-          facts: 'Endpoint: /permits/apply/burn'
+          desc: 'Direct application for seasonal burning on rural agricultural properties exceeding 2.0 acres.',
+          facts: 'Fee: $45.00/yr · SLA: Instant verified / 2 days · Rural zones only'
+        }
+      ]
+    },
+    {
+      title: 'Direct 311 Citizen Service Request Intake Forms (Deep-Link Endpoints)',
+      links: [
+        {
+          title: 'Pothole & Road Surface Hazard Request Form',
+          url: '/services/request?type=pothole',
+          desc: 'Direct form to report potholes, asphalt cavities, road washouts, and sunken catch basins.',
+          facts: 'Fee: Free · SLA: 24h for Tier 3 active craters, 3-5 days standard · Anchor: #service-request-form'
+        },
+        {
+          title: 'Missed Curbside Waste & Bin Replacement Form',
+          url: '/services/request?type=waste',
+          desc: 'Direct form to report missed garbage, blue box, green organics, or damaged curbside bins.',
+          facts: 'Fee: Free · Cutoff: Report after 5:00 PM · SLA: 2 business days'
+        },
+        {
+          title: 'Streetlight Outage & Dark Fixture Repair Form',
+          url: '/services/request?type=light',
+          desc: 'Direct form to report dark streetlights, burned-out lamps, or damaged light poles.',
+          facts: 'Fee: Free · Required: 6-digit pole tag (ML-XXXX) · SLA: 5-7 business days'
+        },
+        {
+          title: 'Park Infrastructure, Broken Bin & Boulevard Tree Hazard Form',
+          url: '/services/request?type=tree',
+          desc: 'Direct form to report broken garbage cans in parks, damaged playground equipment, or hazardous limbs.',
+          facts: 'Fee: Free · Broken bins: 24-48h SLA · Overflowing cans: 4h SLA · Playground: 48h SLA'
+        },
+        {
+          title: 'Water Utility, Pressure & Hydrant Service Request Form',
+          url: '/services/request?type=water',
+          desc: 'Direct form to report residential low water pressure, discolored water, or water meter problems.',
+          facts: 'Fee: Free · SLA: 2-4 business days · 24/7 Water Main Emergency: (555) 123-9287'
+        },
+        {
+          title: 'Real-Time 311 Work Order & Permit Status Tracker',
+          url: '/services/track',
+          desc: 'Live 4-stage tracking (Received -> Assigned -> In Progress -> Completed) using CASE-2026-XXXX or PERM-XXXX.',
+          facts: 'Lookup: Real-time work order inspection notes and dispatch timestamps'
         }
       ]
     },
@@ -175,6 +216,24 @@ export default function Sitemap() {
           url: '/documents/guides',
           desc: 'Downloadable PDF guides: Waste calendar, deck manual, pool safety guide, resident welcome kit.',
           facts: 'Official PDF publications'
+        },
+        {
+          title: 'Comprehensive Permits, UCC & 311 Operations Guide (PDF)',
+          url: '/documents/Maplewood_Municipal_Permits_and_Construction_Code_Guide.pdf',
+          desc: 'Official municipal manual (MW-PERMITS-311-GUIDE-2026-REV3). 8-chapter guide covering UCC permits, itemized documentation, dumpster permits ($50/7 days), and 311 intake standards.',
+          facts: 'Format: Official PDF · Code: MW-PERMITS-311-GUIDE-2026-REV3'
+        },
+        {
+          title: 'Comprehensive Recycling, Waste & Resource Recovery Manual (PDF)',
+          url: '/documents/Maplewood_DPW_Recycling_and_Waste_Disposal_Comprehensive_Manual.pdf',
+          desc: 'Official municipal regulatory manual (MW-DPW-RECYCLE-2026-REV5). 8-chapter guide covering dual-stream schedules, 359 Boyden Ave rules, leaf vacuuming, illegal dumping § 209-14 fines ($2,500), and broken bin reporting.',
+          facts: 'Format: Official PDF · Code: MW-DPW-RECYCLE-2026-REV5'
+        },
+        {
+          title: 'Comprehensive Property Tax, Assessment & Finance Guide (PDF)',
+          url: '/documents/Maplewood_Property_Tax_and_Assessment_Comprehensive_Guide.pdf',
+          desc: 'Authoritative municipal tax guide (MW-TAX-GUIDE-2026-REV4). Covers 2-month quarterly instalments, assessed valuation tiers, PAP enrollment plans, tax relief, and payment methods.',
+          facts: 'Format: Official PDF · Code: MW-TAX-GUIDE-2026-REV4'
         },
         {
           title: 'Council Minutes & Meeting Agendas',
