@@ -1,6 +1,15 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import townData from '../data/townData.json';
+import {
+  DEFAULT_WAYHALL_API_BASE,
+  initResidentSession,
+  streamConversationQuery,
+  requestSmsCode,
+  verifySmsCode,
+  linkResidentSession,
+  type StreamMetadataEvent,
+} from '../services/wayhallApi';
 
 type Language = 'en' | 'fr' | 'es';
 
@@ -9,6 +18,7 @@ interface Message {
   sender: 'user' | 'assistant';
   text: string;
   timestamp: string;
+  isStreaming?: boolean;
   sourceTitle?: string;
   sourceUrl?: string;
   permitLink?: {
@@ -16,6 +26,12 @@ interface Message {
     url: string;
     fee: string;
   };
+  citations?: Array<{
+    title?: string;
+    url?: string;
+    document_id?: string;
+    snippet?: string;
+  }>;
 }
 
 interface QuickPrompt {
@@ -29,6 +45,49 @@ export default function WayhallChatWidget() {
   const [inputMessage, setInputMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
+  
+  // Live WayHall Backend Integration State
+  // Engine Mode: 'api' (Default: Live WayHall Remote API) | 'local' (Local mock rule engine)
+  const [engineMode, setEngineMode] = useState<'api' | 'local'>(() => {
+    return (localStorage.getItem('wayhall_engine_mode') as 'api' | 'local') || 'api';
+  });
+
+  const [apiBaseUrl, setApiBaseUrl] = useState<string>(() => {
+    const saved = localStorage.getItem('wayhall_api_base');
+    if (saved && !saved.includes('ngrok-free.dev') && !saved.includes('ngrok')) {
+      return saved;
+    }
+    return DEFAULT_WAYHALL_API_BASE;
+  });
+  const [conversationId, setConversationId] = useState<number | null>(() => {
+    const saved = localStorage.getItem('wayhall_conversation_id');
+    return saved ? parseInt(saved, 10) : null;
+  });
+  const [connectionStatus, setConnectionStatus] = useState<'idle' | 'connecting' | 'connected' | 'error'>('idle');
+  const [connectionError, setConnectionError] = useState<string | null>(null);
+  const [testResult, setTestResult] = useState<{ success: boolean; message: string } | null>(null);
+  const [isTesting, setIsTesting] = useState(false);
+
+  const [residentProfile, setResidentProfile] = useState<{
+    name: string;
+    phone?: string;
+    isAnonymous: boolean;
+  } | null>(() => {
+    const saved = localStorage.getItem('wayhall_resident_profile');
+    return saved ? JSON.parse(saved) : null;
+  });
+
+  // Modal / Drawer states
+  const [showPhoneModal, setShowPhoneModal] = useState(false);
+  const [phoneStep, setPhoneStep] = useState<'input' | 'otp' | 'success'>('input');
+  const [residentNameInput, setResidentNameInput] = useState('');
+  const [phoneNumberInput, setPhoneNumberInput] = useState('');
+  const [smsCodeInput, setSmsCodeInput] = useState('');
+  const [phoneLoading, setPhoneLoading] = useState(false);
+  const [phoneError, setPhoneError] = useState<string | null>(null);
+  const [showSettings, setShowSettings] = useState(false);
+  const [settingsUrlInput, setSettingsUrlInput] = useState(apiBaseUrl);
+
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -654,7 +713,309 @@ export default function WayhallChatWidget() {
     };
   };
 
-  const handleSendMessage = (textToSend?: string) => {
+  // Step A: Initialize Session with WayHall backend
+  const connectSession = async (customUrl?: string) => {
+    if (engineMode !== 'api') {
+      return;
+    }
+    const targetUrl = customUrl || apiBaseUrl;
+    setConnectionStatus('connecting');
+    setConnectionError(null);
+    try {
+      console.log('[WayHall Widget] Initializing session with backend:', targetUrl);
+      const data = await initResidentSession(targetUrl, conversationId);
+      if (data?.conversation?.id) {
+        setConversationId(data.conversation.id);
+        localStorage.setItem('wayhall_conversation_id', String(data.conversation.id));
+        setConnectionStatus('connected');
+        setConnectionError(null);
+        if (!data.is_anonymous) {
+          const profile = {
+            name: data.conversation.resident_name || 'Resident',
+            isAnonymous: false,
+          };
+          setResidentProfile(profile);
+          localStorage.setItem('wayhall_resident_profile', JSON.stringify(profile));
+        }
+      } else {
+        throw new Error('Unexpected response structure received from session initialization.');
+      }
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      console.warn('[WayHall Widget] Backend connection failed:', msg);
+      setConnectionStatus('error');
+      setConnectionError(msg);
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen && engineMode === 'api' && connectionStatus !== 'connected') {
+      connectSession();
+    }
+  }, [isOpen, engineMode]);
+
+  const detectPermitLinkFromText = (
+    text: string
+  ): { title: string; url: string; fee: string } | undefined => {
+    const lower = text.toLowerCase();
+    if (lower.includes('deck') || lower.includes('terrasse')) {
+      return {
+        title:
+          language === 'fr'
+            ? 'Formulaire de demande de permis de terrasse en ligne'
+            : language === 'es'
+            ? 'Formulario de solicitud de permiso de terraza en línea'
+            : 'Apply Online for Deck Construction Permit',
+        url: '/permits/apply/deck',
+        fee: '$185.00 CAD',
+      };
+    }
+    if (
+      lower.includes('pool') ||
+      lower.includes('piscine') ||
+      lower.includes('piscina') ||
+      lower.includes('clôture') ||
+      lower.includes('fence')
+    ) {
+      return {
+        title:
+          language === 'fr'
+            ? "Demande de permis d'enceinte de piscine en ligne"
+            : language === 'es'
+            ? 'Formulario de solicitud de permiso de piscina en línea'
+            : 'Apply Online for Pool Enclosure Permit',
+        url: '/permits/apply/pool',
+        fee: '$150.00 CAD',
+      };
+    }
+    if (
+      lower.includes('burn') ||
+      lower.includes('brûlage') ||
+      lower.includes('quema') ||
+      lower.includes('agricultural burn')
+    ) {
+      return {
+        title:
+          language === 'fr'
+            ? 'Demande de permis de brûlage en plein air en ligne'
+            : language === 'es'
+            ? 'Formulario de solicitud de permiso de quema agrícola'
+            : 'Apply Online for Open-Air Burn Permit',
+        url: '/permits/apply/burn',
+        fee: 'Free (Res) / $25 (Ag)',
+      };
+    }
+    if (
+      lower.includes('pothole') ||
+      lower.includes('nid-de-poule') ||
+      lower.includes('bache') ||
+      lower.includes('311') ||
+      lower.includes('missed waste') ||
+      lower.includes('service request')
+    ) {
+      return {
+        title:
+          language === 'fr'
+            ? 'Soumettre une demande de service 311 en ligne'
+            : language === 'es'
+            ? 'Enviar reporte o solicitud de servicio 311'
+            : 'Submit 311 Municipal Service Request',
+        url: '/services/request',
+        fee:
+          language === 'fr'
+            ? 'Gratuit / Service public'
+            : language === 'es'
+            ? 'Gratuito / Servicio público'
+            : 'Free Civic Service',
+      };
+    }
+    if (
+      lower.includes('track') ||
+      lower.includes('suivi') ||
+      lower.includes('seguimiento') ||
+      lower.includes('case-2026')
+    ) {
+      return {
+        title:
+          language === 'fr'
+            ? "Ouvrir l'outil de suivi de dossier en direct"
+            : language === 'es'
+            ? 'Consultar estado de caso en vivo'
+            : 'Track Work Order / Case Status Online',
+        url: '/services/track',
+        fee: 'Real-time Lookup',
+      };
+    }
+    return undefined;
+  };
+
+  const renderMessageWithLinks = (text: string) => {
+    if (!text) return null;
+    const parts: React.ReactNode[] = [];
+    const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+    let lastIndex = 0;
+    let match: RegExpExecArray | null;
+
+    while ((match = regex.exec(text)) !== null) {
+      if (match.index > lastIndex) {
+        parts.push(text.substring(lastIndex, match.index));
+      }
+
+      const label = match[1];
+      const url = match[2];
+
+      parts.push(
+        <a
+          key={`md-link-${match.index}`}
+          href={url}
+          onClick={(e) => handleDirectFormClick(e, url)}
+          className="inline-flex items-center gap-1 font-bold text-blue-700 hover:text-blue-900 bg-blue-50 hover:bg-blue-100 border border-blue-200 px-1.5 py-0.5 rounded transition-colors underline cursor-pointer text-[11px] my-0.5"
+          title={`Open form: ${label}`}
+        >
+          <span>📋 {label}</span>
+        </a>
+      );
+
+      lastIndex = regex.lastIndex;
+    }
+
+    if (lastIndex < text.length) {
+      parts.push(text.substring(lastIndex));
+    }
+
+    return parts.length > 0 ? parts : text;
+  };
+
+  // Step C: Send SMS OTP
+  const handleRequestSmsCode = async () => {
+    if (!phoneNumberInput.trim()) {
+      setPhoneError('Please enter a phone number in E.164 format (e.g. +16095551234)');
+      return;
+    }
+    setPhoneLoading(true);
+    setPhoneError(null);
+    try {
+      await requestSmsCode(phoneNumberInput.trim(), apiBaseUrl);
+      setPhoneStep('otp');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Failed to send SMS code.';
+      setPhoneError(`${msg} (You can also link directly without SMS).`);
+    } finally {
+      setPhoneLoading(false);
+    }
+  };
+
+  // Step C: Verify OTP & Link Session
+  const handleVerifyAndLink = async () => {
+    if (!smsCodeInput.trim()) {
+      setPhoneError('Please enter the 6-digit code received via SMS.');
+      return;
+    }
+    setPhoneLoading(true);
+    setPhoneError(null);
+    try {
+      await verifySmsCode(phoneNumberInput.trim(), smsCodeInput.trim(), apiBaseUrl);
+      const linked = await linkResidentSession(
+        {
+          conversationId: conversationId || 0,
+          phoneNumber: phoneNumberInput.trim(),
+          residentName: residentNameInput.trim() || 'Resident',
+        },
+        apiBaseUrl
+      );
+      setPhoneStep('success');
+      const profile = {
+        name: linked.conversation.resident_name || residentNameInput || 'Resident',
+        phone: phoneNumberInput.trim(),
+        isAnonymous: false,
+      };
+      setResidentProfile(profile);
+      localStorage.setItem('wayhall_resident_profile', JSON.stringify(profile));
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Verification failed.';
+      setPhoneError(msg);
+    } finally {
+      setPhoneLoading(false);
+    }
+  };
+
+  // Step C: Direct Link without SMS (Instant transition)
+  const handleDirectLink = async () => {
+    if (!phoneNumberInput.trim()) {
+      setPhoneError('Please enter your phone number.');
+      return;
+    }
+    setPhoneLoading(true);
+    setPhoneError(null);
+    try {
+      const linked = await linkResidentSession(
+        {
+          conversationId: conversationId || 0,
+          phoneNumber: phoneNumberInput.trim(),
+          residentName: residentNameInput.trim() || 'Resident',
+        },
+        apiBaseUrl
+      );
+      setPhoneStep('success');
+      const profile = {
+        name: linked.conversation.resident_name || residentNameInput || 'Resident',
+        phone: phoneNumberInput.trim(),
+        isAnonymous: false,
+      };
+      setResidentProfile(profile);
+      localStorage.setItem('wayhall_resident_profile', JSON.stringify(profile));
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Failed to link session.';
+      setPhoneError(msg);
+    } finally {
+      setPhoneLoading(false);
+    }
+  };
+
+  const handleSaveSettings = () => {
+    const cleaned = settingsUrlInput.trim();
+    setApiBaseUrl(cleaned);
+    localStorage.setItem('wayhall_api_base', cleaned);
+    localStorage.setItem('wayhall_engine_mode', engineMode);
+    setShowSettings(false);
+    if (engineMode === 'api') {
+      connectSession(cleaned);
+    }
+  };
+
+  const handleTestConnection = async () => {
+    setIsTesting(true);
+    setTestResult(null);
+    try {
+      console.log('[WayHall Widget] Testing connection with:', settingsUrlInput);
+      const data = await initResidentSession(settingsUrlInput, null);
+      if (data?.conversation?.id) {
+        setTestResult({
+          success: true,
+          message: `Connected! Created session #${data.conversation.id} ("${data.conversation.resident_name}").`,
+        });
+        setConversationId(data.conversation.id);
+        localStorage.setItem('wayhall_conversation_id', String(data.conversation.id));
+        setConnectionStatus('connected');
+        setConnectionError(null);
+      } else {
+        setTestResult({ success: false, message: 'Invalid response from server.' });
+      }
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      setTestResult({
+        success: false,
+        message: `Connection failed: ${msg}`,
+      });
+      setConnectionStatus('error');
+      setConnectionError(msg);
+    } finally {
+      setIsTesting(false);
+    }
+  };
+
+  // Step B: Send Questions & Receive Streamed Responses
+  const handleSendMessage = async (textToSend?: string) => {
     const query = textToSend || inputMessage;
     if (!query.trim()) return;
 
@@ -669,7 +1030,150 @@ export default function WayhallChatWidget() {
     setInputMessage('');
     setIsTyping(true);
 
-    // Simulate realistic AI thinking delay
+    // ── Engine Mode: Remote API Mode (DEFAULT) ──
+    if (engineMode === 'api') {
+      let activeConvId = conversationId;
+
+      // 1. Ensure Session is Initialized (Step A)
+      if (!activeConvId) {
+        setConnectionStatus('connecting');
+        try {
+          console.log('[WayHall Widget] On-demand session init for query:', query);
+          const initRes = await initResidentSession(apiBaseUrl, null);
+          if (initRes?.conversation?.id) {
+            activeConvId = initRes.conversation.id;
+            setConversationId(activeConvId);
+            localStorage.setItem('wayhall_conversation_id', String(activeConvId));
+            setConnectionStatus('connected');
+            setConnectionError(null);
+          } else {
+            throw new Error('Failed to obtain conversation ID from session initialization.');
+          }
+        } catch (initErr: unknown) {
+          const errMsg = initErr instanceof Error ? initErr.message : String(initErr);
+          console.error('[WayHall Widget] Failed to initialize session:', errMsg);
+          setConnectionStatus('error');
+          setConnectionError(errMsg);
+          setIsTyping(false);
+
+          const errBotMsg: Message = {
+            id: `assistant-err-${Date.now()}`,
+            sender: 'assistant',
+            text: `⚠️ **Unable to connect to Wayhall Server**\n\nTarget Endpoint: \`${apiBaseUrl}\`\nError: *${errMsg}*\n\nPlease verify that your backend server is running and reachable. You can click ⚙️ in the header to change the endpoint or test connection.`,
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          };
+          setMessages((prev) => [...prev, errBotMsg]);
+          return;
+        }
+      }
+
+      // 2. Stream AI response (Step B)
+      const assistantMsgId = `assistant-${Date.now()}`;
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: assistantMsgId,
+          sender: 'assistant',
+          text: '',
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          isStreaming: true,
+        },
+      ]);
+
+      try {
+        await streamConversationQuery({
+          apiBase: apiBaseUrl,
+          conversationId: activeConvId,
+          query,
+          callbacks: {
+            onMetadata: (meta: StreamMetadataEvent) => {
+              setMessages((prev) =>
+                prev.map((m) =>
+                  m.id === assistantMsgId
+                    ? {
+                        ...m,
+                        citations: meta.citations || m.citations,
+                        sourceTitle: meta.sourceTitle || m.sourceTitle,
+                        sourceUrl: meta.sourceUrl || m.sourceUrl,
+                        permitLink: meta.permitLink || m.permitLink,
+                      }
+                    : m
+                )
+              );
+            },
+            onDelta: (delta: string) => {
+              setIsTyping(false);
+              setMessages((prev) =>
+                prev.map((m) =>
+                  m.id === assistantMsgId
+                    ? {
+                        ...m,
+                        text: (m.text || '') + delta,
+                      }
+                    : m
+                )
+              );
+            },
+            onComplete: () => {
+              setIsTyping(false);
+              setConnectionStatus('connected');
+              setConnectionError(null);
+              setMessages((prev) =>
+                prev.map((m) => {
+                  if (m.id !== assistantMsgId) return m;
+                  const detected = m.permitLink || detectPermitLinkFromText(m.text || query);
+                  return {
+                    ...m,
+                    isStreaming: false,
+                    permitLink: detected,
+                  };
+                })
+              );
+            },
+            onError: (streamErr: Error) => {
+              console.warn('[WayHall API] Streaming error:', streamErr);
+              setIsTyping(false);
+              setConnectionStatus('error');
+              setConnectionError(streamErr.message);
+              setMessages((prev) =>
+                prev.map((m) =>
+                  m.id === assistantMsgId
+                    ? {
+                        ...m,
+                        text: m.text?.trim()
+                          ? `${m.text}\n\n*(Stream ended with warning: ${streamErr.message})*`
+                          : `⚠️ Error streaming answer from WayHall API (${apiBaseUrl}):\n\n*${streamErr.message}*`,
+                        isStreaming: false,
+                      }
+                    : m
+                )
+              );
+            },
+          },
+        });
+        return;
+      } catch (streamErr: unknown) {
+        const streamErrMsg = streamErr instanceof Error ? streamErr.message : String(streamErr);
+        console.error('[WayHall Widget] Live stream failed:', streamErrMsg);
+        setConnectionStatus('error');
+        setConnectionError(streamErrMsg);
+        setIsTyping(false);
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.id === assistantMsgId
+              ? {
+                  ...m,
+                  text: `⚠️ **Wayhall API Request Error**\n\nCould not stream response for conversation #${activeConvId}.\nError: *${streamErrMsg}*\n\nEnsure backend URL (\`${apiBaseUrl}\`) is reachable and allows browser cross-origin requests.`,
+                  isStreaming: false,
+                }
+              : m
+          )
+        );
+        return;
+      }
+    }
+
+    // ── Engine Mode: Local Mock Engine ──
     setTimeout(() => {
       const answer = findAnswer(query, language);
       const botMsg: Message = {
@@ -720,28 +1224,106 @@ export default function WayhallChatWidget() {
           aria-modal="true"
         >
           {/* Header Bar */}
-          <div className="bg-blue-950 text-white p-3.5 flex items-center justify-between border-b border-blue-900 shadow-sm">
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-lg shadow-inner">
+          <div className="bg-blue-950 text-white p-3 flex items-center justify-between border-b border-blue-900 shadow-sm">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-base shadow-inner">
                 🤖
               </div>
               <div>
                 <div className="text-xs font-bold text-white flex items-center gap-1.5">
-                  <span>Wayhall AI Municipal Assistant</span>
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>Wayhall AI Municipal</span>
+                  {engineMode === 'api' ? (
+                    connectionStatus === 'connected' ? (
+                      <span
+                        title={`Connected to Wayhall server: ${apiBaseUrl}`}
+                        className="inline-flex items-center gap-1 text-[10px] text-emerald-300 font-semibold bg-emerald-950/90 px-2 py-0.5 rounded-full border border-emerald-500/50 shadow-xs"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        ● Connected #{conversationId || 'Ready'}
+                      </span>
+                    ) : connectionStatus === 'connecting' ? (
+                      <span className="inline-flex items-center gap-1 text-[10px] text-amber-300 font-semibold bg-amber-950/80 px-2 py-0.5 rounded-full border border-amber-500/50">
+                        <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
+                        ● Connecting...
+                      </span>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => connectSession()}
+                        title={
+                          connectionError
+                            ? `Connection Error: ${connectionError} (Click to Retry)`
+                            : 'Click to retry connecting to Wayhall API'
+                        }
+                        className="inline-flex items-center gap-1 text-[10px] text-rose-300 font-semibold bg-rose-950/90 px-2 py-0.5 rounded-full border border-rose-500/50 hover:bg-rose-900 transition-colors cursor-pointer"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
+                        ● Disconnected (Retry)
+                      </button>
+                    )
+                  ) : (
+                    <span
+                      title="Operating in offline local rule engine mode"
+                      className="inline-flex items-center gap-1 text-[10px] text-amber-300 font-semibold bg-amber-950/80 px-2 py-0.5 rounded-full border border-amber-500/50"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                      ● Local Engine
+                    </span>
+                  )}
                 </div>
                 <div className="text-[10px] text-blue-200">
-                  {townData.townInfo.name} · Grounded Knowledge
+                  {townData.townInfo.name} · Official Public WebChat
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
+              {/* Step C: Save to Phone Trigger */}
+              <button
+                type="button"
+                onClick={() => {
+                  setShowPhoneModal(true);
+                  setShowSettings(false);
+                }}
+                title={
+                  residentProfile && !residentProfile.isAnonymous
+                    ? `Verified: ${residentProfile.name} (${residentProfile.phone})`
+                    : 'Save this chat session to your phone (SMS / WhatsApp)'
+                }
+                className={`text-[10px] font-semibold px-2 py-1 rounded transition-all flex items-center gap-1 ${
+                  residentProfile && !residentProfile.isAnonymous
+                    ? 'bg-emerald-900 text-emerald-200 border border-emerald-500 hover:bg-emerald-800'
+                    : 'bg-blue-900 hover:bg-blue-800 text-blue-100 border border-blue-700'
+                }`}
+                aria-label="Save chat to phone"
+              >
+                <span>📱</span>
+                <span className="hidden sm:inline">
+                  {residentProfile && !residentProfile.isAnonymous ? 'Linked' : 'Save to Phone'}
+                </span>
+              </button>
+
+              {/* Settings Toggle */}
+              <button
+                type="button"
+                onClick={() => {
+                  setShowSettings(!showSettings);
+                  setShowPhoneModal(false);
+                }}
+                title="Configure backend server URL"
+                className={`text-xs p-1.5 rounded hover:bg-blue-900 transition-colors ${
+                  showSettings ? 'bg-blue-900 text-white ring-1 ring-blue-400' : 'text-blue-300'
+                }`}
+                aria-label="Chatbot settings"
+              >
+                ⚙️
+              </button>
+
               <button
                 type="button"
                 onClick={clearChat}
                 title="Reset conversation"
-                className="text-blue-300 hover:text-white text-xs p-1 rounded hover:bg-blue-900 transition-colors"
+                className="text-blue-300 hover:text-white text-xs p-1.5 rounded hover:bg-blue-900 transition-colors"
                 aria-label="Clear chat history"
               >
                 🔄
@@ -749,13 +1331,293 @@ export default function WayhallChatWidget() {
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="text-blue-200 hover:text-white text-lg font-bold p-1 leading-none rounded hover:bg-blue-900 transition-colors"
+                className="text-blue-200 hover:text-white text-base font-bold p-1 leading-none rounded hover:bg-blue-900 transition-colors"
                 aria-label="Close chat"
               >
                 ✕
               </button>
             </div>
           </div>
+
+          {/* Omnichannel Verified Resident Banner (Step C Active State) */}
+          {residentProfile && !residentProfile.isAnonymous && (
+            <div className="bg-emerald-950 text-emerald-100 px-3 py-1 text-[10px] flex items-center justify-between border-b border-emerald-800">
+              <div className="flex items-center gap-1.5">
+                <span className="text-emerald-400">✓</span>
+                <span>
+                  Resident Linked: <strong>{residentProfile.name}</strong> ({residentProfile.phone})
+                </span>
+              </div>
+              <span className="text-[9px] bg-emerald-800/80 text-emerald-100 px-1.5 py-0.2 rounded font-mono">
+                Omnichannel Active
+              </span>
+            </div>
+          )}
+
+          {/* Settings Drawer Overlay */}
+          {showSettings && (
+            <div className="bg-slate-900 text-slate-100 p-3.5 border-b border-slate-700 text-xs animate-in slide-in-from-top-2 duration-150">
+              <div className="flex items-center justify-between font-bold text-slate-200 mb-2">
+                <span className="flex items-center gap-1.5">
+                  <span>⚙️</span>
+                  <span>Chatbot Engine & Connection Settings</span>
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setShowSettings(false)}
+                  className="text-slate-400 hover:text-white text-xs p-1"
+                >
+                  ✕
+                </button>
+              </div>
+
+              {/* Mode Selection */}
+              <div className="mb-2.5">
+                <label className="block text-[10px] font-bold text-slate-300 mb-1 uppercase tracking-wider">
+                  Engine Mode:
+                </label>
+                <div className="grid grid-cols-2 gap-1.5">
+                  <button
+                    type="button"
+                    onClick={() => setEngineMode('api')}
+                    className={`py-1.5 px-2 rounded-lg text-[11px] font-bold border transition-all text-left flex items-center justify-between ${
+                      engineMode === 'api'
+                        ? 'bg-blue-600 border-blue-400 text-white shadow-xs'
+                        : 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700'
+                    }`}
+                  >
+                    <span>Remote / API Mode</span>
+                    {engineMode === 'api' && <span>✓</span>}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setEngineMode('local')}
+                    className={`py-1.5 px-2 rounded-lg text-[11px] font-bold border transition-all text-left flex items-center justify-between ${
+                      engineMode === 'local'
+                        ? 'bg-amber-600 border-amber-400 text-white shadow-xs'
+                        : 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700'
+                    }`}
+                  >
+                    <span>Local Mock Engine</span>
+                    {engineMode === 'local' && <span>✓</span>}
+                  </button>
+                </div>
+              </div>
+
+              {/* API URL Config */}
+              <div className="space-y-2">
+                <div>
+                  <div className="flex items-center justify-between mb-0.5">
+                    <label className="text-[10px] font-mono text-slate-400">
+                      WayHall Backend Endpoint:
+                    </label>
+                    <span className="text-[10px] text-slate-400">
+                      Conv ID: <strong className="text-amber-300">{conversationId || 'None'}</strong>
+                    </span>
+                  </div>
+                  <input
+                    type="text"
+                    value={settingsUrlInput}
+                    onChange={(e) => setSettingsUrlInput(e.target.value)}
+                    placeholder="http://3.99.89.39:8000/api"
+                    className="w-full px-2.5 py-1.5 bg-slate-800 border border-slate-600 rounded text-xs text-white focus:outline-none focus:ring-1 focus:ring-blue-400 font-mono"
+                  />
+                </div>
+
+                {/* Quick Presets */}
+                <div className="flex items-center gap-1.5 pt-0.5">
+                  <span className="text-[10px] text-slate-400">Presets:</span>
+                  <button
+                    type="button"
+                    onClick={() => setSettingsUrlInput('http://3.99.89.39:8000/api')}
+                    className="text-[10px] bg-slate-800 hover:bg-slate-700 text-emerald-300 px-2 py-0.5 rounded border border-slate-700 font-semibold"
+                  >
+                    AWS Server (3.99.89.39:8000)
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSettingsUrlInput('http://localhost:8000/api')}
+                    className="text-[10px] bg-slate-800 hover:bg-slate-700 text-blue-300 px-2 py-0.5 rounded border border-slate-700"
+                  >
+                    Localhost:8000
+                  </button>
+                </div>
+
+                {/* Test Feedback or Last Error */}
+                {testResult ? (
+                  <div
+                    className={`text-[10px] p-2 rounded border ${
+                      testResult.success
+                        ? 'bg-emerald-950/80 border-emerald-700 text-emerald-200'
+                        : 'bg-rose-950/80 border-rose-700 text-rose-200'
+                    }`}
+                  >
+                    {testResult.success ? '✅ ' : '❌ '}
+                    {testResult.message}
+                  </div>
+                ) : connectionError ? (
+                  <div className="text-[10px] p-2 rounded border bg-rose-950/80 border-rose-700 text-rose-200">
+                    ⚠️ {connectionError}
+                  </div>
+                ) : null}
+
+                {/* Action Buttons */}
+                <div className="flex items-center justify-between pt-1 gap-2">
+                  <button
+                    type="button"
+                    disabled={isTesting}
+                    onClick={handleTestConnection}
+                    className="bg-slate-800 hover:bg-slate-700 disabled:opacity-50 text-slate-200 text-[11px] font-semibold px-2.5 py-1.5 rounded border border-slate-600 transition-colors"
+                  >
+                    {isTesting ? 'Testing...' : '⚡ Test Connection'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleSaveSettings}
+                    className="bg-blue-600 hover:bg-blue-500 text-white text-[11px] font-bold px-3 py-1.5 rounded transition-colors shadow-xs"
+                  >
+                    Save & Connect
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Step C: Phone Verification & Omnichannel Linking Modal Overlay */}
+          {showPhoneModal && (
+            <div className="bg-gradient-to-b from-blue-950 to-slate-900 text-white p-3.5 border-b border-blue-800 text-xs shadow-lg animate-in slide-in-from-top-2 duration-150">
+              <div className="flex items-center justify-between font-bold text-white mb-2">
+                <span className="flex items-center gap-1.5">
+                  <span>📱</span>
+                  <span>Save Chat to Your Phone & WhatsApp</span>
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setShowPhoneModal(false)}
+                  className="text-slate-300 hover:text-white text-xs font-bold p-0.5"
+                >
+                  ✕
+                </button>
+              </div>
+
+              {phoneStep === 'input' && (
+                <div className="space-y-2.5">
+                  <p className="text-[11px] text-blue-200 leading-snug">
+                    Save this session to continue on SMS or WhatsApp without losing your answers and
+                    inquiries:
+                  </p>
+                  <div>
+                    <label className="block text-[10px] text-slate-300 mb-0.5">Your Name (Optional):</label>
+                    <input
+                      type="text"
+                      value={residentNameInput}
+                      onChange={(e) => setResidentNameInput(e.target.value)}
+                      placeholder="e.g. John Doe"
+                      className="w-full px-2.5 py-1 bg-slate-800 border border-slate-600 rounded text-xs text-white focus:outline-none focus:ring-1 focus:ring-blue-400"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] text-slate-300 mb-0.5">
+                      Phone Number (E.164, e.g. +16095551234):
+                    </label>
+                    <input
+                      type="tel"
+                      value={phoneNumberInput}
+                      onChange={(e) => setPhoneNumberInput(e.target.value)}
+                      placeholder="+16095551234"
+                      className="w-full px-2.5 py-1 bg-slate-800 border border-slate-600 rounded text-xs text-white focus:outline-none focus:ring-1 focus:ring-blue-400 font-mono"
+                    />
+                  </div>
+                  {phoneError && (
+                    <div className="text-[10px] text-rose-300 bg-rose-950/60 p-1.5 rounded border border-rose-800">
+                      ⚠️ {phoneError}
+                    </div>
+                  )}
+                  <div className="flex items-center justify-between pt-1 gap-2">
+                    <button
+                      type="button"
+                      disabled={phoneLoading}
+                      onClick={handleDirectLink}
+                      className="text-[10px] text-slate-300 hover:text-white underline"
+                      title="Link immediately without waiting for SMS code"
+                    >
+                      Link Without SMS Code
+                    </button>
+                    <button
+                      type="button"
+                      disabled={phoneLoading || !phoneNumberInput.trim()}
+                      onClick={handleRequestSmsCode}
+                      className="bg-blue-600 hover:bg-blue-500 disabled:bg-slate-700 text-white font-bold text-xs px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1"
+                    >
+                      {phoneLoading ? 'Sending...' : 'Send SMS Code →'}
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {phoneStep === 'otp' && (
+                <div className="space-y-2.5">
+                  <p className="text-[11px] text-blue-200">
+                    Enter the 6-digit verification code sent to{' '}
+                    <strong className="text-white font-mono">{phoneNumberInput}</strong>:
+                  </p>
+                  <div>
+                    <input
+                      type="text"
+                      maxLength={6}
+                      value={smsCodeInput}
+                      onChange={(e) => setSmsCodeInput(e.target.value)}
+                      placeholder="123456"
+                      className="w-full tracking-widest text-center text-lg font-mono font-bold px-3 py-1.5 bg-slate-800 border border-slate-600 rounded text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    />
+                  </div>
+                  {phoneError && (
+                    <div className="text-[10px] text-rose-300 bg-rose-950/60 p-1.5 rounded border border-rose-800">
+                      ⚠️ {phoneError}
+                    </div>
+                  )}
+                  <div className="flex items-center justify-between pt-1">
+                    <button
+                      type="button"
+                      onClick={() => setPhoneStep('input')}
+                      className="text-[10px] text-slate-400 hover:text-slate-200 underline"
+                    >
+                      ← Change Phone
+                    </button>
+                    <button
+                      type="button"
+                      disabled={phoneLoading || smsCodeInput.length < 4}
+                      onClick={handleVerifyAndLink}
+                      className="bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-700 text-white font-bold text-xs px-3 py-1.5 rounded-lg transition-colors"
+                    >
+                      {phoneLoading ? 'Verifying...' : 'Verify & Link Session ✓'}
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {phoneStep === 'success' && (
+                <div className="space-y-2 text-center py-2">
+                  <div className="text-2xl">🎉</div>
+                  <div className="font-bold text-emerald-300 text-xs">
+                    Conversation Successfully Linked!
+                  </div>
+                  <p className="text-[10px] text-slate-300 leading-relaxed">
+                    Session <strong>#{conversationId}</strong> is now tied to your profile. If you
+                    text or message Maplewood via SMS or WhatsApp, this entire conversation is ready
+                    and synchronized!
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setShowPhoneModal(false)}
+                    className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-4 py-1.5 rounded-lg transition-colors mt-1"
+                  >
+                    Done
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Language Selector Bar (US-12 & US-13) */}
           <div className="bg-slate-100 border-b border-slate-200 px-3 py-1.5 flex items-center justify-between text-xs">
@@ -813,7 +1675,46 @@ export default function WayhallChatWidget() {
                       : 'bg-white text-slate-800 border border-slate-200 rounded-tl-none'
                   }`}
                 >
-                  {msg.text}
+                  {msg.sender === 'assistant' ? renderMessageWithLinks(msg.text) : msg.text}
+                  {msg.isStreaming && (
+                    <span className="inline-block w-1.5 h-3.5 ml-0.5 bg-blue-600 animate-pulse align-middle" />
+                  )}
+
+                  {/* Grounded Document Citations (from WayHall Step B metadata) */}
+                  {msg.citations && msg.citations.length > 0 && (
+                    <div className="mt-2.5 pt-2 border-t border-slate-200 space-y-1">
+                      <div className="text-[10px] uppercase font-bold tracking-wider text-slate-500 flex items-center gap-1">
+                        <span>📚</span>
+                        <span>Official Grounded Citations</span>
+                      </div>
+                      <div className="space-y-1">
+                        {msg.citations.map((cite, cIdx) => (
+                          <div
+                            key={cIdx}
+                            className="bg-slate-50 border border-slate-200 p-1.5 rounded-lg text-[10px]"
+                          >
+                            <div className="font-bold text-blue-900 flex items-center justify-between">
+                              <span>{cite.title || 'Municipal Reference Document'}</span>
+                              {cite.url && (
+                                <a
+                                  href={cite.url}
+                                  onClick={(e) => handleDirectFormClick(e, cite.url!)}
+                                  className="text-blue-600 hover:underline cursor-pointer"
+                                >
+                                  View Doc →
+                                </a>
+                              )}
+                            </div>
+                            {cite.snippet && (
+                              <p className="text-slate-600 text-[10px] mt-0.5 line-clamp-2 italic">
+                                "{cite.snippet}"
+                              </p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
                   {/* Direct Online Permit Application Link Card (If provided) */}
                   {msg.permitLink && (
