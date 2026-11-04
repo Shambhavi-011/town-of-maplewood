@@ -4,6 +4,27 @@ import SEOHead from '../components/SEOHead';
 
 export default function Home() {
   const { townInfo, services, taxes, documents } = townData;
+  const forms = townData.directFormsDirectory || [];
+
+  const getFormIcon = (id: string) => {
+    switch (id) {
+      case 'deck-permit-apply': return '📐';
+      case 'pool-permit-apply': return '🏊';
+      case 'burn-permit-apply': return '🔥';
+      case 'permits-portal-hub': return '🏛️';
+      case '311-service-request-portal': return '🛠️';
+      case '311-pothole-request': return '🚧';
+      case '311-missed-waste-request': return '🚛';
+      case '311-streetlight-request': return '💡';
+      case '311-park-tree-request': return '🌳';
+      case '311-water-request': return '💧';
+      case '311-case-tracker': return '🔍';
+      case 'taxes-calculator': return '🧮';
+      case 'taxes-pap-enrollment': return '📑';
+      case 'taxes-payment-methods': return '💳';
+      default: return '📋';
+    }
+  };
 
   const quickActions = [
     {
@@ -17,7 +38,7 @@ export default function Home() {
     {
       title: 'Report a Pothole or Road Issue',
       desc: 'Submit exact location, size & lane. 24h repair for severe hazards.',
-      to: '/services/roads',
+      to: '/services/request?type=pothole',
       icon: '🚧',
       badge: 'High Priority',
       color: 'border-l-amber-500',
@@ -93,6 +114,13 @@ export default function Home() {
           </p>
 
           <div className="pt-2 flex flex-wrap gap-3 text-xs md:text-sm">
+            <a
+              href="#municipal-forms-directory"
+              className="bg-emerald-400 hover:bg-emerald-300 text-blue-950 font-bold px-5 py-2.5 rounded-lg shadow transition-all hover:shadow-lg flex items-center gap-2"
+            >
+              <span>📋 All Online Forms &amp; Permits</span>
+              <span>&darr;</span>
+            </a>
             <NavLink
               to="/services/request"
               className="bg-amber-400 hover:bg-amber-300 text-blue-950 font-bold px-5 py-2.5 rounded-lg shadow transition-all hover:shadow-lg flex items-center gap-2"
@@ -118,6 +146,63 @@ export default function Home() {
             >
               <span>Tax Calculator</span>
             </NavLink>
+          </div>
+
+          {/* Direct 311 Citizen Municipal Service Request Quick Links Strip */}
+          <div className="pt-3 border-t border-white/15 space-y-2">
+            <div className="flex items-center justify-between text-xs font-mono text-blue-200">
+              <span className="font-bold flex items-center gap-1.5 text-amber-300">
+                <span>⚡ Direct 311 Citizen Service Requests:</span>
+              </span>
+              <NavLink to="/services/track" className="hover:underline text-blue-300 flex items-center gap-1">
+                <span>🔍 Track 311 Case Status</span>
+                <span>&rarr;</span>
+              </NavLink>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 text-xs">
+              <NavLink
+                to="/services/request?type=pothole"
+                className="bg-white/10 hover:bg-amber-400 hover:text-blue-950 p-2 rounded-lg border border-white/15 transition-all text-center font-medium truncate"
+                title="Direct Form: Report Pothole or Road Hazard (24h SLA)"
+              >
+                🚧 Potholes
+              </NavLink>
+              <NavLink
+                to="/services/request?type=waste"
+                className="bg-white/10 hover:bg-amber-400 hover:text-blue-950 p-2 rounded-lg border border-white/15 transition-all text-center font-medium truncate"
+                title="Direct Form: Report Missed Curbside Waste / Broken Bin"
+              >
+                🚛 Missed Waste
+              </NavLink>
+              <NavLink
+                to="/services/request?type=light"
+                className="bg-white/10 hover:bg-amber-400 hover:text-blue-950 p-2 rounded-lg border border-white/15 transition-all text-center font-medium truncate"
+                title="Direct Form: Report Streetlight Outage (Pole ML-XXXX)"
+              >
+                💡 Streetlights
+              </NavLink>
+              <NavLink
+                to="/services/request?type=tree"
+                className="bg-white/10 hover:bg-amber-400 hover:text-blue-950 p-2 rounded-lg border border-white/15 transition-all text-center font-medium truncate"
+                title="Direct Form: Report Park Hazard, Broken Bin or Boulevard Tree"
+              >
+                🌳 Parks &amp; Bins
+              </NavLink>
+              <NavLink
+                to="/services/request?type=water"
+                className="bg-white/10 hover:bg-amber-400 hover:text-blue-950 p-2 rounded-lg border border-white/15 transition-all text-center font-medium truncate"
+                title="Direct Form: Report Water Pressure or Meter Issue"
+              >
+                💧 Water Pressure
+              </NavLink>
+              <NavLink
+                to="/services/track"
+                className="bg-emerald-500/20 hover:bg-emerald-400 hover:text-blue-950 p-2 rounded-lg border border-emerald-400/30 transition-all text-center font-medium text-emerald-200 truncate"
+                title="Live 311 Case & Work Order Status Tracker"
+              >
+                🔍 Live Tracker
+              </NavLink>
+            </div>
           </div>
         </div>
 
@@ -183,94 +268,448 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Featured Direct Permit Forms & Online Intake Hub ── */}
-      <section className="bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 text-white p-6 sm:p-8 rounded-2xl shadow-md space-y-6">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="space-y-1">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span className="text-xs font-bold uppercase tracking-wider text-blue-300 font-mono">
-                Direct Citizen &amp; Chatbot Endpoints
-              </span>
+      {/* ── Featured Direct Permit Forms & 311 Service Request Directory (Scraper Ready) ── */}
+      <section
+        id="municipal-forms-directory"
+        className="scroll-mt-20 space-y-10"
+        itemScope
+        itemType="https://schema.org/GovernmentService"
+        data-scraper-role="official-forms-index"
+      >
+        {/* ── 1. Dedicated 311 Citizen Municipal Service Requests Section ── */}
+        <div
+          id="service-requests-directory"
+          className="scroll-mt-24 bg-gradient-to-r from-amber-950/90 via-slate-900 to-blue-950 text-white p-6 sm:p-8 rounded-2xl shadow-lg space-y-6 border border-amber-500/30"
+        >
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400 font-mono">
+                  🚨 Direct 311 Municipal Service Request Forms
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold font-serif text-white tracking-tight">
+                Citizen 311 Service Request Forms &amp; Work Orders
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 max-w-3xl leading-relaxed">
+                Submit non-emergency municipal work orders directly to Public Works, Roads, Sanitation, and Parks crews. Each request automatically receives a tracked <strong>CASE-2026-XXXX</strong> reference number with guaranteed service level agreements (SLAs).
+              </p>
             </div>
-            <h2 className="text-2xl font-bold font-serif">
-              Online Permit Application Forms
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-300 max-w-2xl">
-              Applying for construction or agricultural burns? Use our dedicated online intake forms. Direct links allow AI scrapers and citizens to submit permits immediately with automated confirmation numbers.
-            </p>
+            <div className="flex flex-wrap gap-2 self-start md:self-auto">
+              <NavLink
+                to="/services/track"
+                className="bg-emerald-500 hover:bg-emerald-400 text-blue-950 text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow whitespace-nowrap flex items-center gap-1.5"
+              >
+                <span>🔍 Track 311 Status</span>
+                <span>&rarr;</span>
+              </NavLink>
+              <NavLink
+                to="/services/request"
+                className="bg-amber-400 hover:bg-amber-300 text-blue-950 text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow whitespace-nowrap"
+              >
+                Central 311 Portal &rarr;
+              </NavLink>
+            </div>
           </div>
-          <NavLink
-            to="/permits/apply"
-            className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow self-start md:self-auto whitespace-nowrap"
-          >
-            All Permit Forms Portal →
-          </NavLink>
+
+          {/* All 7 Service Request Form Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {forms
+              .filter((f) => f.category.includes('311'))
+              .map((form) => {
+                const icon = getFormIcon(form.id);
+                return (
+                  <article
+                    key={form.id}
+                    id={form.id}
+                    className="bg-white/10 hover:bg-white/15 rounded-xl p-5 border border-white/15 backdrop-blur-xs transition-all flex flex-col justify-between space-y-4 group"
+                    data-form-endpoint={form.url}
+                    data-form-category="311 Service Request"
+                  >
+                    <div className="space-y-3">
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="flex items-center gap-2">
+                          <span className="text-2xl p-1.5 bg-white/10 rounded-lg">{icon}</span>
+                          <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded font-mono bg-amber-500/30 text-amber-200 border border-amber-400/30">
+                            311 Service Request
+                          </span>
+                        </div>
+                        <span className="text-[11px] font-bold font-mono text-emerald-300 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30 whitespace-nowrap">
+                          {form.fee}
+                        </span>
+                      </div>
+
+                      <div>
+                        <h3 className="font-bold text-base text-white group-hover:text-amber-300 transition-colors">
+                          <NavLink to={form.relativeUrl} className="hover:underline">
+                            {form.title}
+                          </NavLink>
+                        </h3>
+                        <div className="text-[11px] text-amber-200 font-mono mt-0.5">
+                          Resolution SLA: <span className="font-semibold text-white">{form.sla}</span>
+                        </div>
+                      </div>
+
+                      <div className="bg-black/30 p-3 rounded-lg border border-white/10 space-y-1.5">
+                        <div className="text-[11px] font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1">
+                          <span>📌 When to Use This Service Request Form:</span>
+                        </div>
+                        <p className="text-xs text-slate-200 leading-relaxed">
+                          {form.exactUse}
+                        </p>
+                      </div>
+
+                      {form.requiredDetails && form.requiredDetails.length > 0 && (
+                        <div className="space-y-1 text-xs">
+                          <span className="text-[11px] font-semibold text-slate-300">
+                            📑 Required Information to Submit:
+                          </span>
+                          <ul className="text-[11px] text-slate-300/90 list-disc list-inside space-y-0.5">
+                            {form.requiredDetails.map((req: string, idx: number) => (
+                              <li key={idx} className="truncate" title={req}>
+                                {req}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                      <span className="text-[10px] font-mono text-slate-400 truncate max-w-[170px]" title={form.relativeUrl}>
+                        {form.relativeUrl}
+                      </span>
+                      <NavLink
+                        to={form.relativeUrl}
+                        className="bg-amber-400 hover:bg-amber-300 text-blue-950 font-bold text-xs px-3.5 py-1.5 rounded-lg transition-colors flex items-center gap-1 shadow-xs whitespace-nowrap"
+                      >
+                        <span>Submit Request</span>
+                        <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
+                      </NavLink>
+                    </div>
+                  </article>
+                );
+              })}
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <NavLink
-            to="/permits/apply/deck"
-            className="p-4 bg-white/10 hover:bg-white/15 rounded-xl border border-white/15 backdrop-blur-xs transition-all space-y-2 group"
-          >
-            <div className="flex items-center justify-between">
-              <span className="text-2xl">📐</span>
-              <span className="text-[10px] font-mono bg-indigo-500/30 text-indigo-200 px-2 py-0.5 rounded border border-indigo-400/30">
-                $185.00
-              </span>
+        {/* ── 2. Dedicated Building & Construction Permit Applications Section ── */}
+        <div
+          id="permit-forms-directory"
+          className="scroll-mt-24 bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 text-white p-6 sm:p-8 rounded-2xl shadow-lg space-y-6 border border-blue-500/30"
+        >
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-indigo-400 animate-pulse"></span>
+                <span className="text-xs font-bold uppercase tracking-wider text-indigo-300 font-mono">
+                  🏗️ Official Municipal Permit Forms
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold font-serif text-white tracking-tight">
+                Building, Construction &amp; Safety Permit Forms
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 max-w-3xl leading-relaxed">
+                Official statutory permit intake applications under the Ontario Building Code and Maplewood municipal by-laws. Review required setbacks, engineering criteria, and fee structures.
+              </p>
             </div>
-            <h3 className="font-bold text-sm text-white group-hover:text-blue-200">
-              Deck Construction Permit
-            </h3>
-            <p className="text-xs text-slate-300 leading-relaxed">
-              For attached decks or height &gt;60cm. Submit drawings and setback verifications.
-            </p>
-            <div className="text-[11px] text-amber-300 font-semibold pt-1 flex items-center gap-1">
-              Apply Online <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </div>
-          </NavLink>
+            <NavLink
+              to="/permits/apply"
+              className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow whitespace-nowrap self-start md:self-auto"
+            >
+              All Permit Forms Portal &rarr;
+            </NavLink>
+          </div>
 
-          <NavLink
-            to="/permits/apply/pool"
-            className="p-4 bg-white/10 hover:bg-white/15 rounded-xl border border-white/15 backdrop-blur-xs transition-all space-y-2 group"
-          >
-            <div className="flex items-center justify-between">
-              <span className="text-2xl">🏊</span>
-              <span className="text-[10px] font-mono bg-blue-500/30 text-blue-200 px-2 py-0.5 rounded border border-blue-400/30">
-                $150.00
-              </span>
-            </div>
-            <h3 className="font-bold text-sm text-white group-hover:text-blue-200">
-              Pool Enclosure Permit
-            </h3>
-            <p className="text-xs text-slate-300 leading-relaxed">
-              Mandatory under By-law 2022-18 for &gt;60cm depth. 1.5m fence &amp; latch inspection.
-            </p>
-            <div className="text-[11px] text-amber-300 font-semibold pt-1 flex items-center gap-1">
-              Apply Online <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </div>
-          </NavLink>
+          {/* All 4 Permit Form Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {forms
+              .filter((f) => f.category.includes('Permit'))
+              .map((form) => {
+                const icon = getFormIcon(form.id);
+                return (
+                  <article
+                    key={form.id}
+                    id={form.id}
+                    className="bg-white/10 hover:bg-white/15 rounded-xl p-5 border border-white/15 backdrop-blur-xs transition-all flex flex-col justify-between space-y-4 group"
+                    data-form-endpoint={form.url}
+                    data-form-category="Building Permit"
+                  >
+                    <div className="space-y-3">
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="flex items-center gap-2">
+                          <span className="text-2xl p-1.5 bg-white/10 rounded-lg">{icon}</span>
+                          <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded font-mono bg-indigo-500/30 text-indigo-200 border border-indigo-400/30">
+                            Permit Form
+                          </span>
+                        </div>
+                        <span className="text-[11px] font-bold font-mono text-emerald-300 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30 whitespace-nowrap">
+                          {form.fee}
+                        </span>
+                      </div>
 
-          <NavLink
-            to="/permits/apply/burn"
-            className="p-4 bg-white/10 hover:bg-white/15 rounded-xl border border-white/15 backdrop-blur-xs transition-all space-y-2 group"
-          >
-            <div className="flex items-center justify-between">
-              <span className="text-2xl">🔥</span>
-              <span className="text-[10px] font-mono bg-orange-500/30 text-orange-200 px-2 py-0.5 rounded border border-orange-400/30">
-                $25.00 Instant
+                      <div>
+                        <h3 className="font-bold text-base text-white group-hover:text-indigo-200 transition-colors">
+                          <NavLink to={form.relativeUrl} className="hover:underline">
+                            {form.title}
+                          </NavLink>
+                        </h3>
+                        <div className="text-[11px] text-blue-200 font-mono mt-0.5">
+                          Review SLA: <span className="font-semibold text-white">{form.sla}</span>
+                        </div>
+                      </div>
+
+                      <div className="bg-black/30 p-3 rounded-lg border border-white/10 space-y-1.5">
+                        <div className="text-[11px] font-bold text-indigo-300 uppercase tracking-wider flex items-center gap-1">
+                          <span>📌 When to Use This Permit Form:</span>
+                        </div>
+                        <p className="text-xs text-slate-200 leading-relaxed">
+                          {form.exactUse}
+                        </p>
+                      </div>
+
+                      {form.requiredDetails && form.requiredDetails.length > 0 && (
+                        <div className="space-y-1 text-xs">
+                          <span className="text-[11px] font-semibold text-slate-300">
+                            📑 Required Documentation:
+                          </span>
+                          <ul className="text-[11px] text-slate-300/90 list-disc list-inside space-y-0.5">
+                            {form.requiredDetails.slice(0, 3).map((req: string, idx: number) => (
+                              <li key={idx} className="truncate" title={req}>
+                                {req}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                      <span className="text-[10px] font-mono text-slate-400 truncate max-w-[150px]" title={form.relativeUrl}>
+                        {form.relativeUrl}
+                      </span>
+                      <NavLink
+                        to={form.relativeUrl}
+                        className="bg-indigo-500 hover:bg-indigo-400 text-white font-bold text-xs px-3.5 py-1.5 rounded-lg transition-colors flex items-center gap-1 shadow-xs whitespace-nowrap"
+                      >
+                        <span>Apply Online</span>
+                        <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
+                      </NavLink>
+                    </div>
+                  </article>
+                );
+              })}
+          </div>
+        </div>
+
+        {/* ── 3. Dedicated Property Taxes & Financial Tools Section ── */}
+        <div
+          id="tax-tools-directory"
+          className="scroll-mt-24 bg-gradient-to-r from-emerald-950/90 via-slate-900 to-teal-950 text-white p-6 sm:p-8 rounded-2xl shadow-lg space-y-6 border border-emerald-500/30"
+        >
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span className="text-xs font-bold uppercase tracking-wider text-emerald-300 font-mono">
+                  💰 Property Taxes &amp; Revenue Tools
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold font-serif text-white tracking-tight">
+                Property Tax Calculators, PAP Enrollment &amp; Payments
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 max-w-3xl leading-relaxed">
+                Estimate property taxes with the 2026 mill rate (0.0094523), enroll in automatic interest-free bank debits, and review payment remittance options.
+              </p>
+            </div>
+            <NavLink
+              to="/taxes/calculator"
+              className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow whitespace-nowrap self-start md:self-auto"
+            >
+              Open Tax Calculator &rarr;
+            </NavLink>
+          </div>
+
+          {/* All 3 Tax Tool Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {forms
+              .filter((f) => f.category.includes('Tax'))
+              .map((form) => {
+                const icon = getFormIcon(form.id);
+                return (
+                  <article
+                    key={form.id}
+                    id={form.id}
+                    className="bg-white/10 hover:bg-white/15 rounded-xl p-5 border border-white/15 backdrop-blur-xs transition-all flex flex-col justify-between space-y-4 group"
+                    data-form-endpoint={form.url}
+                    data-form-category="Taxes & Finance"
+                  >
+                    <div className="space-y-3">
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="flex items-center gap-2">
+                          <span className="text-2xl p-1.5 bg-white/10 rounded-lg">{icon}</span>
+                          <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded font-mono bg-emerald-500/30 text-emerald-200 border border-emerald-400/30">
+                            Financial Tool
+                          </span>
+                        </div>
+                        <span className="text-[11px] font-bold font-mono text-emerald-300 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30 whitespace-nowrap">
+                          {form.fee}
+                        </span>
+                      </div>
+
+                      <div>
+                        <h3 className="font-bold text-base text-white group-hover:text-emerald-200 transition-colors">
+                          <NavLink to={form.relativeUrl} className="hover:underline">
+                            {form.title}
+                          </NavLink>
+                        </h3>
+                        <div className="text-[11px] text-emerald-200 font-mono mt-0.5">
+                          Timeline: <span className="font-semibold text-white">{form.sla}</span>
+                        </div>
+                      </div>
+
+                      <div className="bg-black/30 p-3 rounded-lg border border-white/10 space-y-1.5">
+                        <div className="text-[11px] font-bold text-emerald-300 uppercase tracking-wider flex items-center gap-1">
+                          <span>📌 When to Use This Financial Form:</span>
+                        </div>
+                        <p className="text-xs text-slate-200 leading-relaxed">
+                          {form.exactUse}
+                        </p>
+                      </div>
+
+                      {form.requiredDetails && form.requiredDetails.length > 0 && (
+                        <div className="space-y-1 text-xs">
+                          <span className="text-[11px] font-semibold text-slate-300">
+                            📑 Required Information:
+                          </span>
+                          <ul className="text-[11px] text-slate-300/90 list-disc list-inside space-y-0.5">
+                            {form.requiredDetails.map((req: string, idx: number) => (
+                              <li key={idx} className="truncate" title={req}>
+                                {req}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                      <span className="text-[10px] font-mono text-slate-400 truncate max-w-[170px]" title={form.relativeUrl}>
+                        {form.relativeUrl}
+                      </span>
+                      <NavLink
+                        to={form.relativeUrl}
+                        className="bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-bold text-xs px-3.5 py-1.5 rounded-lg transition-colors flex items-center gap-1 shadow-xs whitespace-nowrap"
+                      >
+                        <span>Open Tool</span>
+                        <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
+                      </NavLink>
+                    </div>
+                  </article>
+                );
+              })}
+          </div>
+        </div>
+
+        {/* ── 4. Machine-Scrapable Grounding Table for AI Scrapers & Bots ── */}
+        <div className="bg-slate-900 text-white p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-md space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-4">
+            <div className="flex items-center gap-2">
+              <span className="text-xl">🤖</span>
+              <div>
+                <h3 className="text-sm font-bold uppercase font-mono tracking-wider text-blue-200">
+                  Complete Machine-Scrapable Grounding Table (AI Crawler &amp; Scraper Spec)
+                </h3>
+                <p className="text-xs text-slate-400">
+                  All 14 municipal online forms and 311 intake endpoints indexed with aligned purpose and documentation standards.
+                </p>
+              </div>
+            </div>
+            <span className="text-[11px] text-slate-400 font-mono">
+              Domain: mapplewood-fictional-town.onrender.com
+            </span>
+          </div>
+
+          <div className="overflow-x-auto rounded-xl border border-white/15 bg-black/40">
+            <table
+              className="w-full text-left text-xs text-slate-200 border-collapse"
+              data-scraper-target="municipal-forms-index"
+            >
+              <thead>
+                <tr className="bg-white/10 border-b border-white/15 text-[11px] uppercase tracking-wider text-slate-300 font-mono">
+                  <th className="p-3">Form Name &amp; Endpoint</th>
+                  <th className="p-3">Category</th>
+                  <th className="p-3">What This Form is For (Specific Use)</th>
+                  <th className="p-3">Required Documents / Details</th>
+                  <th className="p-3">Fee</th>
+                  <th className="p-3">Turnaround SLA</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/10 text-[11px]">
+                {forms.map((item) => (
+                  <tr key={item.id} className="hover:bg-white/5 transition-colors">
+                    <td className="p-3 font-semibold text-white">
+                      <NavLink to={item.relativeUrl} className="text-amber-300 hover:underline">
+                        {item.title}
+                      </NavLink>
+                      <div className="text-[10px] text-slate-400 font-mono mt-0.5">
+                        {item.url}
+                      </div>
+                    </td>
+                    <td className="p-3 font-mono text-[10px] text-blue-300">{item.category}</td>
+                    <td className="p-3 text-slate-300 max-w-xs">{item.exactUse}</td>
+                    <td className="p-3 text-slate-400 max-w-xs">
+                      <ul className="list-disc list-inside space-y-0.5">
+                        {item.requiredDetails?.slice(0, 2).map((d: string, i: number) => (
+                          <li key={i}>{d}</li>
+                        ))}
+                      </ul>
+                    </td>
+                    <td className="p-3 font-mono font-bold text-emerald-300 whitespace-nowrap">
+                      {item.fee}
+                    </td>
+                    <td className="p-3 font-mono text-slate-300 whitespace-nowrap">{item.sla}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Official PDF Manuals Download Banner */}
+          <div className="bg-white/5 p-4 rounded-xl border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 mt-4">
+            <div className="space-y-1 text-center sm:text-left">
+              <span className="text-xs font-bold text-amber-300 uppercase tracking-wider font-mono">
+                Official Regulatory Manuals (PDF)
               </span>
+              <p className="text-xs text-slate-300">
+                Download official comprehensive guides for permits, recycling rules, and property tax schedules:
+              </p>
             </div>
-            <h3 className="font-bold text-sm text-white group-hover:text-orange-200">
-              Open-Air Burn Permit
-            </h3>
-            <p className="text-xs text-slate-300 leading-relaxed">
-              Rural zones &amp; County Rd 8 only. Max pile 2mx2mx1m. Instant active approval.
-            </p>
-            <div className="text-[11px] text-amber-300 font-semibold pt-1 flex items-center gap-1">
-              Apply Online <span className="group-hover:translate-x-1 transition-transform">→</span>
+            <div className="flex flex-wrap gap-2 justify-center">
+              <a
+                href="/documents/Maplewood_Municipal_Permits_and_Construction_Code_Guide.pdf"
+                className="bg-blue-800 hover:bg-blue-700 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg border border-blue-600 transition-colors shadow-xs"
+                download
+              >
+                📥 Permits Manual (PDF)
+              </a>
+              <a
+                href="/documents/Maplewood_DPW_Recycling_and_Waste_Disposal_Comprehensive_Manual.pdf"
+                className="bg-blue-800 hover:bg-blue-700 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg border border-blue-600 transition-colors shadow-xs"
+                download
+              >
+                📥 Waste Manual (PDF)
+              </a>
+              <a
+                href="/documents/Maplewood_Property_Tax_and_Assessment_Comprehensive_Guide.pdf"
+                className="bg-blue-800 hover:bg-blue-700 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg border border-blue-600 transition-colors shadow-xs"
+                download
+              >
+                📥 Tax Manual (PDF)
+              </a>
             </div>
-          </NavLink>
+          </div>
         </div>
       </section>
 

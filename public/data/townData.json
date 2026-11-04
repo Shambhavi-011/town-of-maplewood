@@ -7,7 +7,7 @@
     "phone": "(555) 123-4567",
     "serviceQueue311": "311 (within town limits) or (555) 311-MAPL",
     "email": "info@maplewood.fictionaltown.com",
-    "hours": "Monday to Friday: 8:30 AM – 4:30 PM (Closed statutory holidays)",
+    "hours": "Monday to Friday: 8:30 AM \u2013 4:30 PM (Closed statutory holidays)",
     "incorporatedYear": 1888,
     "population": 42850,
     "households": 16420,
@@ -20,7 +20,7 @@
       "hydroDownedWires": "Maplewood Hydro & Electric: 1-800-434-1235 (24/7 Urgent Line)"
     },
     "mayorAndCouncil": {
-      "term": "2024–2028 Municipal Council Term",
+      "term": "2024\u20132028 Municipal Council Term",
       "councilMeetingSchedule": "1st and 3rd Tuesday of each month at 7:00 PM in Council Chambers (Live-streamed)",
       "mayor": {
         "name": "Eleanor Vance",
@@ -130,7 +130,7 @@
         "name": "Maplewood Town Hall",
         "type": "Civic Administration",
         "address": "123 Main Street, Maplewood, ON M4P 1T8",
-        "hours": "Mon–Fri: 8:30 AM – 4:30 PM",
+        "hours": "Mon\u2013Fri: 8:30 AM \u2013 4:30 PM",
         "phone": "(555) 123-4567",
         "features": "Council Chambers, Tax Office, Clerk counter, 24/7 exterior payment drop-box, accessible elevator."
       },
@@ -138,7 +138,7 @@
         "name": "Department of Public Works Yard & Recycling Center",
         "type": "Operations & Depot",
         "address": "359 Boyden Avenue, Maplewood, NJ 07040",
-        "hours": "Mon–Fri: 8:00 AM – 3:00 PM; Sat: 8:00 AM – 12:00 PM",
+        "hours": "Mon\u2013Fri: 8:00 AM \u2013 3:00 PM; Sat: 8:00 AM \u2013 12:00 PM",
         "phone": "(973) 762-1175",
         "features": "Dual-stream recycling depot, electronics e-waste, bulk drop-off days, free mulch and compost pick-up."
       },
@@ -146,7 +146,7 @@
         "name": "Fire Station 1 (Headquarters)",
         "type": "Emergency Services",
         "address": "45 Valley Road, Maplewood, ON M4P 2B1",
-        "hours": "24/7 Emergency Dispatch; Administration: Mon–Fri 9am–4pm",
+        "hours": "24/7 Emergency Dispatch; Administration: Mon\u2013Fri 9am\u20134pm",
         "phone": "Emergency: 911; Non-Emergency: (555) 123-3473",
         "features": "Fire suppression apparatus, rescue boat, hazmat response, and fire safety education center."
       },
@@ -162,7 +162,7 @@
         "name": "Maplewood Memorial Community Complex",
         "type": "Recreation & Culture",
         "address": "200 Parkside Drive, Maplewood, ON M4P 1Z5",
-        "hours": "Mon–Sun: 6:00 AM – 10:00 PM",
+        "hours": "Mon\u2013Sun: 6:00 AM \u2013 10:00 PM",
         "phone": "(555) 123-7327",
         "features": "25m indoor swimming pool, twin ice rinks, community meeting halls, senior activity wing, and fitness center."
       },
@@ -170,7 +170,7 @@
         "name": "Maplewood Public Library",
         "type": "Public Library",
         "address": "140 Main Street, Maplewood, ON M4P 1T9",
-        "hours": "Tue–Thu: 10am–8pm; Fri–Sat: 10am–5pm; Sun: 1pm–5pm",
+        "hours": "Tue\u2013Thu: 10am\u20138pm; Fri\u2013Sat: 10am\u20135pm; Sun: 1pm\u20135pm",
         "phone": "(555) 123-2665",
         "features": "Digital makerspace, 3D printing, public computers, Ontario Building Code physical reference shelf, study rooms."
       },
@@ -178,7 +178,7 @@
         "name": "Maplewood Regional Animal Care Center & Bark Park",
         "type": "Animal Services & Park",
         "address": "42 River Valley Road, Maplewood, ON M4P 4C2",
-        "hours": "Shelter: Mon–Sat 10am–4pm; Bark Park: Dawn to Dusk",
+        "hours": "Shelter: Mon\u2013Sat 10am\u20134pm; Bark Park: Dawn to Dusk",
         "phone": "(555) 123-4567 ext. 240",
         "features": "Municipal dog licensing, stray animal intake and adoption, 3-acre fully fenced double-gated off-leash park."
       }
@@ -202,11 +202,11 @@
         "schedule": "First Tuesday of each calendar month.",
         "rules": "Maximum 2 large items per household per month (e.g., sofas, appliances with Freon removed and certified tag). Mattresses must be fully encased in sealed plastic wrap."
       },
-      "hazardousWaste": "Household Hazardous Waste (HHW) depot located at 450 Transfer Rd. Open Saturdays 9:00 AM – 3:00 PM. Never place batteries, paint, motor oil, or propane tanks in curbside bins.",
+      "hazardousWaste": "Household Hazardous Waste (HHW) depot located at 450 Transfer Rd. Open Saturdays 9:00 AM \u2013 3:00 PM. Never place batteries, paint, motor oil, or propane tanks in curbside bins.",
       "sanitationEnforcementAndComplaints": {
         "illegalDumpingFAQ": {
           "question": "Someone is illegally dumping waste in my neighborhood. What should I do?",
-          "answer": "If actively in progress, call Police Dispatch at (555) 123-7623 or 911 immediately. Note vehicle make, license plate, and direction of travel without confronting the perpetrator. For discovered/abandoned waste, file a report on the 311 Citizen Portal (maplewoodnj.gov/services/request) or call DPW. Code enforcement officers inspect debris for identifying manifests. Under Township Code § 209-14, illegal dumping carries mandatory municipal court appearance, fines up to $2,500.00 per offense, cleanup restitution, and potential vehicle impoundment."
+          "answer": "If actively in progress, call Police Dispatch at (555) 123-7623 or 911 immediately. Note vehicle make, license plate, and direction of travel without confronting the perpetrator. For discovered/abandoned waste, file a report on the 311 Citizen Portal (maplewoodnj.gov/services/request) or call DPW. Code enforcement officers inspect debris for identifying manifests. Under Township Code \u00a7 209-14, illegal dumping carries mandatory municipal court appearance, fines up to $2,500.00 per offense, cleanup restitution, and potential vehicle impoundment."
         },
         "brokenParkBinFAQ": {
           "question": "There is a broken garbage bin in the park. Can I report it?",
@@ -214,22 +214,22 @@
         },
         "garbagePilingFAQ": {
           "question": "Garbage has been piling up near my house. Can I submit a complaint?",
-          "answer": "YES. Refuse accumulation violates Township Code § 209-7 and Property Standards Chapter 239. Submit a ticket on 311 or call Code Enforcement at (973) 762-8120 Ext. 3300. An officer conducts a site inspection within 24 hours and serves a formal 48-Hour Notice of Violation. If unabated, municipal crews clear the trash, and all costs plus administrative penalties are assessed as a tax lien against the property, alongside daily $250 court fines."
+          "answer": "YES. Refuse accumulation violates Township Code \u00a7 209-7 and Property Standards Chapter 239. Submit a ticket on 311 or call Code Enforcement at (973) 762-8120 Ext. 3300. An officer conducts a site inspection within 24 hours and serves a formal 48-Hour Notice of Violation. If unabated, municipal crews clear the trash, and all costs plus administrative penalties are assessed as a tax lien against the property, alongside daily $250 court fines."
         },
         "badSmellFAQ": {
           "question": "There is a bad smell coming from a public garbage area. Can I report it?",
-          "answer": "YES. Report via 311 under 'Public Sanitation / Odor & Health Hazard'. DPW dispatches a sanitation crew within 24 hours to power-wash the receptacle with high-pressure hot water and hospital-grade biodegradable enzymatic deodorizer. Commercial dumpsters are inspected for tight-fitting lids and rodent-proof drain plugs under § 209-18."
+          "answer": "YES. Report via 311 under 'Public Sanitation / Odor & Health Hazard'. DPW dispatches a sanitation crew within 24 hours to power-wash the receptacle with high-pressure hot water and hospital-grade biodegradable enzymatic deodorizer. Commercial dumpsters are inspected for tight-fitting lids and rodent-proof drain plugs under \u00a7 209-18."
         }
       }
     },
     "roadsMaintenance": {
       "title": "Roads, Potholes & Infrastructure Maintenance",
       "potholeReporting": {
-        "faqPotholeRequest": "I want to create a service request for a pothole — what information do you need?",
+        "faqPotholeRequest": "I want to create a service request for a pothole \u2014 what information do you need?",
         "requiredInformation": [
           "1. Exact Incident Location: Specific street address (e.g., '148 Valley Street') or primary road with nearest intersecting cross-streets (e.g., 'Baker St between Maplewood Ave and Ridgewood Rd').",
           "2. Direction of Travel & Lane Position: Compass heading (Northbound, Southbound, Eastbound, Westbound) and exact lane (center travel lane, passenger-side tire track, driver-side track, parking gutter, or crosswalk).",
-          "3. Size & Depth Severity Bracket: Tier 1 (<25 cm / <10″ shallow pitting), Tier 2 (25–60 cm / 10–24″ standard pothole, 1–3″ deep), or Tier 3 (>60 cm / >24″ severe crater, >3″ deep with exposed sub-base gravel).",
+          "3. Size & Depth Severity Bracket: Tier 1 (<25 cm / <10\u2033 shallow pitting), Tier 2 (25\u201360 cm / 10\u201324\u2033 standard pothole, 1\u20133\u2033 deep), or Tier 3 (>60 cm / >24\u2033 severe crater, >3\u2033 deep with exposed sub-base gravel).",
           "4. Road Jurisdiction Verification: Validation whether street is municipal or County roadway (Springfield Ave, Valley St, and Wyoming Ave are Essex County roadways routed to county dispatch with cross-reference tracking).",
           "5. Environmental & Safety Hazards: Standing water concealing hole depth, sharp asphalt edges posing blowout risk, or bicycle/pedestrian lane obstruction.",
           "6. Digital Photographs: Context photo showing roadway location plus close-up photo showing cavity depth and deterioration.",
@@ -237,9 +237,21 @@
         ],
         "reportingRequirements": "Reports must provide the exact street address or closest cross-street intersection, travel lane direction, severity bracket, jurisdiction, safety conditions, photos, and citizen contact info.",
         "sizeGuide": [
-          { "size": "Small (Tier 1)", "dimension": "Under 25 cm (10 inches) diameter, depth under 5 cm (shallow surface spall)", "sla": "Inspected and repaired within 5 business days" },
-          { "size": "Medium (Tier 2)", "dimension": "25 cm to 60 cm (10 to 24 inches) diameter, moderate depth 1–3 inches", "sla": "Inspected and repaired within 3 business days" },
-          { "size": "Large (Tier 3)", "dimension": "Over 60 cm (24 inches) diameter or severe depth >3 inches (rim damage hazard)", "sla": "Inspected and emergency patched within 24 hours (High severity)" }
+          {
+            "size": "Small (Tier 1)",
+            "dimension": "Under 25 cm (10 inches) diameter, depth under 5 cm (shallow surface spall)",
+            "sla": "Inspected and repaired within 5 business days"
+          },
+          {
+            "size": "Medium (Tier 2)",
+            "dimension": "25 cm to 60 cm (10 to 24 inches) diameter, moderate depth 1\u20133 inches",
+            "sla": "Inspected and repaired within 3 business days"
+          },
+          {
+            "size": "Large (Tier 3)",
+            "dimension": "Over 60 cm (24 inches) diameter or severe depth >3 inches (rim damage hazard)",
+            "sla": "Inspected and emergency patched within 24 hours (High severity)"
+          }
         ],
         "travelLaneRule": "Any large pothole situated in an active travel lane, school zone, or bus corridor is flagged High Severity for immediate crew dispatch within 24 hours.",
         "duplicateDetectionThreshold": "Existing reports within 50 meters submitted within the last 30 days are automatically consolidated into existing work orders to prevent duplicate crew dispatches while adding the citizen as an endorsed subscriber."
@@ -266,47 +278,166 @@
       "waterSource": "Drinking water is sourced from the Maplewood Aquifer and treated at the Central Water Purification Plant. Rigorous testing is conducted daily in accordance with provincial drinking water regulations.",
       "conservationByLaw": {
         "effectivePeriod": "May 15 to September 15 annually.",
-        "rules": "Lawn and garden watering permitted only on alternate days. Even-numbered municipal addresses may water on even calendar days; odd-numbered addresses on odd calendar days. Permitted hours are 6:00 AM – 8:00 AM and 7:00 PM – 9:00 PM only."
+        "rules": "Lawn and garden watering permitted only on alternate days. Even-numbered municipal addresses may water on even calendar days; odd-numbered addresses on odd calendar days. Permitted hours are 6:00 AM \u2013 8:00 AM and 7:00 PM \u2013 9:00 PM only."
       },
       "emergencyWaterMainBreaks": "Call (555) 123-9287 immediately for water main breaks, sudden drop in municipal water pressure, or discolored water notices."
     },
     "snowRemoval": {
       "title": "Winter Road Maintenance, Snow Emergencies & Plowing Routes",
       "codeReferences": {
-        "chapter257": "Chapter 257 (Vehicles and Traffic), Article IV (Emergency No Parking) and § 257-36.7 / § 257-2.5",
-        "chapter239": "Chapter 239 (Streets and Sidewalks), § 239-1 (Removal of snow and ice) and § 239-2 (Depositing snow in streets prohibited)"
+        "chapter257": "Chapter 257 (Vehicles and Traffic), Article IV (Emergency No Parking) and \u00a7 257-36.7 / \u00a7 257-2.5",
+        "chapter239": "Chapter 239 (Streets and Sidewalks), \u00a7 239-1 (Removal of snow and ice) and \u00a7 239-2 (Depositing snow in streets prohibited)"
       },
       "priorityPlowingSchedule": [
-        { "priority": "Priority 1 (Arterial & Transit Routes)", "threshold": "Cleared within 4 to 6 hours after 5 cm of snowfall accumulation. Includes Main St, Valley St, Springfield Ave, emergency hospital routes." },
-        { "priority": "Priority 2 (Collector & School Zones)", "threshold": "Cleared within 8 hours following snowfall completion. Includes neighborhood feeder roads and bus zones." },
-        { "priority": "Priority 3 (Residential Streets & Cul-de-sacs)", "threshold": "Cleared within 16 to 24 hours after 8 cm accumulation. Residential routes are plowed only once Priority 1 and 2 are fully maintained." }
+        {
+          "priority": "Priority 1 (Arterial & Transit Routes)",
+          "threshold": "Cleared within 4 to 6 hours after 5 cm of snowfall accumulation. Includes Main St, Valley St, Springfield Ave, emergency hospital routes."
+        },
+        {
+          "priority": "Priority 2 (Collector & School Zones)",
+          "threshold": "Cleared within 8 hours following snowfall completion. Includes neighborhood feeder roads and bus zones."
+        },
+        {
+          "priority": "Priority 3 (Residential Streets & Cul-de-sacs)",
+          "threshold": "Cleared within 16 to 24 hours after 8 cm accumulation. Residential routes are plowed only once Priority 1 and 2 are fully maintained."
+        }
       ],
       "overnightParkingBan": "Under Municipal Code Chapter 257, on-street parking is strictly prohibited on all municipal streets between 2:00 AM and 6:00 AM. During winter snow events and declared States of Emergency, all on-street parking permits are suspended on snow-covered streets until plowing operations are concluded. Violations carry a $60 fine and mandatory vehicle towing.",
-      "sidewalkClearingByLaw": "Under § 239-1, residential and commercial property owners, tenants, and occupants are legally required to clear all snow and ice from abutting sidewalks within 24 hours following the end of snowfall. If ice cannot be removed, it must be thoroughly treated with salt or sand. Under § 239-2, throwing, shoveling, or plowing snow into already plowed public streets is strictly unlawful.",
-      "towingAndImpoundPolicy": "Under § 257-31, any unoccupied vehicle parked or standing in violation of emergency snow parking regulations is deemed a nuisance and a public menace. The Police Department is authorized to order immediate removal and impoundment. The registered owner is liable for all towing and daily storage fees prior to release.",
+      "sidewalkClearingByLaw": "Under \u00a7 239-1, residential and commercial property owners, tenants, and occupants are legally required to clear all snow and ice from abutting sidewalks within 24 hours following the end of snowfall. If ice cannot be removed, it must be thoroughly treated with salt or sand. Under \u00a7 239-2, throwing, shoveling, or plowing snow into already plowed public streets is strictly unlawful.",
+      "towingAndImpoundPolicy": "Under \u00a7 257-31, any unoccupied vehicle parked or standing in violation of emergency snow parking regulations is deemed a nuisance and a public menace. The Police Department is authorized to order immediate removal and impoundment. The registered owner is liable for all towing and daily storage fees prior to release.",
       "designatedSnowEmergencyRoutes": [
-        { "street": "Valley Street (County Route 638)", "extent": "Millburn Township line to South Orange Village line", "side": "Both sides", "jurisdiction": "County / Municipal coordination" },
-        { "street": "Wyoming Avenue (County Route 630)", "extent": "South Orange line to Millburn Township line", "side": "Both sides", "jurisdiction": "Essex County Highway Division" },
-        { "street": "Ridgewood Road (County Route 642)", "extent": "Millburn border to South Orange border", "side": "Both sides", "jurisdiction": "Essex County Highway Division" },
-        { "street": "Springfield Avenue (Route 603)", "extent": "Entire length through Township of Maplewood", "side": "Both sides", "jurisdiction": "State / County Roadway" },
-        { "street": "Boyden Avenue", "extent": "Springfield Avenue to South Orange border", "side": "Both sides", "jurisdiction": "Township of Maplewood DPW" },
-        { "street": "Parker Avenue", "extent": "Valley Street to Prospect Street / Irvington border", "side": "Both sides", "jurisdiction": "Township of Maplewood DPW" },
-        { "street": "Maplewood Avenue", "extent": "Entire length through Maplewood Village business district", "side": "Both sides", "jurisdiction": "Township of Maplewood DPW" },
-        { "street": "Baker Street", "extent": "Maplewood Avenue to Ridgewood Road", "side": "Both sides", "jurisdiction": "Township of Maplewood DPW" },
-        { "street": "Prospect Street", "extent": "Springfield Avenue to Parker Avenue / South Orange border", "side": "Both sides", "jurisdiction": "Township of Maplewood DPW" },
-        { "street": "Tuscan Road", "extent": "Valley Street to Springfield Avenue", "side": "Both sides", "jurisdiction": "Township of Maplewood DPW" },
-        { "street": "Burnett Avenue", "extent": "Springfield Avenue to 48th Street / Union County border", "side": "Both sides", "jurisdiction": "Township of Maplewood DPW" },
-        { "street": "Elmwood Avenue", "extent": "Boyden Avenue to Irvington Township border", "side": "Both sides", "jurisdiction": "Township of Maplewood DPW" },
-        { "street": "Harvard Avenue", "extent": "Boyden Avenue to Irvington municipal line", "side": "Both sides", "jurisdiction": "Township of Maplewood DPW" },
-        { "street": "Jefferson Avenue", "extent": "Maplewood Avenue to Ridgewood Road", "side": "Both sides", "jurisdiction": "Township of Maplewood DPW" },
-        { "street": "Clinton Avenue", "extent": "Boyden Avenue to Prospect Street", "side": "Both sides", "jurisdiction": "Township of Maplewood DPW" },
-        { "street": "Hilton Avenue", "extent": "Springfield Avenue to Boyden Avenue", "side": "Both sides", "jurisdiction": "Township of Maplewood DPW" },
-        { "street": "Dunnell Road", "extent": "Entire length adjacent to Maplewood NJ Transit Train Station", "side": "Both sides", "jurisdiction": "Township of Maplewood DPW" },
-        { "street": "Oakview Avenue", "extent": "Valley Street to Ridgewood Road", "side": "Both sides", "jurisdiction": "Township of Maplewood DPW" },
-        { "street": "Meadowbrook Place", "extent": "Valley Street to Ridgewood Road", "side": "Both sides", "jurisdiction": "Township of Maplewood DPW" },
-        { "street": "Claremont Avenue", "extent": "Ridgewood Road to Wyoming Avenue", "side": "Both sides", "jurisdiction": "Township of Maplewood DPW" },
-        { "street": "Highland Avenue", "extent": "Maplewood Avenue to Wyoming Avenue", "side": "Both sides", "jurisdiction": "Township of Maplewood DPW" },
-        { "street": "Indiana Street", "extent": "Burnett Avenue to Springfield Avenue", "side": "Both sides", "jurisdiction": "Township of Maplewood DPW" }
+        {
+          "street": "Valley Street (County Route 638)",
+          "extent": "Millburn Township line to South Orange Village line",
+          "side": "Both sides",
+          "jurisdiction": "County / Municipal coordination"
+        },
+        {
+          "street": "Wyoming Avenue (County Route 630)",
+          "extent": "South Orange line to Millburn Township line",
+          "side": "Both sides",
+          "jurisdiction": "Essex County Highway Division"
+        },
+        {
+          "street": "Ridgewood Road (County Route 642)",
+          "extent": "Millburn border to South Orange border",
+          "side": "Both sides",
+          "jurisdiction": "Essex County Highway Division"
+        },
+        {
+          "street": "Springfield Avenue (Route 603)",
+          "extent": "Entire length through Township of Maplewood",
+          "side": "Both sides",
+          "jurisdiction": "State / County Roadway"
+        },
+        {
+          "street": "Boyden Avenue",
+          "extent": "Springfield Avenue to South Orange border",
+          "side": "Both sides",
+          "jurisdiction": "Township of Maplewood DPW"
+        },
+        {
+          "street": "Parker Avenue",
+          "extent": "Valley Street to Prospect Street / Irvington border",
+          "side": "Both sides",
+          "jurisdiction": "Township of Maplewood DPW"
+        },
+        {
+          "street": "Maplewood Avenue",
+          "extent": "Entire length through Maplewood Village business district",
+          "side": "Both sides",
+          "jurisdiction": "Township of Maplewood DPW"
+        },
+        {
+          "street": "Baker Street",
+          "extent": "Maplewood Avenue to Ridgewood Road",
+          "side": "Both sides",
+          "jurisdiction": "Township of Maplewood DPW"
+        },
+        {
+          "street": "Prospect Street",
+          "extent": "Springfield Avenue to Parker Avenue / South Orange border",
+          "side": "Both sides",
+          "jurisdiction": "Township of Maplewood DPW"
+        },
+        {
+          "street": "Tuscan Road",
+          "extent": "Valley Street to Springfield Avenue",
+          "side": "Both sides",
+          "jurisdiction": "Township of Maplewood DPW"
+        },
+        {
+          "street": "Burnett Avenue",
+          "extent": "Springfield Avenue to 48th Street / Union County border",
+          "side": "Both sides",
+          "jurisdiction": "Township of Maplewood DPW"
+        },
+        {
+          "street": "Elmwood Avenue",
+          "extent": "Boyden Avenue to Irvington Township border",
+          "side": "Both sides",
+          "jurisdiction": "Township of Maplewood DPW"
+        },
+        {
+          "street": "Harvard Avenue",
+          "extent": "Boyden Avenue to Irvington municipal line",
+          "side": "Both sides",
+          "jurisdiction": "Township of Maplewood DPW"
+        },
+        {
+          "street": "Jefferson Avenue",
+          "extent": "Maplewood Avenue to Ridgewood Road",
+          "side": "Both sides",
+          "jurisdiction": "Township of Maplewood DPW"
+        },
+        {
+          "street": "Clinton Avenue",
+          "extent": "Boyden Avenue to Prospect Street",
+          "side": "Both sides",
+          "jurisdiction": "Township of Maplewood DPW"
+        },
+        {
+          "street": "Hilton Avenue",
+          "extent": "Springfield Avenue to Boyden Avenue",
+          "side": "Both sides",
+          "jurisdiction": "Township of Maplewood DPW"
+        },
+        {
+          "street": "Dunnell Road",
+          "extent": "Entire length adjacent to Maplewood NJ Transit Train Station",
+          "side": "Both sides",
+          "jurisdiction": "Township of Maplewood DPW"
+        },
+        {
+          "street": "Oakview Avenue",
+          "extent": "Valley Street to Ridgewood Road",
+          "side": "Both sides",
+          "jurisdiction": "Township of Maplewood DPW"
+        },
+        {
+          "street": "Meadowbrook Place",
+          "extent": "Valley Street to Ridgewood Road",
+          "side": "Both sides",
+          "jurisdiction": "Township of Maplewood DPW"
+        },
+        {
+          "street": "Claremont Avenue",
+          "extent": "Ridgewood Road to Wyoming Avenue",
+          "side": "Both sides",
+          "jurisdiction": "Township of Maplewood DPW"
+        },
+        {
+          "street": "Highland Avenue",
+          "extent": "Maplewood Avenue to Wyoming Avenue",
+          "side": "Both sides",
+          "jurisdiction": "Township of Maplewood DPW"
+        },
+        {
+          "street": "Indiana Street",
+          "extent": "Burnett Avenue to Springfield Avenue",
+          "side": "Both sides",
+          "jurisdiction": "Township of Maplewood DPW"
+        }
       ]
     },
     "animalControl": {
@@ -328,17 +459,29 @@
         "phone": "(973) 762-1175",
         "dispatchPhone": "(555) 123-7623",
         "hours": {
-          "weekdays": "Monday to Friday: 8:00 AM – 3:00 PM",
-          "saturdays": "Saturday: 8:00 AM – 12:00 PM (Noon)",
+          "weekdays": "Monday to Friday: 8:00 AM \u2013 3:00 PM",
+          "saturdays": "Saturday: 8:00 AM \u2013 12:00 PM (Noon)",
           "sundays": "Closed"
         }
       },
       "dualStreamRecycling": {
         "system": "Dual-Stream Curbside Recycling (alternating weekly between Fibers and Commingled Containers)",
         "zoneSchedule": [
-          { "sections": "Sections 1 & 2", "day": "Mondays", "frequency": "Weekly alternating streams" },
-          { "sections": "Sections 3 & 4", "day": "Tuesdays", "frequency": "Weekly alternating streams" },
-          { "sections": "Sections 5 & 6", "day": "Wednesdays", "frequency": "Weekly alternating streams" }
+          {
+            "sections": "Sections 1 & 2",
+            "day": "Mondays",
+            "frequency": "Weekly alternating streams"
+          },
+          {
+            "sections": "Sections 3 & 4",
+            "day": "Tuesdays",
+            "frequency": "Weekly alternating streams"
+          },
+          {
+            "sections": "Sections 5 & 6",
+            "day": "Wednesdays",
+            "frequency": "Weekly alternating streams"
+          }
         ],
         "fibersStream": "Clean flattened cardboard, corrugated boxes, newspapers, magazines, junk mail, office paper, phone books, and brown paper grocery bags. Keep dry and bundle or place in bins.",
         "commingledStream": "Glass bottles and jars, aluminum cans, steel/tin food cans, and rigid plastic food/beverage containers stamped #1 through #7. Must be rinsed clean.",
@@ -392,10 +535,22 @@
       "jitneyCommuterService": {
         "overview": "Municipal commuter bus service transporting residents between residential neighborhoods and the Maplewood NJ Transit Train Station during peak weekday morning and evening commute windows.",
         "routes": [
-          { "name": "Boyden Route", "corridor": "East Maplewood / Boyden Avenue" },
-          { "name": "Parker Route", "corridor": "South Maplewood / Parker Avenue" },
-          { "name": "Wyoming Route", "corridor": "West Maplewood / Wyoming Avenue" },
-          { "name": "Valley Route", "corridor": "Central Maplewood / Valley Street" }
+          {
+            "name": "Boyden Route",
+            "corridor": "East Maplewood / Boyden Avenue"
+          },
+          {
+            "name": "Parker Route",
+            "corridor": "South Maplewood / Parker Avenue"
+          },
+          {
+            "name": "Wyoming Route",
+            "corridor": "West Maplewood / Wyoming Avenue"
+          },
+          {
+            "name": "Valley Route",
+            "corridor": "Central Maplewood / Valley Street"
+          }
         ],
         "passCost": "$95.00 annual commuter pass, or individual tickets purchased at Town Hall and online.",
         "fleetSustainability": "Transition to 100% zero-emission electric jitney buses currently in deployment."
@@ -418,10 +573,22 @@
         "educationPortion": "18% (Local school boards as mandated by the province)"
       },
       "instalmentDueDates": [
-        { "bill": "Interim Bill - Instalment 1", "dueDate": "February 27, 2026" },
-        { "bill": "Interim Bill - Instalment 2", "dueDate": "April 30, 2026" },
-        { "bill": "Final Bill - Instalment 1", "dueDate": "June 30, 2026" },
-        { "bill": "Final Bill - Instalment 2", "dueDate": "September 30, 2026" }
+        {
+          "bill": "Interim Bill - Instalment 1",
+          "dueDate": "February 27, 2026"
+        },
+        {
+          "bill": "Interim Bill - Instalment 2",
+          "dueDate": "April 30, 2026"
+        },
+        {
+          "bill": "Final Bill - Instalment 1",
+          "dueDate": "June 30, 2026"
+        },
+        {
+          "bill": "Final Bill - Instalment 2",
+          "dueDate": "September 30, 2026"
+        }
       ],
       "latePaymentPenalty": "Interest and penalty of 1.25% per month is added on the first day of each calendar month following default, in accordance with the Municipal Act."
     },
@@ -436,7 +603,7 @@
       },
       {
         "method": "In-Person at Town Hall",
-        "instructions": "Visit Customer Service Counter at 123 Main Street. Accepted: Debit/Interac, Cash, Cheque, Money Order. Open Mon-Fri 8:30 AM – 4:30 PM."
+        "instructions": "Visit Customer Service Counter at 123 Main Street. Accepted: Debit/Interac, Cash, Cheque, Money Order. Open Mon-Fri 8:30 AM \u2013 4:30 PM."
       },
       {
         "method": "24/7 Secure Drop Box",
@@ -602,7 +769,11 @@
         "deepLink": "https://mapplewood-fictional-town.onrender.com/permits/apply#permit-portal",
         "anchorId": "permit-portal",
         "exactUse": "Unified municipal permit intake portal allowing applicants to select between Decks, Pools, Burn Permits, Demolition, Additions, and Accessory Structures.",
-        "requiredDetails": ["Basic project details", "Property roll number", "Applicant contact"],
+        "requiredDetails": [
+          "Basic project details",
+          "Property roll number",
+          "Applicant contact"
+        ],
         "fee": "Variable per permit schedule (By-law 2026-02)",
         "sla": "10 to 15 business days",
         "byLaw": "By-law 2026-02 Fee Schedule",
@@ -617,7 +788,12 @@
         "deepLink": "https://mapplewood-fictional-town.onrender.com/services/request#service-request-form",
         "anchorId": "service-request-form",
         "exactUse": "Centralized municipal intake for all non-emergency civic work orders across roads, sanitation, parks, forestry, water utilities, and streetlights. Generates CASE-2026-XXXX tracking IDs.",
-        "requiredDetails": ["Address", "Category selection", "Description", "Citizen contact info"],
+        "requiredDetails": [
+          "Address",
+          "Category selection",
+          "Description",
+          "Citizen contact info"
+        ],
         "fee": "Free Civic Service",
         "sla": "Varies by category (24h to 5 business days)",
         "byLaw": "Maplewood Municipal Operations Standards",
@@ -640,7 +816,7 @@
           "Citizen name, email, mobile phone"
         ],
         "fee": "Free Civic Service",
-        "sla": "24 hours for Tier 3 / active travel lanes; 3–5 business days for standard Tier 1-2",
+        "sla": "24 hours for Tier 3 / active travel lanes; 3\u20135 business days for standard Tier 1-2",
         "byLaw": "Minimum Maintenance Standards for Municipal Highways (O. Reg. 239/02)",
         "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/services/request?type=pothole"
       },
@@ -728,8 +904,10 @@
         "relativeUrl": "/services/track",
         "deepLink": "https://mapplewood-fictional-town.onrender.com/services/request?tab=track",
         "anchorId": "service-request-portal-container",
-        "exactUse": "Real-time tracking of open work orders and permit reviews through 4 stages: Received (New) → Assigned → In Progress → Completed & Verified. Shows supervisor dispatch notes and timestamp.",
-        "requiredDetails": ["Tracking reference number (e.g., CASE-2026-ROAD-4102 or PERM-DECK-2026-XXXX)"],
+        "exactUse": "Real-time tracking of open work orders and permit reviews through 4 stages: Received (New) \u2192 Assigned \u2192 In Progress \u2192 Completed & Verified. Shows supervisor dispatch notes and timestamp.",
+        "requiredDetails": [
+          "Tracking reference number (e.g., CASE-2026-ROAD-4102 or PERM-DECK-2026-XXXX)"
+        ],
         "fee": "Free Instant Lookup",
         "sla": "Real-time instant status display",
         "byLaw": "Citizen Service Guarantee",
@@ -744,7 +922,9 @@
         "deepLink": "https://mapplewood-fictional-town.onrender.com/taxes/calculator#assessment-input",
         "anchorId": "assessment-input",
         "exactUse": "Interactive calculator estimating annual and quarterly tax remittances based on MPAC assessed property value and the 2026 mill rate (0.0094523), with Municipal (48%), Regional (34%), and Education (18%) shares.",
-        "requiredDetails": ["Assessed property value in CAD (e.g., $500,000)"],
+        "requiredDetails": [
+          "Assessed property value in CAD (e.g., $500,000)"
+        ],
         "fee": "Free Citizen Tool",
         "sla": "Real-time instant calculation",
         "byLaw": "2026 Municipal Tax By-law",
@@ -758,7 +938,7 @@
         "relativeUrl": "/taxes/pre-authorized",
         "deepLink": "https://mapplewood-fictional-town.onrender.com/taxes/pre-authorized",
         "anchorId": "pre-authorized-form",
-        "exactUse": "Setting up automatic interest-free bank withdrawals for municipal property taxes: Option 1 (10-Month Monthly Plan Jan–Oct) or Option 2 (Statutory 4-Instalment Due Date Plan: Feb 27, Apr 30, Jun 30, Sep 30).",
+        "exactUse": "Setting up automatic interest-free bank withdrawals for municipal property taxes: Option 1 (10-Month Monthly Plan Jan\u2013Oct) or Option 2 (Statutory 4-Instalment Due Date Plan: Feb 27, Apr 30, Jun 30, Sep 30).",
         "requiredDetails": [
           "19-digit Property Tax Roll Number",
           "Attached VOID blank cheque or official bank PAD authorization",
@@ -778,9 +958,12 @@
         "deepLink": "https://mapplewood-fictional-town.onrender.com/taxes/payment",
         "anchorId": "payment-methods",
         "exactUse": "Step-by-step payment instructions for online banking (Payee: 'Town of Maplewood - Property Taxes', 19-digit Roll Number), 24/7 secure North Entrance drop box, in-person Interac/Cash at Town Hall, or mail.",
-        "requiredDetails": ["Roll number", "Bank account details"],
+        "requiredDetails": [
+          "Roll number",
+          "Bank account details"
+        ],
         "fee": "Standard banking processing; 1.25% monthly penalty on overdue balances",
-        "sla": "Instant receipt in person; 2–3 days for online banking",
+        "sla": "Instant receipt in person; 2\u20133 days for online banking",
         "byLaw": "Tax Remittance Policy",
         "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/taxes/payment"
       }
@@ -790,13 +973,13 @@
     "byLaws": [
       {
         "number": "Chapter 257",
-        "title": "Vehicles & Traffic Code: Snow Emergency Routes (§ 257-36.7 & § 257-2.5)",
-        "summary": "Establishes emergency no-parking restrictions on designated snow emergency routes upon declaration of emergency or snow-covered roadways. Authorizes immediate towing and impoundment of obstructing vehicles under § 257-31.",
+        "title": "Vehicles & Traffic Code: Snow Emergency Routes (\u00a7 257-36.7 & \u00a7 257-2.5)",
+        "summary": "Establishes emergency no-parking restrictions on designated snow emergency routes upon declaration of emergency or snow-covered roadways. Authorizes immediate towing and impoundment of obstructing vehicles under \u00a7 257-31.",
         "effectiveDate": "Codified under Ord. No. 1993-96 & amendments"
       },
       {
         "number": "Chapter 239",
-        "title": "Streets & Sidewalks: Snow & Ice Removal (§ 239-1 & § 239-2)",
+        "title": "Streets & Sidewalks: Snow & Ice Removal (\u00a7 239-1 & \u00a7 239-2)",
         "summary": "Mandates property owners and occupants clear sidewalks within 24 hours of snowfall cessation. Strictly prohibits plowing, shoveling, or blowing snow into public roadways that have already been cleared.",
         "effectiveDate": "Codified under Township Code"
       },
@@ -809,7 +992,7 @@
       {
         "number": "2023-88",
         "title": "Traffic & Winter Parking By-law",
-        "summary": "Establishes municipal speed limits, prohibited heavy truck routes, and the annual overnight winter parking ban (2:00 AM – 6:00 AM, Dec 1 – Mar 31).",
+        "summary": "Establishes municipal speed limits, prohibited heavy truck routes, and the annual overnight winter parking ban (2:00 AM \u2013 6:00 AM, Dec 1 \u2013 Mar 31).",
         "effectiveDate": "November 1, 2023"
       },
       {
@@ -838,20 +1021,76 @@
       }
     ],
     "feeSchedules": [
-      { "category": "Building & Planning", "item": "Residential Deck Permit", "fee": "$185.00" },
-      { "category": "Building & Planning", "item": "Pool Enclosure Permit", "fee": "$150.00" },
-      { "category": "Building & Planning", "item": "Accessory Structure (> 15 m²)", "fee": "$220.00 base + $1.10/m²" },
-      { "category": "Building & Planning", "item": "New Single Detached Dwelling", "fee": "$1,850.00 base + $14.50/m²" },
-      { "category": "Fire & Emergency", "item": "Annual Open-Air Burn Permit (Rural)", "fee": "$25.00 / season" },
-      { "category": "Fire & Emergency", "item": "Commercial Fire Inspection Certificate", "fee": "$120.00" },
-      { "category": "Clerk & Licensing", "item": "Dog License (Spayed/Neutered)", "fee": "$30.00 / year" },
-      { "category": "Clerk & Licensing", "item": "Dog License (Intact)", "fee": "$45.00 / year" },
-      { "category": "Clerk & Licensing", "item": "Marriage License", "fee": "$135.00" },
-      { "category": "Clerk & Licensing", "item": "Commissioning of Oaths", "fee": "$25.00" },
-      { "category": "Finance & Taxation", "item": "Tax Certificate", "fee": "$55.00" },
-      { "category": "Finance & Taxation", "item": "Duplicate Tax Bill / Statement", "fee": "$15.00" },
-      { "category": "Public Works", "item": "Curbside Bag Tag (Excess Garbage)", "fee": "$3.00 / tag" },
-      { "category": "Public Works", "item": "Entrance / Culvert Permit", "fee": "$175.00" }
+      {
+        "category": "Building & Planning",
+        "item": "Residential Deck Permit",
+        "fee": "$185.00"
+      },
+      {
+        "category": "Building & Planning",
+        "item": "Pool Enclosure Permit",
+        "fee": "$150.00"
+      },
+      {
+        "category": "Building & Planning",
+        "item": "Accessory Structure (> 15 m\u00b2)",
+        "fee": "$220.00 base + $1.10/m\u00b2"
+      },
+      {
+        "category": "Building & Planning",
+        "item": "New Single Detached Dwelling",
+        "fee": "$1,850.00 base + $14.50/m\u00b2"
+      },
+      {
+        "category": "Fire & Emergency",
+        "item": "Annual Open-Air Burn Permit (Rural)",
+        "fee": "$25.00 / season"
+      },
+      {
+        "category": "Fire & Emergency",
+        "item": "Commercial Fire Inspection Certificate",
+        "fee": "$120.00"
+      },
+      {
+        "category": "Clerk & Licensing",
+        "item": "Dog License (Spayed/Neutered)",
+        "fee": "$30.00 / year"
+      },
+      {
+        "category": "Clerk & Licensing",
+        "item": "Dog License (Intact)",
+        "fee": "$45.00 / year"
+      },
+      {
+        "category": "Clerk & Licensing",
+        "item": "Marriage License",
+        "fee": "$135.00"
+      },
+      {
+        "category": "Clerk & Licensing",
+        "item": "Commissioning of Oaths",
+        "fee": "$25.00"
+      },
+      {
+        "category": "Finance & Taxation",
+        "item": "Tax Certificate",
+        "fee": "$55.00"
+      },
+      {
+        "category": "Finance & Taxation",
+        "item": "Duplicate Tax Bill / Statement",
+        "fee": "$15.00"
+      },
+      {
+        "category": "Public Works",
+        "item": "Curbside Bag Tag (Excess Garbage)",
+        "fee": "$3.00 / tag"
+      },
+      {
+        "category": "Public Works",
+        "item": "Entrance / Culvert Permit",
+        "fee": "$175.00"
+      }
     ],
     "guides": [
       {
@@ -866,18 +1105,59 @@
         "format": "PDF",
         "size": "316 KB",
         "fileUrl": "/documents/Maplewood_DPW_Recycling_and_Waste_Disposal_Comprehensive_Manual.pdf",
-        "description": "Official Department of Public Works master manual (MW-DPW-RECYCLE-2026-REV5). Comprehensive 8-chapter guide covering dual-stream recycling, 359 Boyden Ave depot operations, bulk drop-off rules, leaf vacuuming, public waste enforcement (§ 209-14 illegal dumping penalties up to $2,500), broken park bin repair SLAs, refuse accumulation 48-hour abatement notices, and public garbage odor sanitization."
+        "description": "Official Department of Public Works master manual (MW-DPW-RECYCLE-2026-REV5). Comprehensive 8-chapter guide covering dual-stream recycling, 359 Boyden Ave depot operations, bulk drop-off rules, leaf vacuuming, public waste enforcement (\u00a7 209-14 illegal dumping penalties up to $2,500), broken park bin repair SLAs, refuse accumulation 48-hour abatement notices, and public garbage odor sanitization."
       },
-      { "title": "2026 Curbside Waste & Recycling Calendar", "format": "PDF", "size": "1.4 MB", "fileUrl": "/documents/Maplewood_DPW_Recycling_and_Waste_Disposal_Comprehensive_Manual.pdf", "description": "Complete zone schedule for garbage, recycling, and green organics collection." },
-      { "title": "Backyard Deck Construction Manual", "format": "PDF", "size": "2.8 MB", "description": "Illustrated guide to setbacks, spans, footing depth, and building code standards." },
-      { "title": "Residential Pool Safety & Enclosure Handbook", "format": "PDF", "size": "1.9 MB", "description": "Clear guidelines for 1.5m fencing, gate hardware, and site inspection prep." },
-      { "title": "Town of Maplewood New Resident Welcome Kit", "format": "PDF", "size": "3.5 MB", "description": "Everything new residents need to know about municipal services, taxes, and bylaws." }
+      {
+        "title": "2026 Curbside Waste & Recycling Calendar",
+        "format": "PDF",
+        "size": "1.4 MB",
+        "fileUrl": "/documents/Maplewood_DPW_Recycling_and_Waste_Disposal_Comprehensive_Manual.pdf",
+        "description": "Complete zone schedule for garbage, recycling, and green organics collection."
+      },
+      {
+        "title": "Backyard Deck Construction Manual",
+        "format": "PDF",
+        "size": "2.8 MB",
+        "description": "Illustrated guide to setbacks, spans, footing depth, and building code standards."
+      },
+      {
+        "title": "Residential Pool Safety & Enclosure Handbook",
+        "format": "PDF",
+        "size": "1.9 MB",
+        "description": "Clear guidelines for 1.5m fencing, gate hardware, and site inspection prep."
+      },
+      {
+        "title": "Town of Maplewood New Resident Welcome Kit",
+        "format": "PDF",
+        "size": "3.5 MB",
+        "description": "Everything new residents need to know about municipal services, taxes, and bylaws."
+      }
     ],
     "councilMinutes": [
-      { "meetingDate": "October 14, 2026", "type": "Regular Council Meeting", "status": "Approved", "highlights": "Approved 2027 Capital Infrastructure Budget, passed By-law 2026-44 on park trail lighting." },
-      { "meetingDate": "September 23, 2026", "type": "Regular Council Meeting", "status": "Approved", "highlights": "Reviewed Winter Road Maintenance Plan, endorsed Wayhall municipal AI chatbot initiative." },
-      { "meetingDate": "September 9, 2026", "type": "Planning & Zoning Committee", "status": "Approved", "highlights": "Public hearing on downtown revitalization zoning amendment and secondary suite provisions." },
-      { "meetingDate": "August 26, 2026", "type": "Regular Council Meeting", "status": "Approved", "highlights": "Authorized water treatment plant membrane filtration upgrade and aquifer conservation report." }
+      {
+        "meetingDate": "October 14, 2026",
+        "type": "Regular Council Meeting",
+        "status": "Approved",
+        "highlights": "Approved 2027 Capital Infrastructure Budget, passed By-law 2026-44 on park trail lighting."
+      },
+      {
+        "meetingDate": "September 23, 2026",
+        "type": "Regular Council Meeting",
+        "status": "Approved",
+        "highlights": "Reviewed Winter Road Maintenance Plan, endorsed Wayhall municipal AI chatbot initiative."
+      },
+      {
+        "meetingDate": "September 9, 2026",
+        "type": "Planning & Zoning Committee",
+        "status": "Approved",
+        "highlights": "Public hearing on downtown revitalization zoning amendment and secondary suite provisions."
+      },
+      {
+        "meetingDate": "August 26, 2026",
+        "type": "Regular Council Meeting",
+        "status": "Approved",
+        "highlights": "Authorized water treatment plant membrane filtration upgrade and aquifer conservation report."
+      }
     ]
   },
   "serviceRequests": {
@@ -890,9 +1170,13 @@
         "id": "pothole",
         "name": "Pothole & Road Surface Hazard",
         "department": "Roads & Fleet Maintenance",
-        "icon": "🚧",
+        "icon": "\ud83d\udea7",
         "sla": "24 hours (High severity/Travel lane) to 3-5 days (Standard)",
-        "requiredFields": ["Exact street address or cross-street", "Lane direction", "Pothole size estimation"],
+        "requiredFields": [
+          "Exact street address or cross-street",
+          "Lane direction",
+          "Pothole size estimation"
+        ],
         "duplicateRadiusMeters": 50,
         "duplicateWindowDays": 30
       },
@@ -900,50 +1184,357 @@
         "id": "missedWaste",
         "name": "Missed Curbside Waste / Recycling Collection",
         "department": "Public Works & Waste Management",
-        "icon": "🚛",
+        "icon": "\ud83d\ude9b",
         "sla": "2 business days",
         "reportingPolicy": "Reports accepted only after 5:00 PM on your scheduled collection day. Setout must have occurred before 7:00 AM.",
-        "requiredFields": ["Property address", "Collection stream (Garbage, Blue Box, Green Bin)", "Time set at curb"]
+        "requiredFields": [
+          "Property address",
+          "Collection stream (Garbage, Blue Box, Green Bin)",
+          "Time set at curb"
+        ]
       },
       {
         "id": "streetlight",
         "name": "Streetlight Outage / Damaged Fixture",
         "department": "Traffic & Street Lighting Operations",
-        "icon": "💡",
+        "icon": "\ud83d\udca1",
         "sla": "5 to 7 business days",
-        "requiredFields": ["6-digit pole tag (e.g., ML-0412)", "Closest street address", "Outage type (dark, flickering, physical damage)"]
+        "requiredFields": [
+          "6-digit pole tag (e.g., ML-0412)",
+          "Closest street address",
+          "Outage type (dark, flickering, physical damage)"
+        ]
       },
       {
         "id": "parkTree",
         "name": "Park Equipment Hazard or Boulevard Tree Issue",
         "department": "Parks, Trails & Urban Forestry",
-        "icon": "🌳",
+        "icon": "\ud83c\udf33",
         "sla": "48 hours (Safety hazard) to 10 days (Pruning inspection)",
-        "requiredFields": ["Park name or boulevard address", "Tree location (within 4.5m of curb)", "Hazard type (hanging branch, damaged bench, playground)"]
+        "requiredFields": [
+          "Park name or boulevard address",
+          "Tree location (within 4.5m of curb)",
+          "Hazard type (hanging branch, damaged bench, playground)"
+        ]
       },
       {
         "id": "waterIssue",
         "name": "Water Quality / Low Pressure / Meter Reading",
         "department": "Water Distribution & Conservation",
-        "icon": "💧",
+        "icon": "\ud83d\udca7",
         "sla": "2 to 4 business days",
-        "requiredFields": ["Service address", "Issue description", "Water meter serial number"]
+        "requiredFields": [
+          "Service address",
+          "Issue description",
+          "Water meter serial number"
+        ]
       },
       {
         "id": "general311",
         "name": "General Municipal Inquiry or By-law Concern",
         "department": "Citizen Experience & By-law Services",
-        "icon": "🏛️",
+        "icon": "\ud83c\udfdb\ufe0f",
         "sla": "3 business days",
-        "requiredFields": ["Resident name & contact", "Subject department", "Detailed inquiry description"]
+        "requiredFields": [
+          "Resident name & contact",
+          "Subject department",
+          "Detailed inquiry description"
+        ]
       }
     ],
     "statusWorkflow": [
-      { "code": "New", "label": "Received", "desc": "Request logged and validated in municipal 311 intake queue." },
-      { "code": "Assigned", "label": "Crew Assigned", "desc": "Dispatched to responsible department supervisor and work order created." },
-      { "code": "InProgress", "label": "Work in Progress", "desc": "Field crew on site or inspection underway." },
-      { "code": "Closed", "label": "Completed & Resolved", "desc": "Work completed and verified. Closed in municipal system." }
+      {
+        "code": "New",
+        "label": "Received",
+        "desc": "Request logged and validated in municipal 311 intake queue."
+      },
+      {
+        "code": "Assigned",
+        "label": "Crew Assigned",
+        "desc": "Dispatched to responsible department supervisor and work order created."
+      },
+      {
+        "code": "InProgress",
+        "label": "Work in Progress",
+        "desc": "Field crew on site or inspection underway."
+      },
+      {
+        "code": "Closed",
+        "label": "Completed & Resolved",
+        "desc": "Work completed and verified. Closed in municipal system."
+      }
     ]
-  }
+  },
+  "directFormsDirectory": [
+    {
+      "id": "deck-permit-apply",
+      "category": "Building & Construction Permits",
+      "title": "Residential Deck Permit Application Form",
+      "url": "https://mapplewood-fictional-town.onrender.com/permits/apply/deck",
+      "relativeUrl": "/permits/apply/deck",
+      "deepLink": "https://mapplewood-fictional-town.onrender.com/permits/apply?type=deck#deck-permit-form",
+      "anchorId": "deck-permit-form",
+      "exactUse": "Application for construction, structural repair, enlargement, or replacement of residential attached or detached decks, verandas, or porches over 24 inches (600 mm) in height.",
+      "requiredDetails": [
+        "Property address and roll number",
+        "Site plan with property line setbacks (min 1.2m side, 6.0m rear)",
+        "Structural framing plans (beam size, joist span, 42-inch frost footings, railing details min 36 or 42 inches)",
+        "Contractor license & insurance or owner-builder declaration"
+      ],
+      "fee": "$175.00 CAD base fee",
+      "sla": "10 business days standard review",
+      "byLaw": "Ontario Building Code & Township Code Ch. 120",
+      "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/permits/apply/deck"
+    },
+    {
+      "id": "pool-permit-apply",
+      "category": "Building & Construction Permits",
+      "title": "Swimming Pool & Hot Tub Enclosure Permit Application Form",
+      "url": "https://mapplewood-fictional-town.onrender.com/permits/apply/pool",
+      "relativeUrl": "/permits/apply/pool",
+      "deepLink": "https://mapplewood-fictional-town.onrender.com/permits/apply?type=pool#pool-permit-form",
+      "anchorId": "pool-permit-form",
+      "exactUse": "Installation of in-ground pools, above-ground pools (water depth > 24 inches / 60 cm), outdoor swim spas, hot tubs, and mandatory perimeter safety enclosures/fences.",
+      "requiredDetails": [
+        "Sealed grading & drainage plan",
+        "Property boundary survey showing pool setbacks (min 1.5m from lot line)",
+        "Fence enclosure specifications (min 1.2m / 48\" or 1.5m / 5ft, self-closing & self-latching gate swinging outward min 1.35m latch height)",
+        "Ontario One Call / Dig Locate confirmation",
+        "ESA electrical safety inspection signoff"
+      ],
+      "fee": "$250.00 CAD (Inground) / $150.00 CAD (Above-ground)",
+      "sla": "15 business days review",
+      "byLaw": "Pool Enclosure By-law 2022-18",
+      "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/permits/apply/pool"
+    },
+    {
+      "id": "burn-permit-apply",
+      "category": "Fire & Agricultural Permits",
+      "title": "Open-Air Agricultural Burn Permit Application Form",
+      "url": "https://mapplewood-fictional-town.onrender.com/permits/apply/burn",
+      "relativeUrl": "/permits/apply/burn",
+      "deepLink": "https://mapplewood-fictional-town.onrender.com/permits/apply?type=burn#burn-permit-form",
+      "anchorId": "burn-permit-form",
+      "exactUse": "Controlled seasonal open-air burning of clean agricultural crop residues, woody brush, and orchard trimmings on eligible rural parcels. Strictly prohibited in urban/residential subdivisions.",
+      "requiredDetails": [
+        "Property roll number",
+        "Confirmation of rural agricultural zoning & parcel size > 2.0 acres",
+        "Pile dimensions (max 2.0m x 2.0m x 2.0m)",
+        "Min 25m clearance from structures/woodlands",
+        "On-site fire extinguishing equipment (charged 50-ft hose or 500-gal water tank)",
+        "Contact phone of adult supervisor (18+) present"
+      ],
+      "fee": "$45.00 CAD per calendar year",
+      "sla": "Instant verification if parcel verified; 2 business days for manual review",
+      "byLaw": "Open-Air Burn By-law 2021-09",
+      "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/permits/apply/burn"
+    },
+    {
+      "id": "permits-portal-hub",
+      "category": "Building & Construction Permits",
+      "title": "Central Online Permit Application Portal",
+      "url": "https://mapplewood-fictional-town.onrender.com/permits/apply",
+      "relativeUrl": "/permits/apply",
+      "deepLink": "https://mapplewood-fictional-town.onrender.com/permits/apply#permit-portal",
+      "anchorId": "permit-portal",
+      "exactUse": "Unified municipal permit intake portal allowing applicants to select between Decks, Pools, Burn Permits, Demolition, Additions, and Accessory Structures.",
+      "requiredDetails": [
+        "Basic project details",
+        "Property roll number",
+        "Applicant contact"
+      ],
+      "fee": "Variable per permit schedule (By-law 2026-02)",
+      "sla": "10 to 15 business days",
+      "byLaw": "By-law 2026-02 Fee Schedule",
+      "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/permits/apply"
+    },
+    {
+      "id": "311-service-request-portal",
+      "category": "311 Citizen Municipal Requests",
+      "title": "Central 311 Citizen Service Request Portal",
+      "url": "https://mapplewood-fictional-town.onrender.com/services/request",
+      "relativeUrl": "/services/request",
+      "deepLink": "https://mapplewood-fictional-town.onrender.com/services/request#service-request-form",
+      "anchorId": "service-request-form",
+      "exactUse": "Centralized municipal intake for all non-emergency civic work orders across roads, sanitation, parks, forestry, water utilities, and streetlights. Generates CASE-2026-XXXX tracking IDs.",
+      "requiredDetails": [
+        "Address",
+        "Category selection",
+        "Description",
+        "Citizen contact info"
+      ],
+      "fee": "Free Civic Service",
+      "sla": "Varies by category (24h to 5 business days)",
+      "byLaw": "Maplewood Municipal Operations Standards",
+      "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/services/request"
+    },
+    {
+      "id": "311-pothole-request",
+      "category": "311 Citizen Municipal Requests",
+      "title": "Pothole & Road Surface Hazard Request Form",
+      "url": "https://mapplewood-fictional-town.onrender.com/services/request?type=pothole",
+      "relativeUrl": "/services/request?type=pothole",
+      "deepLink": "https://mapplewood-fictional-town.onrender.com/services/request?type=pothole#service-request-form",
+      "anchorId": "service-request-form",
+      "exactUse": "Reporting potholes, asphalt craters, shoulder erosion, sunken catch basins, or road surface defects on municipal streets.",
+      "requiredDetails": [
+        "Exact address or nearest cross-streets",
+        "Lane direction (NB, SB, EB, WB)",
+        "Size tier (<25cm shallow, 25-60cm medium, >60cm emergency rim-damage crater)",
+        "Photo upload (optional but recommended)",
+        "Citizen name, email, mobile phone"
+      ],
+      "fee": "Free Civic Service",
+      "sla": "24 hours for Tier 3 / active travel lanes; 3\u20135 business days for standard Tier 1-2",
+      "byLaw": "Minimum Maintenance Standards for Municipal Highways (O. Reg. 239/02)",
+      "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/services/request?type=pothole"
+    },
+    {
+      "id": "311-missed-waste-request",
+      "category": "311 Citizen Municipal Requests",
+      "title": "Missed Curbside Waste & Bin Replacement Form",
+      "url": "https://mapplewood-fictional-town.onrender.com/services/request?type=waste",
+      "relativeUrl": "/services/request?type=waste",
+      "deepLink": "https://mapplewood-fictional-town.onrender.com/services/request?type=waste#service-request-form",
+      "anchorId": "service-request-form",
+      "exactUse": "Reporting missed garbage, blue box recycling, green organics bin, or requesting replacement of broken curbside bins.",
+      "requiredDetails": [
+        "Street address",
+        "Stream type (Garbage, Blue Box, Green Bin)",
+        "Confirmation bins set curbside before 7:00 AM",
+        "Must be reported strictly after 5:00 PM on collection day"
+      ],
+      "fee": "Free Civic Service ($3.00 per surplus bag tag)",
+      "sla": "2 business days resolution",
+      "byLaw": "Solid Waste By-law Chapter 209",
+      "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/services/request?type=waste"
+    },
+    {
+      "id": "311-streetlight-request",
+      "category": "311 Citizen Municipal Requests",
+      "title": "Streetlight Outage & Damaged Fixture Repair Form",
+      "url": "https://mapplewood-fictional-town.onrender.com/services/request?type=light",
+      "relativeUrl": "/services/request?type=light",
+      "deepLink": "https://mapplewood-fictional-town.onrender.com/services/request?type=light#service-request-form",
+      "anchorId": "service-request-form",
+      "exactUse": "Reporting dark streetlights, burned-out lamps, continuous flickering, or damaged metal light poles.",
+      "requiredDetails": [
+        "6-digit pole identification tag stamped on pole (format ML-XXXX, e.g. ML-0412)",
+        "Nearest street address"
+      ],
+      "fee": "Free Civic Service",
+      "sla": "5 to 7 business days (24h for exposed wiring)",
+      "byLaw": "Public Lighting Infrastructure Policy",
+      "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/services/request?type=light"
+    },
+    {
+      "id": "311-park-tree-request",
+      "category": "311 Citizen Municipal Requests",
+      "title": "Park Hazards, Broken Bins & Boulevard Tree Form",
+      "url": "https://mapplewood-fictional-town.onrender.com/services/request?type=tree",
+      "relativeUrl": "/services/request?type=tree",
+      "deepLink": "https://mapplewood-fictional-town.onrender.com/services/request?type=tree#service-request-form",
+      "anchorId": "service-request-form",
+      "exactUse": "Reporting broken garbage receptacles in public parks, overflowing bins, damaged playground equipment, broken park benches, or hanging limbs on boulevard trees (within 4.5m of curb).",
+      "requiredDetails": [
+        "Park name (e.g., Memorial Park, DeHart Park)",
+        "Specific landmark within park (e.g. playground, tennis courts)",
+        "Photo of damaged receptacle or hazard"
+      ],
+      "fee": "Free Civic Service",
+      "sla": "Broken bins: 24 to 48 hours; Overflowing bins: 4 hours; Playground hazards: 48 hours",
+      "byLaw": "Parks & Public Spaces By-law Chapter 239",
+      "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/services/request?type=tree"
+    },
+    {
+      "id": "311-water-request",
+      "category": "311 Citizen Municipal Requests",
+      "title": "Water Utility, Pressure & Meter Service Request Form",
+      "url": "https://mapplewood-fictional-town.onrender.com/services/request?type=water",
+      "relativeUrl": "/services/request?type=water",
+      "deepLink": "https://mapplewood-fictional-town.onrender.com/services/request?type=water#service-request-form",
+      "anchorId": "service-request-form",
+      "exactUse": "Reporting residential low water pressure, discolored tap water, residential water meter malfunctions, or non-emergency hydrant seepage.",
+      "requiredDetails": [
+        "Property address",
+        "Description of water issue",
+        "Water meter serial number (if applicable)"
+      ],
+      "fee": "Free Civic Service (Emergency main breaks: call (555) 123-9287)",
+      "sla": "2 to 4 business days",
+      "byLaw": "Water Works Regulation By-law",
+      "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/services/request?type=water"
+    },
+    {
+      "id": "311-case-tracker",
+      "category": "311 Citizen Municipal Requests",
+      "title": "Real-Time 311 Case & Permit Status Tracker",
+      "url": "https://mapplewood-fictional-town.onrender.com/services/track",
+      "relativeUrl": "/services/track",
+      "deepLink": "https://mapplewood-fictional-town.onrender.com/services/request?tab=track",
+      "anchorId": "service-request-portal-container",
+      "exactUse": "Real-time tracking of open work orders and permit reviews through 4 stages: Received (New) \u2192 Assigned \u2192 In Progress \u2192 Completed & Verified. Shows supervisor dispatch notes and timestamp.",
+      "requiredDetails": [
+        "Tracking reference number (e.g., CASE-2026-ROAD-4102 or PERM-DECK-2026-XXXX)"
+      ],
+      "fee": "Free Instant Lookup",
+      "sla": "Real-time instant status display",
+      "byLaw": "Citizen Service Guarantee",
+      "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/services/track"
+    },
+    {
+      "id": "taxes-calculator",
+      "category": "Taxes, Revenue & Assessment",
+      "title": "Interactive Property Tax Estimator & Calculator",
+      "url": "https://mapplewood-fictional-town.onrender.com/taxes/calculator",
+      "relativeUrl": "/taxes/calculator",
+      "deepLink": "https://mapplewood-fictional-town.onrender.com/taxes/calculator#assessment-input",
+      "anchorId": "assessment-input",
+      "exactUse": "Interactive calculator estimating annual and quarterly tax remittances based on MPAC assessed property value and the 2026 mill rate (0.0094523), with Municipal (48%), Regional (34%), and Education (18%) shares.",
+      "requiredDetails": [
+        "Assessed property value in CAD (e.g., $500,000)"
+      ],
+      "fee": "Free Citizen Tool",
+      "sla": "Real-time instant calculation",
+      "byLaw": "2026 Municipal Tax By-law",
+      "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/taxes/calculator"
+    },
+    {
+      "id": "taxes-pap-enrollment",
+      "category": "Taxes, Revenue & Assessment",
+      "title": "Pre-Authorized Payment (PAP) Debit Enrollment Form",
+      "url": "https://mapplewood-fictional-town.onrender.com/taxes/pre-authorized",
+      "relativeUrl": "/taxes/pre-authorized",
+      "deepLink": "https://mapplewood-fictional-town.onrender.com/taxes/pre-authorized",
+      "anchorId": "pre-authorized-form",
+      "exactUse": "Setting up automatic interest-free bank withdrawals for municipal property taxes: Option 1 (10-Month Monthly Plan Jan\u2013Oct) or Option 2 (Statutory 4-Instalment Due Date Plan: Feb 27, Apr 30, Jun 30, Sep 30).",
+      "requiredDetails": [
+        "19-digit Property Tax Roll Number",
+        "Attached VOID blank cheque or official bank PAD authorization",
+        "Written signature of property owner"
+      ],
+      "fee": "Free Enrollment",
+      "sla": "Notice required 14 days prior to next withdrawal",
+      "byLaw": "Municipal Act Tax Collection Provisions",
+      "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/taxes/pre-authorized"
+    },
+    {
+      "id": "taxes-payment-methods",
+      "category": "Taxes, Revenue & Assessment",
+      "title": "Property Tax Payment Options & Remittance Guide",
+      "url": "https://mapplewood-fictional-town.onrender.com/taxes/payment",
+      "relativeUrl": "/taxes/payment",
+      "deepLink": "https://mapplewood-fictional-town.onrender.com/taxes/payment",
+      "anchorId": "payment-methods",
+      "exactUse": "Step-by-step payment instructions for online banking (Payee: 'Town of Maplewood - Property Taxes', 19-digit Roll Number), 24/7 secure North Entrance drop box, in-person Interac/Cash at Town Hall, or mail.",
+      "requiredDetails": [
+        "Roll number",
+        "Bank account details"
+      ],
+      "fee": "Standard banking processing; 1.25% monthly penalty on overdue balances",
+      "sla": "Instant receipt in person; 2\u20133 days for online banking",
+      "byLaw": "Tax Remittance Policy",
+      "agentPrompt": "Provide direct link: https://mapplewood-fictional-town.onrender.com/taxes/payment"
+    }
+  ]
 }
-
