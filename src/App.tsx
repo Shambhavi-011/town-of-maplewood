@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 
-// Pages Import (Inhe aapko src/pages/ folder mein banvana hai agar abhi nahi bane)
+// Pages Import
 import Home from './pages/Home';
 import PublicWorks from './pages/services/PublicWorks';
 import ServiceRequestPortal from './pages/services/ServiceRequestPortal';
@@ -12,11 +12,19 @@ import WaterServices from './pages/services/WaterServices';
 import SnowRemoval from './pages/services/SnowRemoval';
 import AnimalControl from './pages/services/AnimalControl';
 
+// Community, Parks & Recreation (Youth Camp) Form Pages
+import Community from './pages/community/Community';
+import Parks from './pages/parks/Parks';
+import Recreation from './pages/recreation/Recreation';
+
+// Taxes Pages & Forms
+import PropertyTaxHub from './pages/taxes/PropertyTaxHub';
 import PropertyTaxes from './pages/taxes/PropertyTaxes';
 import TaxPaymentMethods from './pages/taxes/TaxPaymentMethods';
 import PreAuthorized from './pages/taxes/PreAuthorized';
 import TaxCalculator from './pages/taxes/TaxCalculator';
 
+// Permits Pages & Forms
 import DeckPermits from './pages/permits/DeckPermits';
 import PoolPermits from './pages/permits/PoolPermits';
 import BurnPermits from './pages/permits/BurnPermits';
@@ -46,28 +54,36 @@ function App() {
           {/* Default Route */}
           <Route index element={<Home />} />
           
+          {/* Community, Parks & Recreation Direct Intake Form Routes */}
+          <Route path="community" element={<Community />} />
+          <Route path="parks" element={<Parks />} />
+          <Route path="recreation" element={<Recreation />} />
+
           {/* Services Routes */}
           <Route path="services/public-works" element={<PublicWorks />} />
           <Route path="services/request" element={<ServiceRequestPortal />} />
           <Route path="services/track" element={<ServiceRequestPortal />} />
           <Route path="services/waste" element={<WasteRecycling />} />
           <Route path="services/roads" element={<RoadsMaintenance />} />
-          <Route path="services/parks" element={<ParksForestry />} />
+          <Route path="services/parks" element={<Parks />} />
+          <Route path="services/parks-forestry" element={<ParksForestry />} />
           <Route path="services/water" element={<WaterServices />} />
           <Route path="services/snow" element={<SnowRemoval />} />
           <Route path="services/animals" element={<AnimalControl />} />
 
-          {/* Taxes Routes */}
+          {/* Taxes Routes & Dedicated Forms */}
+          <Route path="taxes" element={<PropertyTaxHub />} />
           <Route path="taxes/info" element={<PropertyTaxes />} />
           <Route path="taxes/payment" element={<TaxPaymentMethods />} />
           <Route path="taxes/pre-authorized" element={<PreAuthorized />} />
           <Route path="taxes/calculator" element={<TaxCalculator />} />
 
-          {/* Permits Routes */}
+          {/* Permits Routes & Dedicated Forms */}
           <Route path="permits/decks" element={<DeckPermits />} />
           <Route path="permits/pools" element={<PoolPermits />} />
           <Route path="permits/burn" element={<BurnPermits />} />
           <Route path="permits/building" element={<BuildingPermits />} />
+          <Route path="permits/apply/building" element={<BuildingPermits />} />
           <Route path="permits/signs" element={<SignagePermits />} />
 
           {/* Dedicated Online Permit Application Request Forms (Scraper Endpoints) */}

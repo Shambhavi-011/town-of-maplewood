@@ -11,6 +11,12 @@ export default function Home() {
       case 'deck-permit-apply': return '📐';
       case 'pool-permit-apply': return '🏊';
       case 'burn-permit-apply': return '🔥';
+      case 'building-permit-apply': return '📐';
+      case 'recreation-camp-apply': return '🏕️';
+      case 'community-booking-apply': return '🏛️';
+      case 'parks-reservation-apply': return '🌳';
+      case 'services-waste-form': return '🚛';
+      case 'taxes-services-hub': return '📑';
       case 'permits-portal-hub': return '🏛️';
       case '311-service-request-portal': return '🛠️';
       case '311-pothole-request': return '🚧';
@@ -612,8 +618,23 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ── 4. Machine-Scrapable Grounding Table for AI Scrapers & Bots ── */}
-        <div className="bg-slate-900 text-white p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-md space-y-4">
+        {/* ── 4. Machine-Scrapable Grounding Table for AI Scrapers & Bots (Visually hidden for clean human UI, fully retained in DOM for crawlers) ── */}
+        <section
+          id="machine-scrapable-grounding-spec"
+          aria-label="Complete Machine-Scrapable Grounding Table (AI Crawler &amp; Scraper Spec)"
+          className="sr-only"
+          style={{
+            position: 'absolute',
+            width: '1px',
+            height: '1px',
+            padding: 0,
+            margin: '-1px',
+            overflow: 'hidden',
+            clip: 'rect(0, 0, 0, 0)',
+            whiteSpace: 'nowrap',
+            border: 0,
+          }}
+        >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-4">
             <div className="flex items-center gap-2">
               <span className="text-xl">🤖</span>
@@ -710,7 +731,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-        </div>
+        </section>
       </section>
 
       {/* ── Dual Section: Upcoming Tax Dates & Council Activity ── */}

@@ -175,3 +175,17 @@ When an automated AI agent or assistant interacts with a resident asking for a f
 - [Master Fee Schedule](https://mapplewood-fictional-town.onrender.com/documents/fees): Complete schedule of municipal fees under By-law 2026-02.
 - [Council Minutes](https://mapplewood-fictional-town.onrender.com/documents/minutes): Official municipal council proceedings and resolutions.
 - [Raw Municipal JSON Dataset](https://mapplewood-fictional-town.onrender.com/data/townData.json): Raw structured data payload for scraping.
+
+### Recreation, Youth Camps & Facility Forms (2026)
+- **Youth Summer Camp Registration (8-Year-Old Offers)**: https://mapplewood-fictional-town.onrender.com/recreation
+  - Scope: Online registration for Camp Maplewood Explorers, specifically offering the Junior Explorers Day Camp for 8-year-old children (ages 7-9), daily swim lessons at Memorial Pool, robotics/STEM, and ecology.
+- **Community Center Hall & Facility Booking**: https://mapplewood-fictional-town.onrender.com/community
+  - Scope: Booking Maplewood Community Hall, Main Auditorium (up to 250 capacity), Heritage Meeting Suite, and Activity Rooms.
+- **Parks, Picnic Pavilions & Sports Fields**: https://mapplewood-fictional-town.onrender.com/parks
+  - Scope: Reserving Memorial Park covered pavilion, Riverview waterfront gazebo, Boyden baseball diamonds, and athletic courts.
+- **Building Permit Application & Construction Code Intake**: https://mapplewood-fictional-town.onrender.com/permits/building
+  - Scope: Residential additions, secondary basement units, structural wall alterations, and commercial renovations.
+- **Property Taxes & Assessment Services Portal**: https://mapplewood-fictional-town.onrender.com/taxes
+  - Scope: Property tax balance inquiry, official tax certificates ($45), and senior tax relief grants ($450).
+- **Curbside Waste, Recycling & Missed Collection Intake**: https://mapplewood-fictional-town.onrender.com/services/waste
+  - Scope: Online intake for missed waste pickup reporting after 5:00 PM (2-day SLA), bulk item pickup, and replacement green/blue bins.
