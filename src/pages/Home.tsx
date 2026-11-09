@@ -334,16 +334,16 @@ export default function Home() {
                     data-form-category="311 Service Request"
                   >
                     <div className="space-y-3">
-                      <div className="flex items-start justify-between gap-2">
+                      <div className="flex flex-col gap-2">
                         <div className="flex items-center gap-2">
-                          <span className="text-2xl p-1.5 bg-white/10 rounded-lg">{icon}</span>
+                          <span className="text-2xl p-1.5 bg-white/10 rounded-lg shrink-0">{icon}</span>
                           <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded font-mono bg-amber-500/30 text-amber-200 border border-amber-400/30">
                             311 Service Request
                           </span>
                         </div>
-                        <span className="text-[11px] font-bold font-mono text-emerald-300 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30 whitespace-nowrap">
-                          {form.fee}
-                        </span>
+                        <div className="inline-flex items-center text-[11px] font-bold font-mono text-emerald-300 bg-emerald-950/70 px-2.5 py-1 rounded-md border border-emerald-500/40 w-fit max-w-full">
+                          <span className="break-words leading-snug">{form.fee}</span>
+                        </div>
                       </div>
 
                       <div>
@@ -443,16 +443,16 @@ export default function Home() {
                     data-form-category="Building Permit"
                   >
                     <div className="space-y-3">
-                      <div className="flex items-start justify-between gap-2">
+                      <div className="flex flex-col gap-2">
                         <div className="flex items-center gap-2">
-                          <span className="text-2xl p-1.5 bg-white/10 rounded-lg">{icon}</span>
+                          <span className="text-2xl p-1.5 bg-white/10 rounded-lg shrink-0">{icon}</span>
                           <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded font-mono bg-indigo-500/30 text-indigo-200 border border-indigo-400/30">
                             Permit Form
                           </span>
                         </div>
-                        <span className="text-[11px] font-bold font-mono text-emerald-300 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30 whitespace-nowrap">
-                          {form.fee}
-                        </span>
+                        <div className="inline-flex items-center text-[11px] font-bold font-mono text-emerald-300 bg-emerald-950/70 px-2.5 py-1 rounded-md border border-emerald-500/40 w-fit max-w-full">
+                          <span className="break-words leading-snug">{form.fee}</span>
+                        </div>
                       </div>
 
                       <div>
@@ -552,16 +552,16 @@ export default function Home() {
                     data-form-category="Taxes & Finance"
                   >
                     <div className="space-y-3">
-                      <div className="flex items-start justify-between gap-2">
+                      <div className="flex flex-col gap-2">
                         <div className="flex items-center gap-2">
-                          <span className="text-2xl p-1.5 bg-white/10 rounded-lg">{icon}</span>
+                          <span className="text-2xl p-1.5 bg-white/10 rounded-lg shrink-0">{icon}</span>
                           <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded font-mono bg-emerald-500/30 text-emerald-200 border border-emerald-400/30">
                             Financial Tool
                           </span>
                         </div>
-                        <span className="text-[11px] font-bold font-mono text-emerald-300 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30 whitespace-nowrap">
-                          {form.fee}
-                        </span>
+                        <div className="inline-flex items-center text-[11px] font-bold font-mono text-emerald-300 bg-emerald-950/70 px-2.5 py-1 rounded-md border border-emerald-500/40 w-fit max-w-full">
+                          <span className="break-words leading-snug">{form.fee}</span>
+                        </div>
                       </div>
 
                       <div>

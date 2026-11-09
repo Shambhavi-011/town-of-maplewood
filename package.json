@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "node scripts/serve-prod.mjs",
     "dev": "node scripts/start-dev.mjs",
     "dev:local": "vite",
     "build": "tsc -b && vite build",
