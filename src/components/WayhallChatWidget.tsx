@@ -54,7 +54,7 @@ export default function WayhallChatWidget() {
 
   const [apiBaseUrl, setApiBaseUrl] = useState<string>(() => {
     const saved = localStorage.getItem('wayhall_api_base');
-    if (saved && !saved.includes('ngrok-free.dev') && !saved.includes('ngrok')) {
+    if (saved && !saved.includes('ngrok-free.dev') && !saved.includes('ngrok') && !saved.includes('3.99.89.39')) {
       return saved;
     }
     return DEFAULT_WAYHALL_API_BASE;
@@ -92,15 +92,65 @@ export default function WayhallChatWidget() {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const normalizeMunicipalPath = (rawUrl: string): string => {
+    let clean = rawUrl.trim();
+    // Strip trailing punctuation often found at sentence ends (. , ; : ! ?)
+    clean = clean.replace(/[.,;:)!]+$/, '');
+
+    // Full absolute URLs
+    if (clean.startsWith('http://') || clean.startsWith('https://')) {
+      try {
+        const u = new URL(clean);
+        if (
+          u.hostname.includes('maplewood') ||
+          u.hostname.includes('onrender') ||
+          u.hostname.includes('ngrok') ||
+          u.hostname === 'localhost' ||
+          u.hostname === '127.0.0.1'
+        ) {
+          return u.pathname + u.search + u.hash;
+        }
+      } catch (err) {}
+      return clean;
+    }
+
+    // Domain style: maplewoodnj.gov/path or www.maplewoodnj.gov/path
+    if (/^(?:www\.)?maplewoodnj\.gov/i.test(clean)) {
+      const stripped = clean.replace(/^(?:www\.)?maplewoodnj\.gov/i, '');
+      return stripped ? (stripped.startsWith('/') ? stripped : `/${stripped}`) : '/';
+    }
+
+    // Relative path without leading slash
+    if (
+      clean.startsWith('recreation') ||
+      clean.startsWith('permits') ||
+      clean.startsWith('services') ||
+      clean.startsWith('taxes') ||
+      clean.startsWith('parks') ||
+      clean.startsWith('community')
+    ) {
+      return `/${clean}`;
+    }
+
+    return clean;
+  };
+
   const handleDirectFormClick = (e: React.MouseEvent<HTMLAnchorElement>, targetUrl: string) => {
+    const finalUrl = normalizeMunicipalPath(targetUrl);
+
+    // If external link outside our site, allow normal navigation
+    if (finalUrl.startsWith('http://') || finalUrl.startsWith('https://')) {
+      return;
+    }
+
     e.preventDefault();
     setIsOpen(false);
 
-    const [targetPath, targetHash] = targetUrl.split('#');
+    const [targetPath, targetHash] = finalUrl.split('#');
     const currentFull = location.pathname + location.search;
 
     if (currentFull !== targetPath) {
-      navigate(targetUrl);
+      navigate(finalUrl);
     }
 
     setTimeout(() => {
@@ -114,6 +164,13 @@ export default function WayhallChatWidget() {
           document.getElementById('deck-permit-form') ||
           document.getElementById('pool-permit-form') ||
           document.getElementById('burn-permit-form') ||
+          document.getElementById('building-permit-form') ||
+          document.getElementById('waste-request-form') ||
+          document.getElementById('pap-form') ||
+          document.getElementById('tax-payment-form') ||
+          document.getElementById('recreation-reg-form') ||
+          document.getElementById('park-booking-form') ||
+          document.getElementById('community-event-form') ||
           document.getElementById('service-request-portal-container') ||
           document.querySelector('form');
       }
@@ -754,129 +811,69 @@ export default function WayhallChatWidget() {
     }
   }, [isOpen, engineMode]);
 
-  const detectPermitLinkFromText = (
-    text: string
-  ): { title: string; url: string; fee: string } | undefined => {
-    const lower = text.toLowerCase();
-    if (lower.includes('deck') || lower.includes('terrasse')) {
-      return {
-        title:
-          language === 'fr'
-            ? 'Formulaire de demande de permis de terrasse en ligne'
-            : language === 'es'
-            ? 'Formulario de solicitud de permiso de terraza en línea'
-            : 'Apply Online for Deck Construction Permit',
-        url: '/permits/apply/deck',
-        fee: '$185.00 CAD',
-      };
-    }
-    if (
-      lower.includes('pool') ||
-      lower.includes('piscine') ||
-      lower.includes('piscina') ||
-      lower.includes('clôture') ||
-      lower.includes('fence')
-    ) {
-      return {
-        title:
-          language === 'fr'
-            ? "Demande de permis d'enceinte de piscine en ligne"
-            : language === 'es'
-            ? 'Formulario de solicitud de permiso de piscina en línea'
-            : 'Apply Online for Pool Enclosure Permit',
-        url: '/permits/apply/pool',
-        fee: '$150.00 CAD',
-      };
-    }
-    if (
-      lower.includes('burn') ||
-      lower.includes('brûlage') ||
-      lower.includes('quema') ||
-      lower.includes('agricultural burn')
-    ) {
-      return {
-        title:
-          language === 'fr'
-            ? 'Demande de permis de brûlage en plein air en ligne'
-            : language === 'es'
-            ? 'Formulario de solicitud de permiso de quema agrícola'
-            : 'Apply Online for Open-Air Burn Permit',
-        url: '/permits/apply/burn',
-        fee: 'Free (Res) / $25 (Ag)',
-      };
-    }
-    if (
-      lower.includes('pothole') ||
-      lower.includes('nid-de-poule') ||
-      lower.includes('bache') ||
-      lower.includes('311') ||
-      lower.includes('missed waste') ||
-      lower.includes('service request')
-    ) {
-      return {
-        title:
-          language === 'fr'
-            ? 'Soumettre une demande de service 311 en ligne'
-            : language === 'es'
-            ? 'Enviar reporte o solicitud de servicio 311'
-            : 'Submit 311 Municipal Service Request',
-        url: '/services/request',
-        fee:
-          language === 'fr'
-            ? 'Gratuit / Service public'
-            : language === 'es'
-            ? 'Gratuito / Servicio público'
-            : 'Free Civic Service',
-      };
-    }
-    if (
-      lower.includes('track') ||
-      lower.includes('suivi') ||
-      lower.includes('seguimiento') ||
-      lower.includes('case-2026')
-    ) {
-      return {
-        title:
-          language === 'fr'
-            ? "Ouvrir l'outil de suivi de dossier en direct"
-            : language === 'es'
-            ? 'Consultar estado de caso en vivo'
-            : 'Track Work Order / Case Status Online',
-        url: '/services/track',
-        fee: 'Real-time Lookup',
-      };
-    }
-    return undefined;
-  };
-
   const renderMessageWithLinks = (text: string) => {
     if (!text) return null;
+
+    // Matches markdown [label](url) OR standalone URLs/domains (e.g. maplewoodnj.gov/recreation, https://..., /recreation, etc.)
+    const combinedRegex =
+      /(\[([^\]]+)\]\(([^)]+)\))|((?:https?:\/\/|(?:www\.)?maplewoodnj\.gov\/|(?:www\.)?mapplewood-fictional-town\.onrender\.com\/)[^\s<>"{}|\\^`]+)/gi;
+
     const parts: React.ReactNode[] = [];
-    const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
     let lastIndex = 0;
     let match: RegExpExecArray | null;
 
-    while ((match = regex.exec(text)) !== null) {
+    while ((match = combinedRegex.exec(text)) !== null) {
       if (match.index > lastIndex) {
         parts.push(text.substring(lastIndex, match.index));
       }
 
-      const label = match[1];
-      const url = match[2];
+      if (match[1]) {
+        // Markdown link: [label](url)
+        const label = match[2];
+        const rawUrl = match[3];
+        const normalized = normalizeMunicipalPath(rawUrl);
 
-      parts.push(
-        <a
-          key={`md-link-${match.index}`}
-          href={url}
-          onClick={(e) => handleDirectFormClick(e, url)}
-          className="inline-flex items-center gap-1 font-bold text-blue-700 hover:text-blue-900 bg-blue-50 hover:bg-blue-100 border border-blue-200 px-1.5 py-0.5 rounded transition-colors underline cursor-pointer text-[11px] my-0.5"
-          title={`Open form: ${label}`}
-        >
-          <span>📋 {label}</span>
-        </a>
-      );
+        parts.push(
+          <a
+            key={`md-link-${match.index}`}
+            href={normalized}
+            onClick={(e) => handleDirectFormClick(e, normalized)}
+            className="inline-flex items-center gap-1 font-bold text-blue-700 hover:text-blue-900 bg-blue-50 hover:bg-blue-100 border border-blue-200 px-1.5 py-0.5 rounded transition-colors underline cursor-pointer text-[11px] my-0.5"
+            title={`Open: ${label}`}
+          >
+            <span>📋 {label}</span>
+          </a>
+        );
+      } else if (match[4]) {
+        // Plain URL or domain link
+        let rawUrl = match[4];
+        let trailingPunct = '';
+        const punctMatch = rawUrl.match(/[.,;:)!]+$/);
+        if (punctMatch) {
+          trailingPunct = punctMatch[0];
+          rawUrl = rawUrl.slice(0, -trailingPunct.length);
+        }
 
-      lastIndex = regex.lastIndex;
+        const normalized = normalizeMunicipalPath(rawUrl);
+
+        parts.push(
+          <a
+            key={`plain-url-${match.index}`}
+            href={normalized}
+            onClick={(e) => handleDirectFormClick(e, normalized)}
+            className="inline-flex items-center gap-1 font-bold text-blue-700 hover:text-blue-900 bg-blue-50 hover:bg-blue-100 border border-blue-200 px-1.5 py-0.5 rounded transition-colors underline cursor-pointer text-[11px] my-0.5"
+            title={`Open link: ${rawUrl}`}
+          >
+            <span>🔗 {rawUrl}</span>
+          </a>
+        );
+
+        if (trailingPunct) {
+          parts.push(trailingPunct);
+        }
+      }
+
+      lastIndex = combinedRegex.lastIndex;
     }
 
     if (lastIndex < text.length) {
@@ -1095,7 +1092,6 @@ export default function WayhallChatWidget() {
                         citations: meta.citations || m.citations,
                         sourceTitle: meta.sourceTitle || m.sourceTitle,
                         sourceUrl: meta.sourceUrl || m.sourceUrl,
-                        permitLink: meta.permitLink || m.permitLink,
                       }
                     : m
                 )
@@ -1119,15 +1115,14 @@ export default function WayhallChatWidget() {
               setConnectionStatus('connected');
               setConnectionError(null);
               setMessages((prev) =>
-                prev.map((m) => {
-                  if (m.id !== assistantMsgId) return m;
-                  const detected = m.permitLink || detectPermitLinkFromText(m.text || query);
-                  return {
-                    ...m,
-                    isStreaming: false,
-                    permitLink: detected,
-                  };
-                })
+                prev.map((m) =>
+                  m.id === assistantMsgId
+                    ? {
+                        ...m,
+                        isStreaming: false,
+                      }
+                    : m
+                )
               );
             },
             onError: (streamErr: Error) => {
@@ -1183,7 +1178,6 @@ export default function WayhallChatWidget() {
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
         sourceTitle: answer.sourceTitle,
         sourceUrl: answer.sourceUrl,
-        permitLink: answer.permitLink,
       };
 
       setMessages((prev) => [...prev, botMsg]);
@@ -1419,7 +1413,7 @@ export default function WayhallChatWidget() {
                     type="text"
                     value={settingsUrlInput}
                     onChange={(e) => setSettingsUrlInput(e.target.value)}
-                    placeholder="http://3.99.89.39:8000/api"
+                    placeholder="https://opcentre.wayhallai.com/api"
                     className="w-full px-2.5 py-1.5 bg-slate-800 border border-slate-600 rounded text-xs text-white focus:outline-none focus:ring-1 focus:ring-blue-400 font-mono"
                   />
                 </div>
@@ -1429,10 +1423,10 @@ export default function WayhallChatWidget() {
                   <span className="text-[10px] text-slate-400">Presets:</span>
                   <button
                     type="button"
-                    onClick={() => setSettingsUrlInput('http://3.99.89.39:8000/api')}
+                    onClick={() => setSettingsUrlInput('https://opcentre.wayhallai.com/api')}
                     className="text-[10px] bg-slate-800 hover:bg-slate-700 text-emerald-300 px-2 py-0.5 rounded border border-slate-700 font-semibold"
                   >
-                    AWS Server (3.99.89.39:8000)
+                    Wayhall Cloud (opcentre.wayhallai.com)
                   </button>
                   <button
                     type="button"
@@ -1716,45 +1710,6 @@ export default function WayhallChatWidget() {
                     </div>
                   )}
 
-                  {/* Direct Online Permit Application Link Card (If provided) */}
-                  {msg.permitLink && (
-                    <div className="mt-3 pt-2.5 border-t border-slate-200 space-y-1.5">
-                      <div className="text-[10px] uppercase font-bold tracking-wider text-blue-900">
-                        {msg.permitLink.url.includes('/services/')
-                          ? language === 'es'
-                            ? '⚡ Formulario Directo de Solicitud 311'
-                            : language === 'fr'
-                            ? '⚡ Formulaire Direct de Demande 311'
-                            : '⚡ Direct 311 Service Request Form'
-                          : language === 'es'
-                          ? '⚡ Formulario Oficial de Permiso en Línea'
-                          : language === 'fr'
-                          ? '⚡ Formulaire Officiel de Permis en Ligne'
-                          : '⚡ Direct Online Permit Form'}
-                      </div>
-                      <a
-                        href={msg.permitLink.url}
-                        onClick={(e) => handleDirectFormClick(e, msg.permitLink!.url)}
-                        className="block bg-blue-50 hover:bg-blue-100 border border-blue-300 text-blue-950 font-bold p-2.5 rounded-xl transition-colors shadow-xs group cursor-pointer"
-                      >
-                        <div className="flex items-center justify-between">
-                          <span className="text-xs group-hover:underline">
-                            {msg.permitLink.title}
-                          </span>
-                          <span className="text-[10px] font-mono bg-blue-900 text-white px-1.5 py-0.5 rounded">
-                            {msg.permitLink.fee}
-                          </span>
-                        </div>
-                        <div className="text-[10px] text-blue-700 font-normal mt-0.5">
-                          {language === 'es'
-                            ? 'Haga clic para abrir y llenar el formulario directo →'
-                            : language === 'fr'
-                            ? 'Cliquez pour ouvrir et remplir le formulaire direct →'
-                            : 'Click to open and jump directly to online form →'}
-                        </div>
-                      </a>
-                    </div>
-                  )}
 
                   {/* Source Citation Grounding Link (US-08) */}
                   {msg.sourceUrl && (

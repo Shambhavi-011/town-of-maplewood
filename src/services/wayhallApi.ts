@@ -8,21 +8,24 @@
  */
 
 export const DEFAULT_WAYHALL_API_BASE =
-  import.meta.env.VITE_WAYHALL_API_BASE || 'http://3.99.89.39:8000/api';
+  import.meta.env.VITE_WAYHALL_API_BASE || 'https://opcentre.wayhallai.com/api';
 
 /**
  * Normalizes an API base URL so that it points cleanly to the /api root
  * whether the caller provided:
- * - http://3.99.89.39:8000
- * - http://3.99.89.39:8000/
- * - http://3.99.89.39:8000/api
- * - http://3.99.89.39:8000/api/
- * - https://example.com/api
+ * - https://opcentre.wayhallai.com
+ * - https://opcentre.wayhallai.com/
+ * - https://opcentre.wayhallai.com/api
+ * - https://opcentre.wayhallai.com/api/
  */
 export function normalizeApiBase(base?: string): string {
+  // If running in browser over HTTPS and target is plain HTTP, route through Vite proxy to eliminate Mixed Content blocking
+  if (typeof window !== 'undefined' && window.location.protocol === 'https:' && (!base || base.startsWith('http://'))) {
+    return window.location.origin;
+  }
   let cleaned = (base || DEFAULT_WAYHALL_API_BASE).trim().replace(/\/+$/, '');
   if (!cleaned) {
-    cleaned = 'http://3.99.89.39:8000/api';
+    cleaned = 'https://opcentre.wayhallai.com/api';
   }
   // Strip trailing /api so we have a clean root domain, then we route via getApiUrl
   if (cleaned.endsWith('/api')) {
